@@ -53,10 +53,10 @@ public class SessionController {
                      .body("Cette salle n'est pas disponible pour une réservation.");
          }
 
-         // Mettre à jour la date de début et de fin de la salle avec celles de la session
+
          salleDTO.setDateDebut(sessionDTO.getDateDebut());
          salleDTO.setDateFin(sessionDTO.getDateFin());
-         salleDTO.setStatut(false);  // Mettez à jour le statut de la salle si nécessaire
+         salleDTO.setStatut(false);
          salleService.save(salleDTO);
          if (!isFormateurDisponible(formateurDto)) {
              return ResponseEntity.status(HttpStatus.BAD_REQUEST)
@@ -66,7 +66,7 @@ public class SessionController {
 
          formateurDto.setDebut(sessionDTO.getDateDebut());
          formateurDto.setFin(sessionDTO.getDateFin());
-         formateurDto.setdisponible(false);  // Mettez à jour le statut du formateur si nécessaire
+         formateurDto.setdisponible(false);
          formateurService.save(formateurDto);
 
 
@@ -119,7 +119,7 @@ public class SessionController {
 
 
 
-   // @PreAuthorize("hasAnyRole('coordinateurformation')")
+
    @Secured("coordinateurformation")
     @GetMapping("/personnel")
     public ResponseEntity<List<Personnel>> getAllPersonnel() {
@@ -150,20 +150,20 @@ public class SessionController {
     }
 
 
-   // @PreAuthorize("hasAnyRole('coordinateurformation')")
+
    @Secured("coordinateurformation")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id ) {
         sessionService.delete(id);
     }
 
-   // @PreAuthorize("hasAnyRole('coordinateurformation')")
+
    @Secured("coordinateurformation")
     @GetMapping("/listesession")
     public List<SessionDTO> findAll() {
         return sessionService.findAllSession();
     }
-    //@PreAuthorize("hasAnyRole('coordinateurformation')")
+
     @Secured("coordinateurformation")
     @GetMapping("/listesessionbydate")
     public List<SessionDTO> findAllformationpagination(Date start, Date end) {

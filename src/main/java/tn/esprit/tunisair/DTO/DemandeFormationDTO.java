@@ -34,7 +34,7 @@ public class DemandeFormationDTO {
 
                 .dateCreation(demandeformation.getDateCreation())
                 .valid(demandeformation.getValid())
-            //   .userDTO(UserDTO.fromEntity(demandeformation.getUser()))
+
                 .formationdto(FormationDTO.fromEntity(demandeformation.getFormation()))
 
                 .build();
@@ -47,11 +47,11 @@ public class DemandeFormationDTO {
                 .id(dto.getId())
 
                 .nbrpersonnelle(dto.getNbrpersonnelle())
-                //.typeformation(dto.getTypeformation())
+
                 .dateCreation(dto.getDateCreation())
                 .valid(dto.getValid())
                .formation(FormationDTO.toEntity(dto.getFormationdto()))
-             //  .user(UserDTO.toEntity(dto.getUserDTO()))
+
         .build();
     }
 }

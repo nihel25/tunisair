@@ -52,7 +52,7 @@ private userprofilDTO userprofildto;
                 .remise(formation.getRemise())
                 .image(formation.getImage())
                 .userprofildto(userprofilDTO.fromEntity(formation.getUserProfile()))
-//userdto ou coordinateurformationdto
+
                 .build();
     }
     public static Formation toEntity(FormationDTO dto){

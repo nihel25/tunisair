@@ -64,7 +64,7 @@ private EncadreurDTO encadreurDTO;
 
                 .nomService(dto.getNomService())
                 .encadreur(EncadreurDTO.toEntity(dto.getEncadreurDTO()))
-              //  .user(UserDTO.toEntity(dto.getUserdto()))
+
                 .build();
     }
 

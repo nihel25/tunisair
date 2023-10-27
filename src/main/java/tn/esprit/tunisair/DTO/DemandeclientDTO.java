@@ -36,7 +36,7 @@ private FormationDTO formationdto;
 
                 .dateCreation(demandeclient.getDateCreation())
                 .valid(demandeclient.getValid())
-               // .userDTO(UserDTO.fromEntity(demandeclient.getUser()))
+
                 .formationdto(FormationDTO.fromEntity(demandeclient.getFormation()))
                 .build();
     }
@@ -48,7 +48,7 @@ private FormationDTO formationdto;
 
                 .dateCreation(dto.getDateCreation())
                 .valid(dto.getValid())
-               //  .user(UserDTO.toEntity(dto.getUserDTO()))
+
                 .formation(FormationDTO.toEntity(dto.getFormationdto()))
                 .build();
     }

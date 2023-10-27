@@ -36,14 +36,14 @@ public class SalleController {
     }
 
 
-    //@PostAuthorize("hasAuthority('coordinateurformation')")
+
     @Secured("coordinateurformation")
     @PostMapping("/saveOrUpdate")
     public ResponseEntity<SalleDTO> Ajouter(@Valid @RequestBody SalleDTO salleDTO) {
         SalleDTO DTOsaved = salleService.save(salleDTO);
         return new ResponseEntity<SalleDTO>(DTOsaved, HttpStatus.CREATED);
     }
-  //  @PreAuthorize("hasAnyRole('coordinateurformation')")
+
   @Secured("coordinateurformation")
     @GetMapping("/recherhersalle/{id}")
     public SalleDTO recherch(@PathVariable Long id) {

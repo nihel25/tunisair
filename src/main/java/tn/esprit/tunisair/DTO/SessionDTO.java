@@ -50,11 +50,11 @@ private FormateurDto formateurDto;
                     .formationDTO(FormationDTO.fromEntity(formation))
                     .salleDTO(SalleDTO.fromEntity(session.getSalle()))
                     .formateurDto(FormateurDto.fromentity(session.getFormateur()))
-                    //.userDTO(UserDTO.fromEntity(session.getUser()))
+
                     .build();
         } else {
-            // Gérer le cas où l'objet formation est null (selon votre logique métier)
-            return null; // Ou renvoyer un objet SessionDTO par défaut, ou une autre action à votre convenance
+
+            return null;
         }
     }
 
@@ -67,7 +67,7 @@ private FormateurDto formateurDto;
                .formation(FormationDTO.toEntity(session.getFormationDTO()))
                .salle(SalleDTO.toentity(session.getSalleDTO()))
                 .formateur(FormateurDto.toentity(session.getFormateurDto()))
-                //.user(UserDTO.toEntity(session.getUserDTO()))
+
                 .build();
     }
 

@@ -2,7 +2,6 @@ package tn.esprit.tunisair.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tn.esprit.tunisair.Repository.MessageRepository;
 import tn.esprit.tunisair.Repository.UserRepository;
 import tn.esprit.tunisair.entity.Message;
 

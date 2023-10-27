@@ -38,7 +38,7 @@ public class MaterielController {
 
 
 
-    //@PreAuthorize("hasAnyRole('coordinateurformation')")
+
     @Secured("coordinateurformation")
     @GetMapping("/recherher/{id}")
     public MaterielDTO recherch(@PathVariable Long id) {

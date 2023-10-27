@@ -1,0 +1,9 @@
+Age;Niveau_etudes;Heures_disponibles_semaine;Montant_budget;Nombre_personnes_groupe;Format_formation;Engagements_professionnels
+32;Baccalaureat;25;3000;20;Presentiel;Temps plein
+25;Baccalaureat;5;300;;Mixte;Temps partiel
+37;Doctorat;15;5000;5;En ligne;Temps partiel
+23;Secondaire;20;1200;10;Presentiel;Stage professionnel
+20;Secondaire;12;3000;12;Mixte;Temps plein
+19;Secondaire;15;250;15;En ligne;Temps partiel
+29;Master;10;300;9;Mixte;Temps partiel
+31;Master;20;700;20;Presentiel;Stage professionnel

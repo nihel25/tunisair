@@ -21,7 +21,7 @@ services:
     environment:
       - spring.datasource.url=jdbc:mysql://mysqldb:3306/formation?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     ports:
-      - 8081:8081
+      - 8089:8089
     depends_on:
       - mysqldb
 

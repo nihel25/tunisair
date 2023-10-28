@@ -1,3 +1,5 @@
+
 FROM openjdk:11
-ADD  target/formationtunisair-1.0.jar formationtunisair-1.0.jar
-ENTRYPOINT ["java","-jar","formationtunisair-1.0.jar"]
+
+CMD ["java", "-jar", "formationtunisair-0.0.1-SNAPSHOT.jar"]
+COPY ./target/formationtunisair-0.0.1-SNAPSHOT.jar formationtunisair-0.0.1-SNAPSHOT.jar

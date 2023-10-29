@@ -15,7 +15,7 @@ services:
       - formation:/var/lib/mysql
 
   spring_app:
-    image: nihelriahi/formations:latest
+    image: nihelriahi/devopsbackend:latest
     container_name: formationdevops
     restart: on-failure
     environment:

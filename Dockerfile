@@ -1,5 +1,7 @@
 
-FROM openjdk:11
 
-CMD ["java", "-jar", "formationtunisair-1.0.0-SNAPSHOT.jar"]
-COPY ./target/formationtunisair-1.0.0-SNAPSHOT.jar formationtunisair-1.0.0-SNAPSHOT.jar
+
+
+FROM openjdk:11
+COPY ./target/formationtunisair-0.0.1-SNAPSHOT.jar formationtunisair-0.0.1-SNAPSHOT.jar
+CMD ["java", "-jar", "formationtunisair-0.0.1-SNAPSHOT.jar"]

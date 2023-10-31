@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.DTO.EncadreurDTO;
 import tn.esprit.tunisair.Repository.EncadreurRepository;
 import tn.esprit.tunisair.entity.Encadreur;
-import tn.esprit.tunisair.validations.ObjectsValidator;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,18 +18,14 @@ public class EncadreurServiceImp implements EncadreurService{
 
 private EncadreurDTO encadreurDTO;
 
-    private final ObjectsValidator<EncadreurDTO> objectsValidator;
 
-    public EncadreurServiceImp(ObjectsValidator<EncadreurDTO> objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
 
 
 
 //
     @Override
     public EncadreurDTO save(EncadreurDTO encadreurDTO) {
-        objectsValidator.validate(encadreurDTO);
+
         Encadreur encadreur=encadreurDTO.toEntity(encadreurDTO);
         encadreurRepository.save(encadreur);
         EncadreurDTO encadreurDTOsaved=encadreurDTO.fromEntity(encadreur);
@@ -68,4 +63,3 @@ private EncadreurDTO encadreurDTO;
             return null;
         }}}
 
-//

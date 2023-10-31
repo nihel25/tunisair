@@ -37,9 +37,5 @@ public class CoordinateurFormationDTO extends RegistrationRequest {
     }
 
 
-//
-//
-//
-//
+
 }
-//

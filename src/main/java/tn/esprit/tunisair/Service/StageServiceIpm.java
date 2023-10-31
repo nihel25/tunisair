@@ -6,7 +6,6 @@ import tn.esprit.tunisair.DTO.StageDTO;
 import tn.esprit.tunisair.Repository.StageRepository;
 import tn.esprit.tunisair.Repository.UserRepository;
 import tn.esprit.tunisair.entity.Stage;
-import tn.esprit.tunisair.validations.ObjectsValidator;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -20,18 +19,16 @@ public class StageServiceIpm implements StageService{
 
    @Autowired
     UserRepository userRepository;
-    private final ObjectsValidator<StageDTO> objectsValidator;
 
 
 
 
-    public StageServiceIpm(ObjectsValidator<StageDTO> objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
+
+
 
     @Override
     public StageDTO save(StageDTO entity) {
-   //     objectsValidator.validate(entity);
+
         Stage stage=entity.toEntity(entity);
         stageRepository.save(stage);
         StageDTO DTOsaved=entity.fromEntity(stage);

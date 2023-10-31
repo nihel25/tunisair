@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.DTO.SalleDTO;
 import tn.esprit.tunisair.Repository.SalleRepository;
 import tn.esprit.tunisair.entity.Salle;
-import tn.esprit.tunisair.validations.ObjectsValidator;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -21,12 +20,6 @@ public class SalleServiceImpl implements SalleService{
     @Override
     public void ajoutersalle(Salle s) {
         salleRepository.save(s);
-    }
-
-    private final ObjectsValidator<SalleDTO> objectsValidator;
-
-    public SalleServiceImpl(ObjectsValidator<SalleDTO> objectsValidator) {
-        this.objectsValidator = objectsValidator;
     }
 
 

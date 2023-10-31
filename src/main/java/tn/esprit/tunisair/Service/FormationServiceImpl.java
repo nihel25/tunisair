@@ -6,12 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tn.esprit.tunisair.DTO.FormationDTO;
-
 import tn.esprit.tunisair.Repository.FormateurRepository;
 import tn.esprit.tunisair.Repository.FormationRepository;
 import tn.esprit.tunisair.Repository.UserRepository;
 import tn.esprit.tunisair.entity.Formation;
-import tn.esprit.tunisair.validations.ObjectsValidator;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -34,11 +32,8 @@ public class FormationServiceImpl implements FormationService{
     @Autowired
     private ImageStorage imageStorage;
 
-    private final   ObjectsValidator<FormationDTO> objectsValidator;
 
-    public FormationServiceImpl(ObjectsValidator<FormationDTO> objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
+
 
 
 
@@ -88,7 +83,7 @@ public class FormationServiceImpl implements FormationService{
     public List<Formation> getAllFormations() {
         List<Formation> formations = formationRepository.findAll();
 
-        // Mettez à jour chaque formation avec la date de formation et le type
+
         for (Formation formation : formations) {
             formation.setDateformation(formation.getDateformation());
             formation.setFormationtype(formation.getFormationtype());

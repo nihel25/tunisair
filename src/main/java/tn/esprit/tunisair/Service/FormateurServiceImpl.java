@@ -8,7 +8,6 @@ import tn.esprit.tunisair.Repository.FormateurRepository;
 import tn.esprit.tunisair.Repository.FormationRepository;
 import tn.esprit.tunisair.Repository.specialiteeRepository;
 import tn.esprit.tunisair.entity.Formateur;
-import tn.esprit.tunisair.validations.ObjectsValidator;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -26,11 +25,6 @@ public class FormateurServiceImpl implements FormateurService{
     FormationRepository formationRepository;
 @Autowired
 specialiteeRepository specialiteeRepository;
-    private final ObjectsValidator<FormateurDto> objectsValidator;
-
-    public FormateurServiceImpl(ObjectsValidator<FormateurDto> objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
 
 
 
@@ -43,7 +37,7 @@ specialiteeRepository specialiteeRepository;
 
     @Override
     public FormateurDto save(FormateurDto formateurDto) {
-        //objectsValidator.validate(formateurDto);
+
         Formateur formateur=formateurDto.toentity(formateurDto);
         formateurRepository.save(formateur);
         FormateurDto DTOsaved=formateurDto.fromentity(formateur);
@@ -70,7 +64,7 @@ specialiteeRepository specialiteeRepository;
 
     @Override
     public FormateurDto addformateur(FormateurDto b) {
-        objectsValidator.validate(b);
+
 
         Formateur formateur = FormateurDto.toentity(b);
 

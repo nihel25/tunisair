@@ -41,10 +41,10 @@ UserService userService;
         objectsValidator.validate(f);
 
 
-       // f.setValid("en attente");
+
         Demandeclient demande=f.toEntity(f);
 
-        //demande.setValid("validée");
+
         demandeclientRepository.save(demande);
         DemandeclientDTO DTOsaved=f.fromEntity(demande);
         return DTOsaved;

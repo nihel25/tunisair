@@ -7,7 +7,6 @@ import tn.esprit.tunisair.DTO.SessionDTO;
 import tn.esprit.tunisair.Repository.*;
 import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.entity.Session;
-import tn.esprit.tunisair.validations.ObjectsValidator;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.Date;
@@ -26,12 +25,9 @@ public class SessionServiceImpl implements SessionService {
     SalleRepository salleRepository;
     @Autowired
     UserRepository userRepository;
-    private final ObjectsValidator<SessionDTO> objectsValidator;
+
 @Autowired
  PersonnelRepository personnelRepository;
-    public SessionServiceImpl(ObjectsValidator<SessionDTO> objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
 
 
     @Override

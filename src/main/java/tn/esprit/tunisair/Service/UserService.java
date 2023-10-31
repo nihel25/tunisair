@@ -8,18 +8,16 @@ import tn.esprit.tunisair.entity.User;
 
 import java.util.List;
 
-//
+
 public interface UserService {
     User findById(Long id);
     void delete(Long id);
   AuthenticationResponse register(RegistrationRequest request);
 
     AuthenticationResponse authenticate(AuthenticationRequest request);
-   // void createadmine();
+
 
     List<UserDTO> findAll();
-    public Long getCurrentUserId();
 
-    public UserDTO getCurrentUser();
-//
+
 }

@@ -5,8 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.AuthRequestResponse.AuthenticationRequest;
@@ -19,8 +17,10 @@ import tn.esprit.tunisair.Repository.UserRepository;
 import tn.esprit.tunisair.entity.*;
 
 import javax.persistence.EntityNotFoundException;
-import java.nio.file.attribute.UserPrincipal;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -86,7 +86,7 @@ public class UserServiceimpl implements UserService {
           user.setRole(UserRole.client);
       }
 
-       // encode the password
+
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         var savedUser = userRepository.save(user);
@@ -103,50 +103,8 @@ public class UserServiceimpl implements UserService {
                 .build();
     }
 
-    @Override
-    public Long getCurrentUserId() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.getPrincipal() instanceof User) {
-            User userPrincipal = (User) authentication.getPrincipal();
-            return userPrincipal.getId();
-        }
-        return null;
-    }
 
-    public List<UserDTO> getCoordinatorFormationUsers() {
-        List<User> coordinatorFormationUsers = userRepository.findByRole(UserRole.coordinateurformation);
-        List<UserDTO> coordinatorFormationDTOs = new ArrayList<>();
 
-        for (User user : coordinatorFormationUsers) {
-            UserDTO userDTO = new UserDTO();
-            userDTO.setId(user.getId());
-            userDTO.setFullname(user.getFullname());
-            userDTO.setPrenom(user.getPrenom());
-            userDTO.setEmail(user.getEmail());
-            coordinatorFormationDTOs.add(userDTO);
-        }
-
-        return coordinatorFormationDTOs;
-    }
-    public UserDTO getCurrentUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.getPrincipal() instanceof UserPrincipal) {
-            User userPrincipal = (User) authentication.getPrincipal();
-            Long userId = userPrincipal.getId();
-            User user = userRepository.findById(userId)
-                    .orElseThrow(() -> new IllegalArgumentException("User not found"));
-
-            return UserDTO.fromEntity(user);
-        }
-        return null;
-    }
-
-    public User getUserById(Long userId) {
-        return userRepository.findById(userId).orElse(null);
-    }
-    public List<User> getUsersByUserRole(UserRole userRole) {
-        return userRepository.findByRole(userRole);
-    }
 
     public UserDTO recherch(Long id) {
         Optional<User> optionalstagair =userRepository.findById(id);
@@ -160,15 +118,6 @@ public class UserServiceimpl implements UserService {
         }}
 
 
-//    public Long getCurrentUserId() {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        if (authentication != null && authentication.getPrincipal() instanceof UserPrincipal) {
-//            UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
-//            return userPrincipal.getId();
-//        }
-//        return null;
-//    }
-//}
 
 
 
@@ -206,30 +155,7 @@ public class UserServiceimpl implements UserService {
 
 
 
-//    @Override
-//    public void createadmine() {
-//
-//
-//        Admin userAdmin = new Admin();
-//        User savedUser = null;
-//        String email = "akrem@gmail.com";
-//        if (!adminRepository.existsByEmail(email)) {
-//            userAdmin.setEmail("akrem@gmail.com");
-//            userAdmin.setFullname(" riahi");
-//            userAdmin.setPassword(new BCryptPasswordEncoder().encode("1234"));
-//            userAdmin.setAdresse("beja");
-//           userAdmin.setPrenom("akrem");
-//            userAdmin.setCin("15289635");
-//            userAdmin.setTelephone("25369874");
-//
-//
-//            userAdmin.setRole(UserRole.ADMIN);
-//
-//
-//            savedUser = adminRepository.save(userAdmin);
-//        }
-//
-//    }
+
 
     @Override
     public List<UserDTO> findAll() {

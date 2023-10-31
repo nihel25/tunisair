@@ -6,7 +6,6 @@ import tn.esprit.tunisair.DTO.StagiaireDTO;
 import tn.esprit.tunisair.Repository.StageRepository;
 import tn.esprit.tunisair.Repository.StagiaireRepository;
 import tn.esprit.tunisair.entity.Stagiaire;
-import tn.esprit.tunisair.validations.ObjectsValidator;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -21,17 +20,13 @@ public class StagiaireServiceImp implements StagiaireService{
 private StageRepository stageRepository;
 
 
-    private final ObjectsValidator<StagiaireDTO> objectsValidator;
 
-    public StagiaireServiceImp(ObjectsValidator<StagiaireDTO> objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
+
 
 
 
     @Override
     public StagiaireDTO save(StagiaireDTO stagiaireDTO) {
-        //objectsValidator.validate(stagiaireDTO);
 
         Stagiaire stagiaire=stagiaireDTO.toEntity(stagiaireDTO);
         stagiaireRepository.save(stagiaire);
@@ -63,10 +58,7 @@ private StageRepository stageRepository;
 
 
 
-    @Override
-    public List<StagiaireDTO> lister() {
-        return null;
-    }
+
 
 
 
@@ -85,12 +77,7 @@ private StageRepository stageRepository;
 
 
 
-    @Override
-    public Stagiaire retrievebyid(Long id) {
-        Stagiaire stagiaire = stagiaireRepository.findById(id).orElse(null);
 
-        return stagiaire;
-    }
 
     @Override
     public List<StagiaireDTO> findAll() {

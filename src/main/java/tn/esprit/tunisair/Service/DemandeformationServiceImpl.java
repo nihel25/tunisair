@@ -30,9 +30,6 @@ public class DemandeformationServiceImpl implements DemandeformationService{
     private PersonnelRepository personnelRepository;
 
 
-  //  public void saveDemandeFormation(Demandeformation demandeFormation) {
-    //demandeformationRepository.save(demandeFormation);
-   // }
 
 
     @Override
@@ -95,10 +92,10 @@ public class DemandeformationServiceImpl implements DemandeformationService{
     public DemandeFormationDTO add(DemandeFormationDTO f) {
 
 
-        // f.setValid("en attente");
+
         Demandeformation demande=f.toEntity(f);
 
-        //demande.setValid("validée");
+
         demandeformationRepository.save(demande);
         DemandeFormationDTO DTOsaved=f.fromEntity(demande);
         return DTOsaved;
@@ -116,9 +113,6 @@ public class DemandeformationServiceImpl implements DemandeformationService{
         return personnelRepository.findAll();
     }
 
-    //  public List<Personnel> getPersonnelByDemandeFormation(Long id) {
-    //  return demandeformationRepository.findPersonnelByDemandeFormationId(id);
-    // }
 
 
 }

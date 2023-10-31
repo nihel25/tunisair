@@ -18,9 +18,7 @@ public class ReclamationDTO {
 
 
     private String typeReclamation;
-    //public ReclamationDTO(Long formationId) {
-      //  this.formationId = formationId;
-    //}
+
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date datereclamation = new Date(System.currentTimeMillis());
     private FormationDTO formationdto;
@@ -31,7 +29,7 @@ private UserDTO userDTO;
                 .typeReclamation(reclamation.getTypeReclamation())
                 .datereclamation(reclamation.getDatereclamation())
                .formationdto(FormationDTO.fromEntity(reclamation.getFormation()))
-                //.userDTO(UserDTO.fromEntity(reclamation.getUser()))
+
 
                         .build();
 
@@ -45,7 +43,7 @@ private UserDTO userDTO;
                 .datereclamation(reclamationDTO.getDatereclamation())
                .formation(FormationDTO.toEntity(reclamationDTO.getFormationdto()))
 
-             //   .user(UserDTO.toEntity(reclamationDTO.getUserDTO()))
+
                 .build();
 
     }

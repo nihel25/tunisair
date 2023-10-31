@@ -13,12 +13,9 @@ import tn.esprit.tunisair.entity.Client;
 @Setter
 @SuperBuilder
 public class ClientDTO extends RegistrationRequest {
-//
-//
-//
+
 private int age;
-//
-//
+
     public static Client toEntity(ClientDTO request) {
         return Client.builder()
                 .fullname(request.getFullname())
@@ -34,10 +31,6 @@ private int age;
     }
 
 
-//
-//
-//
-//
 }
 
 

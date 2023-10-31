@@ -1,5 +1,5 @@
 package tn.esprit.tunisair.DTO;//package tn.esprit.formation.DTO;
-//
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,9 +17,7 @@ import javax.validation.constraints.NotNull;
 @SuperBuilder
 public class CoordinateurEntrepriseDTO extends RegistrationRequest {
 
-//
-//
-//
+
 @NotNull
     private String Fonctions;
 

@@ -29,7 +29,7 @@ public class PersonnelleServiceImpl implements PersonnelleService{
             while ((ligne = reader.readLine()) != null) {
                 String[] colonnes = ligne.split(";");
 
-                // Check if the array has the expected number of elements
+
                 if (colonnes.length >= 5) {
                     String nom = colonnes[0];
                     String prenom = colonnes[1];

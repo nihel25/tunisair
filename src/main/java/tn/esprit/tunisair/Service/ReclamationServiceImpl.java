@@ -7,7 +7,6 @@ import tn.esprit.tunisair.Repository.FormationRepository;
 import tn.esprit.tunisair.Repository.ReclamationRepository;
 import tn.esprit.tunisair.Repository.UserRepository;
 import tn.esprit.tunisair.entity.Reclamation;
-import tn.esprit.tunisair.validations.ObjectsValidator;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -40,11 +39,9 @@ ReclamationRepository reclamationRepository;
 
 
 
-private final ObjectsValidator<ReclamationDTO> objectsValidator;
 
-    public ReclamationServiceImpl(ObjectsValidator<ReclamationDTO> objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
+
+
 
 
 @Override

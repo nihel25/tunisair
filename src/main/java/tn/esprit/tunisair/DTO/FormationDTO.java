@@ -47,7 +47,7 @@ private userprofilDTO userprofildto;
                 .formationtype(formation.getFormationtype())
               .formateurDto(FormateurDto.fromentity(formation.getFormateur()))
 
-           //    .userDTO(UserDTO.fromEntity(formation.getUser()))
+
                 .description(formation.getDescription())
                 .remise(formation.getRemise())
                 .image(formation.getImage())
@@ -65,7 +65,7 @@ private userprofilDTO userprofildto;
                .formateur(FormateurDto.toentity(dto.getFormateurDto()))
 
                 .description(dto.getDescription())
-             //.user(UserDTO.toEntity(dto.getUserDTO()))
+
                 .remise(dto.getRemise())
                 .image(dto.getImage())
                 .userProfile(userprofilDTO.toEntity(dto.getUserprofildto()))

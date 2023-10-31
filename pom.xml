@@ -22,17 +22,17 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
-			<!-- ... autres dépendances ... -->
 
 
 
 
 
-			<!-- ... -->
+
+
 			<dependency>
 				<groupId>org.mockito</groupId>
 				<artifactId>mockito-core</artifactId>
-				<version>3.10.0</version> <!-- Remplacez x.x.x par la version de Mockito que vous souhaitez utiliser -->
+				<version>3.10.0</version>
 				<scope>test</scope>
 			</dependency>
 
@@ -90,10 +90,7 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-websocket</artifactId>
-		</dependency>
+
 
 
 		<dependency>

@@ -6,10 +6,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import tn.esprit.tunisair.DTO.FormateurDto;
-import tn.esprit.tunisair.DTO.SpecialiteeDTO;
-import tn.esprit.tunisair.Repository.FormateurRepository;
-import tn.esprit.tunisair.Service.FormateurService;
+import tn.esprit.tunisair.dto.FormateurDto;
+import tn.esprit.tunisair.dto.SpecialiteeDTO;
+import tn.esprit.tunisair.repository.FormateurRepository;
+import tn.esprit.tunisair.service.FormateurService;
 import tn.esprit.tunisair.entity.Formateur;
 
 import java.util.Date;

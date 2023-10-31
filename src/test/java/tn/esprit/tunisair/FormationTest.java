@@ -8,9 +8,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import tn.esprit.tunisair.DTO.*;
-import tn.esprit.tunisair.Repository.FormationRepository;
-import tn.esprit.tunisair.Service.FormationServiceImpl;
+import tn.esprit.tunisair.dto.*;
+import tn.esprit.tunisair.repository.FormationRepository;
+import tn.esprit.tunisair.service.FormationServiceImpl;
 import tn.esprit.tunisair.entity.*;
 
 import java.util.Optional;

@@ -8,10 +8,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import tn.esprit.tunisair.DTO.EncadreurDTO;
-import tn.esprit.tunisair.DTO.StageDTO;
-import tn.esprit.tunisair.Repository.StageRepository;
-import tn.esprit.tunisair.Service.StageServiceIpm;
+import tn.esprit.tunisair.dto.EncadreurDTO;
+import tn.esprit.tunisair.dto.StageDTO;
+import tn.esprit.tunisair.repository.StageRepository;
+import tn.esprit.tunisair.service.StageServiceIpm;
 import tn.esprit.tunisair.entity.Encadreur;
 import tn.esprit.tunisair.entity.Stage;
 

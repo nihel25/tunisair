@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import tn.esprit.tunisair.DTO.SalleDTO;
-import tn.esprit.tunisair.Repository.SalleRepository;
-import tn.esprit.tunisair.Service.SalleServiceImpl;
+import tn.esprit.tunisair.dto.SalleDTO;
+import tn.esprit.tunisair.repository.SalleRepository;
+import tn.esprit.tunisair.service.SalleServiceImpl;
 import tn.esprit.tunisair.entity.Salle;
 
 import java.util.List;

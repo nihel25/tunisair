@@ -23,7 +23,7 @@ public class Attestation {
 
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date datejour = new Date(System.currentTimeMillis());
+    private Date datenew = new Date(System.currentTimeMillis());
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateFin;
     @JsonFormat(pattern = "yyyy-MM-dd")

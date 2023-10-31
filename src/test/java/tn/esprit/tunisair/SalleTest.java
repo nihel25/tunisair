@@ -21,7 +21,7 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class salleimpltest {
+public class SalleTest {
 
 
     @InjectMocks

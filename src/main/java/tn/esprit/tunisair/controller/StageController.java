@@ -22,9 +22,9 @@ public class StageController {
     private StageRepository stageRepository;
     @Secured("recruteur")
     @PostMapping("/savestage")
-    public ResponseEntity<StageDTO> Ajouter(@Valid @RequestBody StageDTO stageDTO) {
-        StageDTO DTOsaved = stageService.save(stageDTO);
-        return new ResponseEntity<StageDTO>(DTOsaved, HttpStatus.CREATED);
+    public ResponseEntity<StageDTO> addstage(@Valid @RequestBody StageDTO stageDTO) {
+        StageDTO savestage = stageService.save(stageDTO);
+        return new ResponseEntity<>(savestage, HttpStatus.CREATED);
     }
     @Secured("recruteur")
     @GetMapping("/recherher/{id}")

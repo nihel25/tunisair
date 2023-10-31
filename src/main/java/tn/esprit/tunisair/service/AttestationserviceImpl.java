@@ -52,7 +52,7 @@ public class AttestationserviceImpl implements AttestationService{
 
     @Override
     public void delete(Long id) {
-        Attestation certificat = attestationRepository.findById(id).orElseThrow(()->new EntityNotFoundException(id+" not found"));
+        Attestation attestation = attestationRepository.findById(id).orElseThrow(()->new EntityNotFoundException(id+" not found"));
         attestationRepository.deleteById(id);
     }
 

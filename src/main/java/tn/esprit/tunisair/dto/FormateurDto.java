@@ -55,9 +55,7 @@ public class FormateurDto {
 
 
 
-    private boolean isFormateurDisponible(FormateurDto formateurDto) {
-        return formateurDto.isDisponible();  // Renvoie true si la salle est disponible (statut est true)
-    }
+
     public boolean isDisponible() {
         return disponible;
     }

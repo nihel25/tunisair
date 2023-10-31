@@ -28,8 +28,8 @@ private EncadreurDTO encadreurDTO;
 
         Encadreur encadreur=encadreurDTO.toEntity(encadreurDTO);
         encadreurRepository.save(encadreur);
-        EncadreurDTO encadreurDTOsaved=encadreurDTO.fromEntity(encadreur);
-        return encadreurDTOsaved;
+        EncadreurDTO encadreursaved=encadreurDTO.fromEntity(encadreur);
+        return encadreursaved;
 
     }
 

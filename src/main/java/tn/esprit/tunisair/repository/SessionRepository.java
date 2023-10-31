@@ -9,8 +9,6 @@ import tn.esprit.tunisair.entity.Session;
 public interface SessionRepository extends JpaRepository<Session,Long> {
 
 
-//@Query("SELECT  s FROM Session s where s.createdAt BETWEEN ?1 and ?2 ")
-//    List<Session> findbydate(Date start, Date end);
 
 
 }

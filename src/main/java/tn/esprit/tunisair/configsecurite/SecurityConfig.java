@@ -30,7 +30,7 @@ import java.util.Collections;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @RequiredArgsConstructor
-public class securityconfig {
+public class SecurityConfig {
 
     private final UserRepository userRepository;
     private final JwtAuthFilter jwtAuthFilter;
@@ -67,7 +67,7 @@ public class securityconfig {
                 .permitAll()
 
 
-                .antMatchers(HttpMethod.GET, "avis/analyzeSentiments").hasRole("client")
+
 
 
 
@@ -77,7 +77,7 @@ public class securityconfig {
 
 
 
-                .antMatchers(HttpMethod.POST, "avis/saveOrUpdate").hasRole("client")
+
                 .antMatchers("/avis/listeavis").permitAll()
 
 
@@ -86,7 +86,6 @@ public class securityconfig {
 
 
 
-                .antMatchers(HttpMethod.GET, "formation/formationbydateandtype").hasRole("client")
 
 
 
@@ -95,13 +94,11 @@ public class securityconfig {
 
                 .antMatchers(HttpMethod.GET, "formateur/listeformateur", "/lister", "Option/lister").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/api/v1/auth/delete/{id}", "formateur/supprimer/{id}", "encadreursatge/supprimer/{id}").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "formateur/saveOrUpdate", "encadreursatge/saveOrUpdatee", "/save", "Option/ajouteroption").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "formateur/saveformateur", "encadreursatge/saveencadreur", "/save", "Option/ajouteroption").hasRole("ADMIN")
 
 ////////////////////////////////////////////////////////////kafka
 
                 ///client envoyer reclamation
-                .antMatchers(HttpMethod.POST, "Reclamation/saveOrUpdate").hasRole("client")
-                .antMatchers(HttpMethod.POST, "api/payment").hasRole("client")
 
                 .antMatchers(HttpMethod.GET, "/stagiaire/listerstagiaire", "/recherher/{id}", "/listecertificat", "/stage/listestage").hasRole("recruteur")
                 .antMatchers(HttpMethod.DELETE, "/stagiaire/supprimer/{id}", "/delete/{id}", "/stage/supprimer/{id}").hasRole("recruteur")
@@ -117,6 +114,12 @@ public class securityconfig {
 
 
 //////consulter reclamation
+                .antMatchers(HttpMethod.POST, "Reclamation/saveOrUpdate").hasRole("client")
+                .antMatchers(HttpMethod.POST, "api/payment").hasRole("client")
+
+                .antMatchers(HttpMethod.POST, "avis/saveOrUpdate").hasRole("client")
+                .antMatchers(HttpMethod.GET, "avis/analyzeSentiments").hasRole("client")
+                .antMatchers(HttpMethod.GET, "formation/formationbydateandtype").hasRole("client")
                 .antMatchers(HttpMethod.POST  ,"avis/saveavis").hasRole("client")
                 .antMatchers(HttpMethod.GET  ,"avis/recherher/{id}").hasRole("client")
                 .antMatchers(HttpMethod.GET  ,"/findAllreclamation").hasRole("client")

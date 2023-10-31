@@ -38,13 +38,12 @@ public class FormationServiceImpl implements FormationService{
 
 
     @Override
-    public FormationDTO save(FormationDTO dto) {
-       // objectsValidator.validate(dto);
+    public FormationDTO save(FormationDTO formationDTO) {
 
 
 
-        Formation formation = dto.toEntity(dto);
-//dto.setUserDTO(dto.getUserDTO());
+
+        Formation formation = formationDTO.toEntity(formationDTO);
 
         if (formation.getFormateur() == null) {
             throw new IllegalArgumentException("Formateur is required for saving a formation.");

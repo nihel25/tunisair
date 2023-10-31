@@ -30,8 +30,8 @@ private StageRepository stageRepository;
 
         Stagiaire stagiaire=stagiaireDTO.toEntity(stagiaireDTO);
         stagiaireRepository.save(stagiaire);
-        StagiaireDTO DTOsaved=stagiaireDTO.fromEntity(stagiaire);
-        return DTOsaved;
+        StagiaireDTO stagiairesave=stagiaireDTO.fromEntity(stagiaire);
+        return stagiairesave;
 
     }
 

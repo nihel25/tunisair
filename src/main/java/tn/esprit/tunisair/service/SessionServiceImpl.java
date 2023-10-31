@@ -70,10 +70,7 @@ public class SessionServiceImpl implements SessionService {
     public List<Personnel> getAllPersonnel() {
         return personnelRepository.findAll();
     }
-    @Override
-    public List<SessionDTO> findbydate(Date start, Date end) {
-        return null;
-    }
+
 
 
     }

@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import tn.esprit.tunisair.entity.Stagiaire;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 
@@ -22,7 +21,7 @@ public class StagiaireDTO {
 	private String prenom;
 	@NotNull(message="it should be not null")
 	private String nom;
-    @Pattern(regexp="^[0-9]{8}$",message="it should be a number ")
+
 	private String telephone;
 
 	private String email;

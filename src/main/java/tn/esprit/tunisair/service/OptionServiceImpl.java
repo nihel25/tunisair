@@ -4,7 +4,7 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.SpecialiteeDTO;
-import tn.esprit.tunisair.repository.specialiteeRepository;
+import tn.esprit.tunisair.repository.SpecialiteeRepository;
 import tn.esprit.tunisair.entity.Specialitee;
 import tn.esprit.tunisair.validations.ObjectsValidator;
 
@@ -16,7 +16,7 @@ public class OptionServiceImpl implements OptionService{
 
 
     @Autowired
-    specialiteeRepository specialiteeRepository;
+    SpecialiteeRepository specialiteeRepository;
 
     private final ObjectsValidator<SpecialiteeDTO> objectsValidator;
 

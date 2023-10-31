@@ -39,9 +39,9 @@ public class SalleController {
 
     @Secured("coordinateurformation")
     @PostMapping("/addsalle")
-    public ResponseEntity<SalleDTO> Ajouter(@Valid @RequestBody SalleDTO salleDTO) {
+    public ResponseEntity<SalleDTO> addsalle(@Valid @RequestBody SalleDTO salleDTO) {
         SalleDTO savesalle = salleService.save(salleDTO);
-        return new ResponseEntity<SalleDTO>(savesalle, HttpStatus.CREATED);
+        return new ResponseEntity<>(savesalle, HttpStatus.CREATED);
     }
 
   @Secured("coordinateurformation")

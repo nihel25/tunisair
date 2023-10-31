@@ -9,7 +9,7 @@ import tn.esprit.tunisair.entity.UserProfile;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class userprofilDTO {
+public class UserprofilDTO {
 
 
     private Long id;  // Identifiant unique du profil
@@ -23,7 +23,7 @@ public class userprofilDTO {
     private String engagementsProfessionnels;
 
 
-    public static UserProfile toEntity(userprofilDTO dto) {
+    public static UserProfile toEntity(UserprofilDTO dto) {
         return UserProfile.builder()
 
 
@@ -48,9 +48,9 @@ public class userprofilDTO {
 
 
 
-    public static userprofilDTO fromEntity(UserProfile dto){
+    public static UserprofilDTO fromEntity(UserProfile dto){
 
-        return userprofilDTO.builder()
+        return UserprofilDTO.builder()
                 .id(dto.getId())
 
 

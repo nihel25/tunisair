@@ -12,7 +12,6 @@ import tn.esprit.tunisair.entity.UserRole;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 @SuperBuilder
 @Getter
@@ -29,7 +28,7 @@ public   class UserDTO {
     @NotNull
     private String adresse;
     @NotNull
-    @Pattern(regexp="^[0-9]{8}$",message="it should be a number ")
+
     private String telephone;
     @NotNull
 

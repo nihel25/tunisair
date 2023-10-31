@@ -7,14 +7,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tunisair.dto.*;
+import tn.esprit.tunisair.entity.Personnel;
+import tn.esprit.tunisair.entity.Session;
 import tn.esprit.tunisair.service.FormateurService;
 import tn.esprit.tunisair.service.SalleService;
 import tn.esprit.tunisair.service.SessionService;
-import tn.esprit.tunisair.entity.Personnel;
-import tn.esprit.tunisair.entity.Session;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -164,11 +163,6 @@ public class SessionController {
         return sessionService.findAllSession();
     }
 
-    @Secured("coordinateurformation")
-    @GetMapping("/listesessionbydate")
-    public List<SessionDTO> findAllformationpagination(Date start, Date end) {
-        return sessionService.findbydate(start,end);
-    }
 
 
 

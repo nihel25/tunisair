@@ -1,4 +1,4 @@
-package  tn.esprit.tunisair.AuthRequestResponse;
+package  tn.esprit.tunisair.authrequestresponse;
 
 
 import lombok.AllArgsConstructor;

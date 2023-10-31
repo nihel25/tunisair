@@ -27,7 +27,7 @@ public class MaterielController {
     @PostMapping("/addmateriel")
     public ResponseEntity<MaterielDTO> addmateriel(@Valid @RequestBody MaterielDTO materielDTO) {
         MaterielDTO savemateriel = materielService.save(materielDTO);
-        return new ResponseEntity<MaterielDTO>(savemateriel, HttpStatus.CREATED);
+        return new ResponseEntity<>(savemateriel, HttpStatus.CREATED);
     }
 
 

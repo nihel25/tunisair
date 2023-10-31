@@ -8,7 +8,7 @@ import tn.esprit.tunisair.entity.Reclamation;
 public interface ReclamationRepository extends JpaRepository<Reclamation,Long> {
 
 
-    //  long countByFormation_Id(Long formationId);
+
 
 
 

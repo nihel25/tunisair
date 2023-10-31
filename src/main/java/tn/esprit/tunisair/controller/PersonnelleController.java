@@ -25,9 +25,9 @@ public class PersonnelleController {
 
     @Secured("coordinateurentreprise")
     @PostMapping("/saveOrUpdate")
-    public ResponseEntity<PersonnelDTO> Ajouter(@Valid @RequestBody PersonnelDTO DTO) {
-        PersonnelDTO DTOsaved = personnelleService.save(DTO);
-        return new ResponseEntity<PersonnelDTO>(DTOsaved, HttpStatus.CREATED);
+    public ResponseEntity<PersonnelDTO> add(@Valid @RequestBody PersonnelDTO personneldto) {
+        PersonnelDTO savepersonnelle = personnelleService.save(personneldto);
+        return new ResponseEntity<>(savepersonnelle, HttpStatus.CREATED);
     }
 
 

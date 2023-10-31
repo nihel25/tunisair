@@ -9,7 +9,7 @@ public interface FormateurService {
     FormateurDto addformateur(FormateurDto b);
 
     List<FormateurDto> findAll();
-   // List<FormateurDto> listerformateurbyoption(String specialite);
+
 
 
     FormateurDto recherch(Long id);

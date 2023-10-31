@@ -24,10 +24,10 @@ public class FormateurController {
 
 
     @Secured("ADMIN")
-    @PostMapping("/saveOrUpdate")
-    public ResponseEntity<FormateurDto> Ajouter(@Valid @RequestBody FormateurDto formateurDto) {
-        FormateurDto DTOsaved = formateurService.save(formateurDto);
-        return new ResponseEntity<FormateurDto>(DTOsaved, HttpStatus.CREATED);
+    @PostMapping("/saveformateur")
+    public ResponseEntity<FormateurDto> addformateur(@Valid @RequestBody FormateurDto formateurDto) {
+        FormateurDto saveformateur = formateurService.save(formateurDto);
+        return new ResponseEntity<>(saveformateur, HttpStatus.CREATED);
     }
 
 

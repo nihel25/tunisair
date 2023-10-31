@@ -21,9 +21,9 @@ public class StagiaireController {
     @Secured("recruteur")
 
     @PostMapping("/saveOrUpdate")
-    public ResponseEntity<StagiaireDTO> AjouterRecreteur(@Valid @RequestBody StagiaireDTO stagiaireDTO) {
-        StagiaireDTO DTOsaved = stagiaireService.save(stagiaireDTO);
-        return new ResponseEntity<StagiaireDTO>(DTOsaved, HttpStatus.CREATED);
+    public ResponseEntity<StagiaireDTO> addstagiaire(@Valid @RequestBody StagiaireDTO stagiaireDTO) {
+        StagiaireDTO savestagiaire = stagiaireService.save(stagiaireDTO);
+        return new ResponseEntity<>(savestagiaire, HttpStatus.CREATED);
     }
     @Secured("recruteur")
     @GetMapping("/recherher/{id}")

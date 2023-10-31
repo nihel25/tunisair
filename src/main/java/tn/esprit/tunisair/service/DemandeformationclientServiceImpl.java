@@ -37,17 +37,17 @@ UserService userService;
 
 
 @Override
-    public DemandeclientDTO add(DemandeclientDTO f) {
-        objectsValidator.validate(f);
+    public DemandeclientDTO add(DemandeclientDTO demandeclient) {
+        objectsValidator.validate(demandeclient);
 
 
 
-        Demandeclient demande=f.toEntity(f);
+        Demandeclient demande=demandeclient.toEntity(demandeclient);
 
 
         demandeclientRepository.save(demande);
-        DemandeclientDTO DTOsaved=f.fromEntity(demande);
-        return DTOsaved;
+        DemandeclientDTO savedemandeclient=demandeclient.fromEntity(demande);
+        return savedemandeclient;
     }
 
     @Override

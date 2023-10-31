@@ -22,14 +22,15 @@ public class AttestationController {
     AttestationService attestationService;
 
 
-    @Secured( "coordinateurformation")
+    @Secured("coordinateurformation")
     @PostMapping("/saveattestation")
     public ResponseEntity<AttestationDTO> ajout(@Valid @RequestBody AttestationDTO attestationDTO) {
         AttestationDTO saveattesation = attestationService.save(attestationDTO);
-        return new ResponseEntity<AttestationDTO>(saveattesation, HttpStatus.CREATED);
+        return new ResponseEntity<>(saveattesation, HttpStatus.CREATED);
     }
 
-   @Secured( "coordinateurformation")
+
+    @Secured( "coordinateurformation")
     @GetMapping("/recherher/{id}")
     public AttestationDTO recherch(@PathVariable Long id) {
 

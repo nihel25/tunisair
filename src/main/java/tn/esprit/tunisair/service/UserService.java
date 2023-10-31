@@ -1,8 +1,8 @@
 package tn.esprit.tunisair.service;
 
-import tn.esprit.tunisair.AuthRequestResponse.AuthenticationRequest;
-import tn.esprit.tunisair.AuthRequestResponse.AuthenticationResponse;
-import tn.esprit.tunisair.AuthRequestResponse.RegistrationRequest;
+import tn.esprit.tunisair.authrequestresponse.AuthenticationRequest;
+import tn.esprit.tunisair.authrequestresponse.AuthenticationResponse;
+import tn.esprit.tunisair.authrequestresponse.RegistrationRequest;
 import tn.esprit.tunisair.dto.UserDTO;
 import tn.esprit.tunisair.entity.User;
 

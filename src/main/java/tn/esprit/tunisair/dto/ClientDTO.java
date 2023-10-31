@@ -2,7 +2,7 @@ package tn.esprit.tunisair.dto;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import tn.esprit.tunisair.AuthRequestResponse.RegistrationRequest;
+import tn.esprit.tunisair.authrequestresponse.RegistrationRequest;
 import tn.esprit.tunisair.entity.Client;
 
 

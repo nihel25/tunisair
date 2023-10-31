@@ -78,9 +78,7 @@ private String description;
     @JsonIgnore
     @OneToMany(mappedBy = "formation")
     private Set<Demandeformation> demandeformations;
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "formation")
-//    private List<Facture> factures;
+
 
 
 

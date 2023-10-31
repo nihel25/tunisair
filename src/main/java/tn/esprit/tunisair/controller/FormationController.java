@@ -37,7 +37,7 @@ public class FormationController {
     @PostMapping("/addformation")
     public ResponseEntity<FormationDTO> add (@Valid @RequestBody FormationDTO formationDTO) {
         FormationDTO saveformation = formationService.save(formationDTO);
-        return new ResponseEntity<FormationDTO>(saveformation, HttpStatus.CREATED);
+        return new ResponseEntity<>(saveformation, HttpStatus.CREATED);
     }
 
 

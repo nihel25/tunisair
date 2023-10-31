@@ -29,7 +29,7 @@ public class CertificatController {
     @PostMapping("/savecertif")
     public ResponseEntity<CertificatDTO> save (@Valid @RequestBody CertificatDTO certificatDTO) {
         CertificatDTO savecertif = certificatService.save(certificatDTO);
-        return new ResponseEntity<CertificatDTO>(savecertif, HttpStatus.CREATED);
+        return new ResponseEntity<>(savecertif, HttpStatus.CREATED);
     }
 
 

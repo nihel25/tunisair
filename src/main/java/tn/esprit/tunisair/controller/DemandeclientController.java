@@ -42,13 +42,13 @@ public class DemandeclientController {
 
 
 @Secured( "client")
-    @PostMapping("/saveOrUpdate")
+    @PostMapping("/savedemande")
     @ResponseBody
-    public ResponseEntity<DemandeclientDTO> Ajouter(@Valid @RequestBody DemandeclientDTO demandeformation)
+    public ResponseEntity<DemandeclientDTO> adddemande(@Valid @RequestBody DemandeclientDTO demandeformation)
     {
 
-        DemandeclientDTO DTOsaved   = demandeformationclientService.add(demandeformation);
-        return new ResponseEntity<DemandeclientDTO>(DTOsaved, HttpStatus.CREATED);
+        DemandeclientDTO savedemande   = demandeformationclientService.add(demandeformation);
+        return new ResponseEntity<>(savedemande, HttpStatus.CREATED);
     }
     @Secured( "coordinateurformation")
 

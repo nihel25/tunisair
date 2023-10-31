@@ -33,8 +33,8 @@ public class SalleServiceImpl implements SalleService{
 
         Salle salle=salleDTO.toentity(salleDTO);
         salleRepository.save(salle);
-        SalleDTO encadreurDTOsaved=salleDTO.fromEntity(salle);
-        return encadreurDTOsaved;
+        SalleDTO salledto=salleDTO.fromEntity(salle);
+        return salledto;
     }
 @Override
     //

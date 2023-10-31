@@ -53,9 +53,6 @@ public class UserProfileService {
                     personnel.setEngagementsProfessionnels(engagementsProfessionnels);
 
                     userProfileRepository.save(personnel);
-                } else {
-
-                    System.out.println("Invalid line format: " + ligne);
                 }
             }
         } catch (IOException e) {

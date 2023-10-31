@@ -51,8 +51,8 @@ public class MaterielServiceImpl implements MaterielService{
         objectsValidator.validate(materielDTO);
         Materiel materiel=materielDTO.toentity(materielDTO);
         materielRepository.save(materiel);
-        MaterielDTO DTOsaved=materielDTO.fromentity(materiel);
-        return DTOsaved;
+        MaterielDTO materielsave=materielDTO.fromentity(materiel);
+        return materielsave;
 
     }
 

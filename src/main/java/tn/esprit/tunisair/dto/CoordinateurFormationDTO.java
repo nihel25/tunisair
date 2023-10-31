@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import tn.esprit.tunisair.AuthRequestResponse.RegistrationRequest;
+import tn.esprit.tunisair.authrequestresponse.RegistrationRequest;
 import tn.esprit.tunisair.entity.CoordinateurFormation;
 
 import javax.validation.constraints.NotNull;
@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 public class CoordinateurFormationDTO extends RegistrationRequest {
 
  @NotNull
-    private String Fonction;
+    private String fonction;
 
 
 
@@ -32,7 +32,7 @@ public class CoordinateurFormationDTO extends RegistrationRequest {
                 .telephone(request.getTelephone())
                 .cin(request.getCin())
                 .prenom(request.getPrenom())
-                .Fonction(request.getFonction())
+                .fonction(request.getFonction())
                 .build();
     }
 

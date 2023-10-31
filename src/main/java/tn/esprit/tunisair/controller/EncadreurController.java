@@ -30,12 +30,7 @@ public class EncadreurController {
     }
 
 
-    @Secured("ADMIN")
-    @PostMapping("/save")
-    public ResponseEntity<EncadreurDTO> Ajoutererr(@Valid @RequestBody EncadreurDTO encadreurDTO) {
-        EncadreurDTO encadreurDTOsaved = encadreurService.save(encadreurDTO);
-        return new ResponseEntity<>(encadreurDTOsaved, HttpStatus.CREATED);
-    }
+
     @Secured("ADMIN")
     @DeleteMapping("/supprimer/{id}")
     public void delete(@PathVariable Long id) {

@@ -89,16 +89,16 @@ public class DemandeformationServiceImpl implements DemandeformationService{
 
 
     @Override
-    public DemandeFormationDTO add(DemandeFormationDTO f) {
+    public DemandeFormationDTO add(DemandeFormationDTO demandes) {
 
 
 
-        Demandeformation demande=f.toEntity(f);
+        Demandeformation demande=demandes.toEntity(demandes);
 
 
         demandeformationRepository.save(demande);
-        DemandeFormationDTO DTOsaved=f.fromEntity(demande);
-        return DTOsaved;
+        DemandeFormationDTO savedemande=demandes.fromEntity(demande);
+        return savedemande;
     }
 
     @Override

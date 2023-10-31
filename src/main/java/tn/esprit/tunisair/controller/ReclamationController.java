@@ -29,7 +29,7 @@ public class ReclamationController {
 
 
         ReclamationDTO reclamationsave = reclamationService.save(reclamationDTO);
-        return new ResponseEntity<ReclamationDTO>(reclamationsave, HttpStatus.CREATED);
+        return new ResponseEntity<>(reclamationsave, HttpStatus.CREATED);
     }
     @Secured("coordinateurformation")
     @GetMapping("/recherher/{id}")

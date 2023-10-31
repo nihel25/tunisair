@@ -36,7 +36,7 @@ private FormateurDto formateurDto;
     @Column(length = 2000)
     private String description;
 private UserDTO userDTO;
-private userprofilDTO userprofildto;
+private UserprofilDTO userprofildto;
     public static FormationDTO fromEntity(Formation formation){
 
         return FormationDTO.builder()
@@ -51,7 +51,7 @@ private userprofilDTO userprofildto;
                 .description(formation.getDescription())
                 .remise(formation.getRemise())
                 .image(formation.getImage())
-                .userprofildto(userprofilDTO.fromEntity(formation.getUserProfile()))
+                .userprofildto(UserprofilDTO.fromEntity(formation.getUserProfile()))
 
                 .build();
     }
@@ -68,7 +68,7 @@ private userprofilDTO userprofildto;
 
                 .remise(dto.getRemise())
                 .image(dto.getImage())
-                .userProfile(userprofilDTO.toEntity(dto.getUserprofildto()))
+                .userProfile(UserprofilDTO.toEntity(dto.getUserprofildto()))
                 .build();
     }
 

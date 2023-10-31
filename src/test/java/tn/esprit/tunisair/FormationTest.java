@@ -52,7 +52,7 @@ private FormationServiceImpl formationService;
         formateurDto.setSpecialiteedto(specialiteeDTO);
 
         formationDTO.setFormateurDto(formateurDto);
-        userprofilDTO userprofilDTOs =  new userprofilDTO();
+        UserprofilDTO userprofilDTOs =  new UserprofilDTO();
 
         formationDTO.setUserprofildto(userprofilDTOs);
 

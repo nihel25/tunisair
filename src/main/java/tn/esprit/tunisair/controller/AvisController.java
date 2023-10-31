@@ -29,7 +29,7 @@ public class AvisController {
     public ResponseEntity<AvisDto> addavis(@Valid @RequestBody AvisDto avisDto) {
         avisDto.setText( BadWordFilter.getCensoredText(avisDto.getText() ));
         AvisDto avissave = avisService.save(avisDto);
-        return new ResponseEntity<AvisDto>(avissave, HttpStatus.CREATED);
+        return new ResponseEntity<>(avissave, HttpStatus.CREATED);
     }
 
 

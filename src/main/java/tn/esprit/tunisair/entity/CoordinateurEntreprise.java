@@ -17,5 +17,5 @@ import javax.persistence.Entity;
 @SuperBuilder
 public class CoordinateurEntreprise extends User{
 
-   private String Fonctions;
+   private String fonctions;
 }

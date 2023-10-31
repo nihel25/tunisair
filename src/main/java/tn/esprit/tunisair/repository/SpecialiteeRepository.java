@@ -6,5 +6,5 @@ import tn.esprit.tunisair.entity.Specialitee;
 
 
 @Repository
-public interface specialiteeRepository extends JpaRepository<Specialitee,Long> {
+public interface SpecialiteeRepository extends JpaRepository<Specialitee,Long> {
 }

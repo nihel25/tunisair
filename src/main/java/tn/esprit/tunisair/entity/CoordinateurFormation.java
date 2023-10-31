@@ -15,5 +15,5 @@ import javax.persistence.Entity;
 @DiscriminatorValue("cdformation")
 @SuperBuilder
 public class CoordinateurFormation extends User{
-    private String Fonction;
+    private String fonction;
 }

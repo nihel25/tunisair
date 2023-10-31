@@ -35,7 +35,7 @@ private PersonnelDTO personnelDTO;
 
     @NotNull
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date datejour = new Date(System.currentTimeMillis());
+    private Date datenew = new Date(System.currentTimeMillis());
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateFin;
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -48,7 +48,7 @@ private PersonnelDTO personnelDTO;
 
         return AttestationDTO.builder()
                 .id(attestation.getId())
-                .datejour(attestation.getDatejour())
+                .datenew(attestation.getDatenew())
 
                 .dateDebut(attestation.getDateDebut())
                 .dateFin(attestation.getDateFin())
@@ -63,7 +63,7 @@ private PersonnelDTO personnelDTO;
 
         return Attestation.builder()
                 .id(dto.getId())
-                .datejour(dto.getDatejour())
+                .datenew(dto.getDatenew())
 
                 .dateDebut(dto.getDateDebut())
                 .dateFin(dto.getDateFin())

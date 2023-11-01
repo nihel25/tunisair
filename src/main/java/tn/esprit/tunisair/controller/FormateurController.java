@@ -31,7 +31,7 @@ public class FormateurController {
     }
 
 
-@Secured({"coordinateurformation","ADMIN"})
+@Secured({"COORDINATEURFORMATION","ADMIN"})
 
     @GetMapping("/recherher/{id}")
     public FormateurDto recherch(@PathVariable Long id) {
@@ -39,7 +39,7 @@ public class FormateurController {
         return formateurService.recherch(id);
     }
 
-    @Secured({"ADMIN","coordinateurformation"} )
+    @Secured({"ADMIN","COORDINATEURFORMATION"} )
 
 
     @GetMapping("/listeformateur")

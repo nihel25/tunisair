@@ -20,13 +20,13 @@ public class StageController {
     StageService stageService;
     @Autowired
     private StageRepository stageRepository;
-    @Secured("recruteur")
+    @Secured("RECRUTEUR")
     @PostMapping("/savestage")
     public ResponseEntity<StageDTO> addstage(@Valid @RequestBody StageDTO stageDTO) {
         StageDTO savestage = stageService.save(stageDTO);
         return new ResponseEntity<>(savestage, HttpStatus.CREATED);
     }
-    @Secured("recruteur")
+    @Secured("RECRUTEUR")
     @GetMapping("/recherher/{id}")
     public StageDTO recherch(@PathVariable Long id) {
 
@@ -35,7 +35,7 @@ public class StageController {
 
 
 
-    @Secured("recruteur")
+    @Secured("RECRUTEUR")
     @DeleteMapping("/supprimer/{id}")
     public void delete(@PathVariable Long id) {
 
@@ -44,7 +44,7 @@ public class StageController {
 
 
 
-    @Secured("recruteur")
+    @Secured("RECRUTEUR")
     @GetMapping("/listestage")
     public List<StageDTO> findAll() {
         return stageService.findAllstage();

@@ -41,7 +41,7 @@ public class DemandeclientController {
 
 
 
-@Secured( "client")
+@Secured( "CLIENT")
     @PostMapping("/savedemande")
     @ResponseBody
     public ResponseEntity<DemandeclientDTO> adddemande(@Valid @RequestBody DemandeclientDTO demandeformation)
@@ -50,7 +50,7 @@ public class DemandeclientController {
         DemandeclientDTO savedemande   = demandeformationclientService.add(demandeformation);
         return new ResponseEntity<>(savedemande, HttpStatus.CREATED);
     }
-    @Secured( "coordinateurformation")
+    @Secured( "COORDINATEURFORMATION")
 
     @GetMapping("/recherher/{id}")
     public DemandeclientDTO recherch(@PathVariable Long id) {
@@ -58,13 +58,13 @@ public class DemandeclientController {
         return demandeformationclientService.recherch(id);
     }
 
-    @Secured( "coordinateurformation")
+    @Secured( "COORDINATEURFORMATION")
     @GetMapping("/listerdemande")
     public List<DemandeclientDTO> liste() {
         return demandeformationclientService.findAlldemandeformation();
 
     }
-    @Secured( "coordinateurformation")
+    @Secured( "COORDINATEURFORMATION")
     @DeleteMapping("/supprimer/{id}")
     public void delete(@PathVariable Long id) {
 

@@ -23,7 +23,7 @@ public class ReclamationController {
     ReclamationServiceImpl reclamationServicee;
 
 
-    @Secured("client")
+    @Secured("CLIENT")
     @PostMapping("/savereclamation")
     public ResponseEntity<ReclamationDTO> ajout(@Valid @RequestBody ReclamationDTO reclamationDTO) {
 
@@ -31,7 +31,7 @@ public class ReclamationController {
         ReclamationDTO reclamationsave = reclamationService.save(reclamationDTO);
         return new ResponseEntity<>(reclamationsave, HttpStatus.CREATED);
     }
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @GetMapping("/recherher/{id}")
     public ReclamationDTO recherch(@PathVariable Long id) {
         return reclamationService.recherch(id);
@@ -40,7 +40,7 @@ public class ReclamationController {
 
 
 
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @GetMapping("/findAllreclamation")
     public List<ReclamationDTO> findAllreclamation() {
 
@@ -48,7 +48,7 @@ public class ReclamationController {
 
     }
 
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id) {
         reclamationServicee.delete(id);

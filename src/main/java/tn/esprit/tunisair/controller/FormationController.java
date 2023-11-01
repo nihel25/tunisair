@@ -33,7 +33,7 @@ public class FormationController {
 
 
 
-   @Secured("coordinateurformation")
+   @Secured("COORDINATEURFORMATION")
     @PostMapping("/addformation")
     public ResponseEntity<FormationDTO> add (@Valid @RequestBody FormationDTO formationDTO) {
         FormationDTO saveformation = formationService.save(formationDTO);
@@ -42,7 +42,7 @@ public class FormationController {
 
 
 
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @GetMapping("/recherher/{id}")
     public FormationDTO recherch(@PathVariable Long id) {
 
@@ -58,27 +58,27 @@ public class FormationController {
 
 
 
-  @Secured("coordinateurformation")
+  @Secured("COORDINATEURFORMATION")
     @DeleteMapping("/supprimer/{id}")
     public void delete(@PathVariable Long id) {
         formationService.delete(id);
     }
 
 
-   @Secured({"coordinateurformation","coordinateurformation"})
+   @Secured({"COORDINATEURFORMATION","COORDINATEURENTREPRISE"})
     @GetMapping("/lister")
     public List<FormationDTO> liste() {
         return formationService.findAllFormation();
     }
 
 
-    @Secured( "coordinateurformation")
+    @Secured( "COORDINATEURFORMATION")
     @PostMapping("/uploadImage/{id}")
     public FormationDTO uploadImagecatalogue(@PathVariable Long id, MultipartFile image) {
         return formationService.uploadImage(id, image);
     }
 
-    @Secured( "coordinateurformation")
+    @Secured( "COORDINATEURFORMATION")
     @GetMapping("/downloadImage/{imageName}")
     public ResponseEntity<Resource> downloadImage(@PathVariable String imageName, HttpServletRequest request) {
         return this.imageStorage.downloadUserImage(imageName, request);

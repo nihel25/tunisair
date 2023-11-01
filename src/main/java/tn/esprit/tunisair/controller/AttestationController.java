@@ -22,7 +22,7 @@ public class AttestationController {
     AttestationService attestationService;
 
 
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @PostMapping("/saveattestation")
     public ResponseEntity<AttestationDTO> ajout(@Valid @RequestBody AttestationDTO attestationDTO) {
         AttestationDTO saveattesation = attestationService.save(attestationDTO);
@@ -30,13 +30,13 @@ public class AttestationController {
     }
 
 
-    @Secured( "coordinateurformation")
+    @Secured( "COORDINATEURFORMATION")
     @GetMapping("/recherher/{id}")
     public AttestationDTO recherch(@PathVariable Long id) {
 
         return attestationService.recherch(id);
     }
-    @Secured( "coordinateurformation")
+    @Secured( "COORDINATEURFORMATION")
     @GetMapping("/listeall")
 
     public List<AttestationDTO> liste() {
@@ -44,7 +44,7 @@ public class AttestationController {
         return attestationService.findAll();
 
     }
-    @Secured( "coordinateurformation")
+    @Secured( "COORDINATEURFORMATION")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id ) {
         attestationService.delete(id);

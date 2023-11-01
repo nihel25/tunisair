@@ -30,7 +30,7 @@ public class SessionController {
     FormateurService  formateurService;
 
 
-     @Secured("coordinateurformation")
+     @Secured("COORDINATEURFORMATION")
     @PostMapping("/ajoutersession")
     public ResponseEntity<String> addsession(@RequestBody SessionDTO sessionDTO) {
         Session session = new Session();
@@ -119,7 +119,7 @@ public class SessionController {
 
 
 
-   @Secured("coordinateurformation")
+   @Secured("COORDINATEURFORMATION")
     @GetMapping("/personnel")
     public ResponseEntity<List<Personnel>> getAllPersonnel() {
         List<Personnel> personnelList = sessionService.getAllPersonnel();
@@ -141,7 +141,7 @@ public class SessionController {
 
 
 
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @GetMapping("/recherher/{id}")
     public SessionDTO recherch(@PathVariable Long id) {
 
@@ -150,14 +150,14 @@ public class SessionController {
 
 
 
-   @Secured("coordinateurformation")
+   @Secured("COORDINATEURFORMATION")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id ) {
         sessionService.delete(id);
     }
 
 
-   @Secured("coordinateurformation")
+   @Secured("COORDINATEURFORMATION")
     @GetMapping("/listesession")
     public List<SessionDTO> findAll() {
         return sessionService.findAllSession();

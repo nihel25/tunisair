@@ -24,7 +24,7 @@ public class AvisController {
     @Autowired
     private SentimentAnalyzer sentimentAnalyzer;
 
-@Secured("client")
+@Secured("CLIENT")
     @PostMapping("/saveavis")
     public ResponseEntity<AvisDto> addavis(@Valid @RequestBody AvisDto avisDto) {
         avisDto.setText( BadWordFilter.getCensoredText(avisDto.getText() ));
@@ -33,7 +33,7 @@ public class AvisController {
     }
 
 
-    @Secured("client")
+    @Secured("CLIENT")
     @GetMapping("/recherher/{id}")
     public AvisDto recherch(@PathVariable Long id) {
 
@@ -42,7 +42,7 @@ public class AvisController {
 
 
 
-@Secured("client")
+@Secured("CLIENT")
     @GetMapping("/analyzeSentiments")
     public SentimentAnalysisResult analyzeSentiments() {
         List<AvisDto> avisList = avisService.findAll();

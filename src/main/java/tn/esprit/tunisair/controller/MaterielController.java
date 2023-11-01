@@ -23,7 +23,7 @@ public class MaterielController {
     MaterielService materielService;
     @Autowired
     MaterielServiceImpl materielServices;
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @PostMapping("/addmateriel")
     public ResponseEntity<MaterielDTO> addmateriel(@Valid @RequestBody MaterielDTO materielDTO) {
         MaterielDTO savemateriel = materielService.save(materielDTO);
@@ -39,20 +39,20 @@ public class MaterielController {
 
 
 
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @GetMapping("/recherher/{id}")
     public MaterielDTO recherch(@PathVariable Long id) {
 
         return materielService.recherch(id);
     }
    // @PreAuthorize("hasAnyRole('coordinateurformation')")
-   @Secured("coordinateurformation")
+   @Secured("COORDINATEURFORMATION")
     @DeleteMapping("/deletemateriel/{id}")
     public void delete(@PathVariable Long id) {
         materielService.delete(id);
     }
-    //@PreAuthorize("hasAnyRole('coordinateurformation')")
-    @Secured("coordinateurformation")
+
+    @Secured("COORDINATEURFORMATION")
     @GetMapping("/listermateriel")
     public List<MaterielDTO> liste() {
         return materielService.findAllreclamation();

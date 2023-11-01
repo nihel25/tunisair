@@ -19,20 +19,8 @@ public class RecreteurDTO extends RegistrationRequest {
     private String specialite;
 
 
-    public static RecreteurDTO fromEntity(Recruteur request) {
-        return RecreteurDTO.builder()
-                .fullname(request.getFullname())
-                .email(request.getEmail())
-                .password(request.getPassword())
-                .adresse(request.getAdresse())
-                .telephone(request.getTelephone())
-                .cin(request.getCin())
-                .prenom(request.getPrenom())
-                .specialite(request.getSpecialite())
-                .build();
 
 
-    }
 
 
     public static Recruteur toentity(RecreteurDTO request) {

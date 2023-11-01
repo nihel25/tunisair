@@ -40,7 +40,7 @@ public class EncadreurController {
 
 
 
-    @Secured({"ADMIN","recruteur"})
+    @Secured({"ADMIN","RECRUTEUR"})
     @GetMapping("/lister")
     public List<EncadreurDTO> liste() {
 

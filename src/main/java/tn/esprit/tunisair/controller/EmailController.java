@@ -21,7 +21,7 @@ public class EmailController {
         this.emailSenderService = emailSenderService;
     }
 
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @PostMapping("/send-email")
     public ResponseEntity sendEmail(@RequestBody EmailMessage emailMessage) {
         this.emailSenderService.sendEmail(emailMessage.getTo(), emailMessage.getSubject(), emailMessage.getMessage());

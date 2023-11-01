@@ -9,7 +9,7 @@ import tn.esprit.tunisair.entity.Formation;
 public interface FormationRepository extends JpaRepository<Formation,Long> {
 
 
-    boolean existsByRef(String ref);
+
 
 
 

@@ -25,7 +25,7 @@ public class CertificatController {
 
 
 
- @Secured( "recruteur")
+ @Secured( "RECRUTEUR")
     @PostMapping("/savecertif")
     public ResponseEntity<CertificatDTO> save (@Valid @RequestBody CertificatDTO certificatDTO) {
         CertificatDTO savecertif = certificatService.save(certificatDTO);
@@ -33,13 +33,13 @@ public class CertificatController {
     }
 
 
-   @Secured( "recruteur")
+   @Secured( "RECRUTEUR")
     @GetMapping("/recherher/{id}")
     public CertificatDTO recherch(@PathVariable Long id) {
 
         return certificatService.recherch(id);
     }
-    @Secured( "recruteur")
+    @Secured( "RECRUTEUR")
     @GetMapping("/listecertificat")
 
     public List<CertificatDTO> liste() {
@@ -47,7 +47,7 @@ public class CertificatController {
         return certificatService.findAll();
 
     }
-    @Secured( "recruteur")
+    @Secured( "RECRUTEUR")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id ) {
         certificatService.delete(id);

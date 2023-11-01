@@ -18,14 +18,14 @@ public class StagiaireController {
     @Autowired
     StagiaireService stagiaireService;
 
-    @Secured("recruteur")
+    @Secured("RECRUTEUR")
 
     @PostMapping("/saveOrUpdate")
     public ResponseEntity<StagiaireDTO> addstagiaire(@Valid @RequestBody StagiaireDTO stagiaireDTO) {
         StagiaireDTO savestagiaire = stagiaireService.save(stagiaireDTO);
         return new ResponseEntity<>(savestagiaire, HttpStatus.CREATED);
     }
-    @Secured("recruteur")
+    @Secured("RECRUTEUR")
     @GetMapping("/recherher/{id}")
     public StagiaireDTO recherch(@PathVariable Long id) {
 
@@ -35,13 +35,13 @@ public class StagiaireController {
 
 
 
-    @Secured("recruteur")
+    @Secured("RECRUTEUR")
     @DeleteMapping("/supprimer/{id}")
     public void delete(@PathVariable Long id) {
 
         stagiaireService.delete(id);
     }
-    @Secured("recruteur")
+    @Secured("RECRUTEUR")
     @GetMapping("/listerstagiaire")
     public List<StagiaireDTO> liste() {
 

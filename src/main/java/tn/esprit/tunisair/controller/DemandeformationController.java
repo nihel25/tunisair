@@ -24,7 +24,7 @@ public class DemandeformationController {
     private DemandeformationServiceImpl demandeFormationService;
 
 
-    @Secured("coordinateurentreprise")
+    @Secured("COORDINATEURENTREPRISE")
 
     @PostMapping("/demande")
     public ResponseEntity<String> envoyerDemandeFormation(@RequestBody DemandeFormationDTO demandeFormationDTO) {
@@ -65,7 +65,7 @@ public class DemandeformationController {
     }
 
 
-    @Secured({"coordinateurformation", "coordinateurentreprise"})
+    @Secured({"COORDINATEURFORMATION", "COORDINATEURENTREPRISE"})
     @GetMapping("/personnel")
     public ResponseEntity<List<Personnel>> getAllPersonnel() {
         List<Personnel> personnelList = demandeFormationService.getAllPersonnel();
@@ -73,7 +73,7 @@ public class DemandeformationController {
     }
 
     //
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @DeleteMapping("/supprimer/{id}")
     public void delete(@PathVariable Long id) {
 
@@ -81,14 +81,14 @@ public class DemandeformationController {
     }
 
 
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @GetMapping("/alldemande")
     public List<DemandeFormationDTO> getAllDemandeFormations() {
 
         return demandeFormationService.findAllDemandes();
     }
 
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
     @GetMapping("/recherher/{id}")
     public DemandeFormationDTO recherch(@PathVariable Long id) {
 

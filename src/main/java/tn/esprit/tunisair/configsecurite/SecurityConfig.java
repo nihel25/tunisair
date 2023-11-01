@@ -1,6 +1,5 @@
 package tn.esprit.tunisair.configsecurite;
 
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -20,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import tn.esprit.tunisair.entity.UserRole;
 import tn.esprit.tunisair.repository.UserRepository;
 
 import javax.persistence.EntityNotFoundException;
@@ -72,7 +72,6 @@ public class SecurityConfig {
 
 
 
-                .antMatchers(HttpMethod.GET, "Materiel/session/{sessionId}").hasRole("coordinateurformation")
 
 
 
@@ -90,23 +89,24 @@ public class SecurityConfig {
 
 
 
-//admin formateur
+//a
 
-                .antMatchers(HttpMethod.GET, "formateur/listeformateur", "/lister", "Option/lister").hasRole("ADMIN")
-                .antMatchers(HttpMethod.DELETE, "/api/v1/auth/delete/{id}", "formateur/supprimer/{id}", "encadreursatge/supprimer/{id}").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "formateur/saveformateur", "encadreursatge/saveencadreur", "/save", "Option/ajouteroption").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "formateur/listeformateur", "/lister", "Option/lister").hasRole(UserRole.ADMIN.name())
+                .antMatchers(HttpMethod.DELETE, "/api/v1/auth/delete/{id}", "formateur/supprimer/{id}", "encadreursatge/supprimer/{id}").hasRole(UserRole.ADMIN.name())
+                .antMatchers(HttpMethod.POST, "formateur/saveformateur", "encadreursatge/saveencadreur", "/save", "Option/ajouteroption").hasRole(UserRole.ADMIN.name())
 
 ////////////////////////////////////////////////////////////kafka
 
                 ///client envoyer reclamation
 
-                .antMatchers(HttpMethod.GET, "/stagiaire/listerstagiaire", "/recherher/{id}", "/listecertificat", "/stage/listestage").hasRole("recruteur")
-                .antMatchers(HttpMethod.DELETE, "/stagiaire/supprimer/{id}", "/delete/{id}", "/stage/supprimer/{id}").hasRole("recruteur")
-                .antMatchers(HttpMethod.POST, "/stagiaire/saveOrUpdate", "/savecertif", "/savestage").hasRole("recruteur")
+                .antMatchers(HttpMethod.GET, "/stagiaire/listerstagiaire", "/recherher/{id}", "/listecertificat", "/stage/listestage").hasRole(UserRole.RECRUTEUR.name())
+                .antMatchers(HttpMethod.DELETE, "/stagiaire/supprimer/{id}", "/delete/{id}", "/stage/supprimer/{id}").hasRole(UserRole.RECRUTEUR.name())
+                .antMatchers(HttpMethod.POST, "/stagiaire/saveOrUpdate", "/savecertif", "/savestage").hasRole(UserRole.RECRUTEUR.name())
 
-                .antMatchers(HttpMethod.GET, "/lister", "profil/user-profiles", "listersalle", "/recherher/{id}", "formation/recherher/{id}", "avis/recherher/{id}", "listesession", "formation/lister", "listermateriel").hasRole("coordinateurformation")
-                .antMatchers(HttpMethod.POST, "DemandeFormationclient/saveOrUpdate", "addsalle", "addformation", "email/send-email", "addmateriel").hasRole("coordinateurformation")
-                .antMatchers(HttpMethod.DELETE, "/supprimer/{id}", "/delete/{id}", "/deletemateriel/{id}").hasRole("coordinateurformation")
+                .antMatchers(HttpMethod.GET, "Materiel/session/{sessionId}").hasRole(UserRole.COORDINATEURFORMATION.name())
+                .antMatchers(HttpMethod.GET, "/lister", "profil/user-profiles", "listersalle", "/recherher/{id}", "formation/recherher/{id}", "avis/recherher/{id}", "listesession", "formation/lister", "listermateriel").hasRole(UserRole.COORDINATEURFORMATION.name())
+                .antMatchers(HttpMethod.POST, "DemandeFormationclient/saveOrUpdate", "addsalle", "addformation", "email/send-email", "addmateriel").hasRole(UserRole.COORDINATEURFORMATION.name())
+                .antMatchers(HttpMethod.DELETE, "/supprimer/{id}", "/delete/{id}", "/deletemateriel/{id}").hasRole(UserRole.COORDINATEURFORMATION.name())
 
 
 
@@ -114,21 +114,21 @@ public class SecurityConfig {
 
 
 //////consulter reclamation
-                .antMatchers(HttpMethod.POST, "Reclamation/saveOrUpdate").hasRole("client")
-                .antMatchers(HttpMethod.POST, "api/payment").hasRole("client")
+                .antMatchers(HttpMethod.POST, "Reclamation/saveOrUpdate",
+                        "api/payment",
+                        "avis/saveOrUpdate",
+                        "avis/saveavis").hasRole("client")
+                .antMatchers(HttpMethod.GET, "avis/analyzeSentiments",
+                        "formation/formationbydateandtype",
+                        "avis/recherher/{id}",
+                        "/findAllreclamation").hasRole("client")
 
-                .antMatchers(HttpMethod.POST, "avis/saveOrUpdate").hasRole("client")
-                .antMatchers(HttpMethod.GET, "avis/analyzeSentiments").hasRole("client")
-                .antMatchers(HttpMethod.GET, "formation/formationbydateandtype").hasRole("client")
-                .antMatchers(HttpMethod.POST  ,"avis/saveavis").hasRole("client")
-                .antMatchers(HttpMethod.GET  ,"avis/recherher/{id}").hasRole("client")
-                .antMatchers(HttpMethod.GET  ,"/findAllreclamation").hasRole("client")
 
 ////cordinateur entreprise personnel
 
-                .antMatchers(HttpMethod.GET, "/Personnel/personnel", "findAllcatalogue").hasRole("coordinateurentreprise")
-                .antMatchers(HttpMethod.POST, "profil/profiluser", "Personnel/saveOrUpdate", "Personnel/charger-csv").hasRole("coordinateurentreprise")
-                .antMatchers(HttpMethod.DELETE, "/Personnel/delete/{id}").hasRole("coordinateurentreprise")
+                .antMatchers(HttpMethod.GET, "/Personnel/personnel", "findAllcatalogue").hasRole(UserRole.COORDINATEURENTREPRISE.name())
+                .antMatchers(HttpMethod.POST, "profil/profiluser", "Personnel/saveOrUpdate", "Personnel/charger-csv").hasRole(UserRole.COORDINATEURENTREPRISE.name())
+                .antMatchers(HttpMethod.DELETE, "/Personnel/delete/{id}").hasRole(UserRole.COORDINATEURENTREPRISE.name())
 
 
                 .anyRequest()

@@ -23,7 +23,7 @@ public class PersonnelleController {
     PersonnelleService personnelleService;
 
 
-    @Secured("coordinateurentreprise")
+    @Secured("COORDINATEURENTREPRISE")
     @PostMapping("/saveOrUpdate")
     public ResponseEntity<PersonnelDTO> add(@Valid @RequestBody PersonnelDTO personneldto) {
         PersonnelDTO savepersonnelle = personnelleService.save(personneldto);
@@ -33,7 +33,7 @@ public class PersonnelleController {
 
 
 
-    @Secured("coordinateurentreprise")
+    @Secured("COORDINATEURENTREPRISE")
 
     @PostMapping(value = "/charger-csv", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public String chargerCSV(@RequestPart("fichier") MultipartFile fichierCSV) {
@@ -48,7 +48,7 @@ public class PersonnelleController {
 
 
 
-    @Secured("coordinateurentreprise")
+    @Secured("COORDINATEURENTREPRISE")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id ) {
         personnelleService.delete(id);
@@ -57,7 +57,7 @@ public class PersonnelleController {
 
 
 
-@Secured({"coordinateurentreprise","coordinateurformation"})
+@Secured({"COORDINATEURENTREPRISE","COORDINATEURFORMATION"})
     @GetMapping("/recherher/{id}")
     public PersonnelDTO recherch(@PathVariable Long id) {
 

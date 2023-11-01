@@ -18,7 +18,7 @@ import java.util.Map;
 public class StripeController {
 
     private static Gson gson = new Gson();
-@Secured("client")
+@Secured("CLIENT")
     @PostMapping("/payment")
     /**
      * Payment with Stripe checkout page

@@ -22,7 +22,7 @@ public class ProfiluserController {
     UserProfileService userProfileService;
 
 
-    @Secured("coordinateurentreprise")
+    @Secured("COORDINATEURENTREPRISE")
 
     @PostMapping(value = "/profiluser", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public String chargerCSV(@RequestPart("fichier") MultipartFile fichierCSV) {
@@ -31,7 +31,7 @@ public class ProfiluserController {
     }
 
 
-    @Secured("coordinateurformation")
+    @Secured("COORDINATEURFORMATION")
 
     @GetMapping("/user-profiles")
     public List<UserProfile> getAllUserProfiles() {

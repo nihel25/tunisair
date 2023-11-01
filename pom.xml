@@ -185,12 +185,6 @@
 	</dependency>
 
 
-		<dependency>
-			<groupId>org.sonarsource.scanner.maven</groupId>
-			<artifactId>sonar-maven-plugin</artifactId>
-			<version>3.9.0.2155</version> <!-- Assurez-vous de spécifier la version la plus récente du scanner SonarQube -->
-			<scope>verify</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -199,14 +193,10 @@
 		</dependency>
 
 
-			<!-- ... Autres dépendances ... -->
-			<dependency>
-				<groupId>org.jacoco</groupId>
-				<artifactId>org.jacoco.agent</artifactId>
-				<version>0.8.7</version> <!-- Assurez-vous de spécifier la version la plus récente de JaCoCo -->
-				<scope>test</scope>
-			</dependency>
-			<!-- ... Autres dépendances ... -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+		</dependency>
 		</dependencies>
 
 

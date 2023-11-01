@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,7 @@ import java.util.List;
     @DiscriminatorValue("stagaire")
 
     @SuperBuilder
-    public class Stagiaire {
+    public class Stagiaire implements Serializable {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)

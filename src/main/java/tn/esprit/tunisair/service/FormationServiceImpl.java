@@ -55,11 +55,18 @@ public class FormationServiceImpl implements FormationService{
 
     public ResponseEntity<Formation> findbyId(Long id) {
         if (id == null) {
-
-            return null;
+            return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(formationRepository.findById(id).get());
+
+        Optional<Formation> formationOptional = formationRepository.findById(id);
+
+        if (formationOptional.isPresent()) {
+            return ResponseEntity.ok(formationOptional.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
+
 
 
     @Override

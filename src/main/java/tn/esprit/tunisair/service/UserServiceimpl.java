@@ -55,7 +55,7 @@ public class UserServiceimpl implements UserService {
 
         if (request instanceof CoordinateurEntrepriseDTO) {
 
-            user = CoordinateurEntrepriseDTO.toentity((CoordinateurEntrepriseDTO) request);
+            user = CoordinateurEntrepriseDTO.toEntity((CoordinateurEntrepriseDTO) request);
             user.setRole(UserRole.COORDINATEURENTREPRISE);
         }
         if (request instanceof RecreteurDTO) {
@@ -133,23 +133,33 @@ public class UserServiceimpl implements UserService {
 
 
 
-    //
-   @Override
+    @Override
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
-        final User user = userRepository.findByEmail(request.getEmail()).get();
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("userId", user.getId()); // optional
-        claims.put("fullName", user.getFullname()); // optional
-       claims.put("prenom", user.getPrenom());
-       claims.put("email", user.getEmail());
-        // generate a JWT token
-        String token = jwtUtils.generateToken(user, claims);
-        return AuthenticationResponse.builder()
-                .token(token)
-                .build();
+
+        Optional<User> userOptional = userRepository.findByEmail(request.getEmail());
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            Map<String, Object> claims = new HashMap<>();
+            claims.put("userId", user.getId()); // facultatif
+            claims.put("fullName", user.getFullname()); // facultatif
+            claims.put("prenom", user.getPrenom());
+            claims.put("email", user.getEmail());
+            // générer un jeton JWT
+            String token = jwtUtils.generateToken(user, claims);
+            return AuthenticationResponse.builder()
+                    .token(token)
+                    .build();
+        } else {
+            // Gérer le cas où l'utilisateur n'a pas été trouvé
+            // Par exemple, renvoyer une réponse d'erreur
+            return AuthenticationResponse.builder()
+
+                    .build();
+        }
     }
 
 

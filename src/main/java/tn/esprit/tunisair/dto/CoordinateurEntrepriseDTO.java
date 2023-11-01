@@ -22,7 +22,7 @@ public class CoordinateurEntrepriseDTO extends RegistrationRequest {
     private String fonctions;
 
 
-    public static CoordinateurEntreprise toentity(CoordinateurEntrepriseDTO request) {
+    public static CoordinateurEntreprise toEntity(CoordinateurEntrepriseDTO request) {
         return CoordinateurEntreprise.builder()
                 .fullname(request.getFullname())
                 .email(request.getEmail())

@@ -23,7 +23,7 @@ public class CoordinateurFormationDTO extends RegistrationRequest {
 
 
 
-    public static CoordinateurFormation toEntity(CoordinateurFormationDTO request) {
+    public static CoordinateurFormation toentity(CoordinateurFormationDTO request) {
         return CoordinateurFormation.builder()
                 .fullname(request.getFullname())
                 .email(request.getEmail())

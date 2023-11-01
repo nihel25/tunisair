@@ -29,11 +29,11 @@ public class BadWordFilter {
         String modifiedInput = input;
 
         // remove leetspeak
-        modifiedInput = modifiedInput.replaceAll("1", "i").replaceAll("!", "i").replaceAll("3", "e").replaceAll("4", "a")
-                .replaceAll("@", "a").replaceAll("5", "s").replaceAll("7", "t").replaceAll("0", "o").replaceAll("9", "g");
+        modifiedInput = modifiedInput.replace("1", "i").replace("!", "i").replace("3", "e").replace("4", "a")
+                .replace("@", "a").replace("5", "s").replace("7", "t").replace("0", "o").replace("9", "g");
 
         // ignore any character that is not a letter
-        modifiedInput = modifiedInput.toLowerCase().replaceAll("[^a-zA-Z]", "");
+        modifiedInput = modifiedInput.toLowerCase().replace("[^a-zA-Z]", "");
 
         ArrayList<String> badWordsFound = new ArrayList<>();
 
@@ -114,7 +114,7 @@ public class BadWordFilter {
                     }
 
                     // Make sure there are no capital letters in the spreadsheet
-                    allBadWords.put(word.replaceAll(" ", "").toLowerCase(), ignore_in_combination_with_words);
+                    allBadWords.put(word.replace(" ", "").toLowerCase(), ignore_in_combination_with_words);
                 } catch (Exception except) {
                 }
             } // end while

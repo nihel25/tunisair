@@ -57,13 +57,13 @@ public class UserServiceimpl implements UserService {
         if (request instanceof CoordinateurEntrepriseDTO) {
             user = new CoordinateurEntreprise();
             user = CoordinateurEntrepriseDTO.toentity((CoordinateurEntrepriseDTO) request);
-            user.setRole(UserRole.coordinateurentreprise);
+            user.setRole(UserRole.COORDINATEURENTREPRISE);
         }
         if (request instanceof RecreteurDTO) {
             user = new Recruteur();
 
             user = RecreteurDTO.toentity((RecreteurDTO) request);
-            user.setRole(UserRole.recruteur);
+            user.setRole(UserRole.RECRUTEUR);
         }
 
 
@@ -78,12 +78,12 @@ public class UserServiceimpl implements UserService {
         if (request instanceof CoordinateurFormationDTO) {
             user = new CoordinateurFormation();
             user = CoordinateurFormationDTO.toEntity((CoordinateurFormationDTO) request);
-            user.setRole(UserRole.coordinateurformation);
+            user.setRole(UserRole.COORDINATEURFORMATION);
         }
       if (request instanceof ClientDTO) {
             user = new Client();
           user = ClientDTO.toEntity((ClientDTO) request);
-          user.setRole(UserRole.client);
+          user.setRole(UserRole.CLIENT);
       }
 
 

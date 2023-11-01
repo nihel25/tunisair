@@ -28,10 +28,10 @@ public class StageServiceIpm implements StageService{
     @Override
     public StageDTO save(StageDTO stagedto) {
 
-        Stage stage=stagedto.toEntity(stagedto);
+        Stage stage= StageDTO.toEntity(stagedto);
         stageRepository.save(stage);
-        StageDTO savestage=stagedto.fromEntity(stage);
-        return savestage;
+       return StageDTO.fromEntity(stage);
+
 
     }
 

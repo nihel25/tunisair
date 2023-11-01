@@ -27,10 +27,10 @@ private StageRepository stageRepository;
     @Override
     public StagiaireDTO save(StagiaireDTO stagiaireDTO) {
 
-        Stagiaire stagiaire=stagiaireDTO.toEntity(stagiaireDTO);
+        Stagiaire stagiaire=StagiaireDTO.toEntity(stagiaireDTO);
         stagiaireRepository.save(stagiaire);
-        StagiaireDTO stagiairesave=stagiaireDTO.fromEntity(stagiaire);
-        return stagiairesave;
+        return  StagiaireDTO.fromEntity(stagiaire);
+
 
     }
 

@@ -20,6 +20,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>3.0.4</version>
 		</dependency>
 
 
@@ -39,6 +40,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
+			<version>3.0.4</version>
 			<optional>true</optional>
 		</dependency>
 
@@ -59,11 +61,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+			<version>3.0.4</version>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
@@ -75,11 +79,13 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<version>1.18.26</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<version>3.1.0</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -90,7 +96,7 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.6.9</version>
+			<version>1.6.15</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -105,6 +111,7 @@
 		<groupId>org.springframework.boot</groupId>
 
 		<artifactId>spring-boot-starter-security</artifactId>
+		<version>3.0.4</version>
 
 	</dependency>
 
@@ -116,7 +123,7 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>5.0.0</version>
+			<version>5.2.2</version>
 		</dependency>
 
 		<dependency>
@@ -134,7 +141,7 @@
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<version>2.8.8</version>
+			<version>2.10.1</version>
 		</dependency>
 
 
@@ -154,7 +161,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
-			<version>2.7.9</version>
+			<version>3.0.4</version>
 		</dependency>
 
 
@@ -162,6 +169,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
+			<version>3.0.4</version>
 		</dependency>
 
 
@@ -173,6 +181,7 @@
 		<groupId>org.springframework.security</groupId>
 
 		<artifactId>spring-security-test</artifactId>
+		<version>6.0.2</version>
 
 		<scope>test</scope>
 
@@ -183,13 +192,14 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-csv</artifactId>
-			<version>1.9.0</version>
+			<version>1.10.0</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
+			<version>5.2.0</version>
 		</dependency>
 		</dependencies>
 

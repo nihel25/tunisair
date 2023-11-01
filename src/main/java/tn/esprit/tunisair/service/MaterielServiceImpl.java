@@ -41,10 +41,10 @@ public class MaterielServiceImpl implements MaterielService{
     public MaterielDTO save(MaterielDTO materielDTO) {
 
 
-        Materiel materiel=materielDTO.toentity(materielDTO);
+        Materiel materiel=MaterielDTO.toentity(materielDTO);
         materielRepository.save(materiel);
-        MaterielDTO materielsave=materielDTO.fromentity(materiel);
-        return materielsave;
+        return MaterielDTO.fromentity(materiel);
+
 
     }
 

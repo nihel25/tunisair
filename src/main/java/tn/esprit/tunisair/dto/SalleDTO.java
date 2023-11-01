@@ -29,9 +29,7 @@ public class SalleDTO {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateFin;
-    private boolean isSalleDisponible(SalleDTO salleDTO) {
-        return salleDTO.isStatut();  // Renvoie true si la salle est disponible (statut est true)
-    }
+
     public boolean isStatut() {
         return statut;
     }

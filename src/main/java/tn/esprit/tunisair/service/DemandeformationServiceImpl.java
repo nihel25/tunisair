@@ -87,19 +87,13 @@ public class DemandeformationServiceImpl implements DemandeformationService{
 
 
 
+
     @Override
     public DemandeFormationDTO add(DemandeFormationDTO demandes) {
-
-
-
-        Demandeformation demande=demandes.toEntity(demandes);
-
-
+        Demandeformation demande = DemandeFormationDTO.toEntity(demandes);
         demandeformationRepository.save(demande);
-        DemandeFormationDTO savedemande=demandes.fromEntity(demande);
-        return savedemande;
+        return DemandeFormationDTO.fromEntity(demande);
     }
-
     @Override
     public void delete(Long id) {
 

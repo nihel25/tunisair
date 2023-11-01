@@ -42,15 +42,15 @@ public class FormationServiceImpl implements FormationService{
 
 
 
-        Formation formation = formationDTO.toEntity(formationDTO);
+        Formation formation = FormationDTO.toEntity(formationDTO);
 
         if (formation.getFormateur() == null) {
             throw new IllegalArgumentException("Formateur is required for saving a formation.");
         }
 
         formationRepository.save(formation);
-        FormationDTO DTOsaved = FormationDTO.fromEntity(formation);
-        return DTOsaved;
+       return FormationDTO.fromEntity(formation);
+
     }
 
     public ResponseEntity<Formation> findbyId(Long id) {

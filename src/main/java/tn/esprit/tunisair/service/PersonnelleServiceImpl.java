@@ -44,9 +44,6 @@ public class PersonnelleServiceImpl implements PersonnelleService{
                     personnel.setFonction(fonction);
 
                     personnelRepository.save(personnel);
-                } else {
-
-                    System.out.println("Invalid line format: " + ligne);
                 }
             }
         } catch (IOException e) {
@@ -90,8 +87,8 @@ public class PersonnelleServiceImpl implements PersonnelleService{
     public PersonnelDTO save(PersonnelDTO personnelDTO) {
         Personnel personnel = PersonnelDTO.toentity(personnelDTO);
         personnelRepository.save(personnel);
-        PersonnelDTO personneldto = PersonnelDTO.fromentity(personnel);
-        return personneldto;
+        return  PersonnelDTO.fromentity(personnel);
+
 
     }
 }

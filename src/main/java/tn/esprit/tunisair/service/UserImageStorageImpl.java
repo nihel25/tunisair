@@ -7,7 +7,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.FileSystemUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,7 +17,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.stream.Stream;
 
 @Service("UserImageStorageImpl")
 public class UserImageStorageImpl implements ImageStorage {
@@ -66,28 +64,10 @@ public class UserImageStorageImpl implements ImageStorage {
         }
     }
 
-    @Override
-    public void deleteAll() {
-        FileSystemUtils.deleteRecursively(imageLocation.toFile());
-    }
 
-    @Override
-    public void init() {
-        try {
-            Files.createDirectories(imageLocation);
-        } catch (IOException e) {
-            throw new RuntimeException("Could not initialize storage");
-        }
-    }
 
-    @Override
-    public Stream<Path> loadFiles() {
-        try {
-            return Files.walk(this.imageLocation, 1).filter(item -> !item.equals(this.imageLocation)).map(this.imageLocation::relativize);
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to read stored images");
-        }
-    }
+
+
 
     @Override
     public ResponseEntity<Resource> downloadUserImage(String imageName, HttpServletRequest request) {

@@ -36,12 +36,12 @@ UserService userService;
 
 
 
-        Demandeclient demande=demandeclient.toEntity(demandeclient);
+        Demandeclient demande=DemandeclientDTO.toEntity(demandeclient);
 
 
         demandeclientRepository.save(demande);
-        DemandeclientDTO savedemandeclient=demandeclient.fromEntity(demande);
-        return savedemandeclient;
+        return DemandeclientDTO.fromEntity(demande);
+
     }
 
     @Override

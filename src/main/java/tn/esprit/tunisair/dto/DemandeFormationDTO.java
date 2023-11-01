@@ -27,15 +27,15 @@ public class DemandeFormationDTO {
     private String valid;
 
     private FormationDTO formationdto;
-    public static DemandeFormationDTO fromEntity(Demandeformation demandeformation){
+    public static DemandeFormationDTO fromEntity(Demandeformation demandes){
         return DemandeFormationDTO.builder()
-                .id(demandeformation.getId())
-                .nbrpersonnelle(demandeformation.getNbrpersonnelle())
+                .id(demandes.getId())
+                .nbrpersonnelle(demandes.getNbrpersonnelle())
 
-                .dateCreation(demandeformation.getDateCreation())
-                .valid(demandeformation.getValid())
+                .dateCreation(demandes.getDateCreation())
+                .valid(demandes.getValid())
 
-                .formationdto(FormationDTO.fromEntity(demandeformation.getFormation()))
+                .formationdto(FormationDTO.fromEntity(demandes.getFormation()))
 
                 .build();
     }

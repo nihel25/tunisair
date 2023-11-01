@@ -45,10 +45,10 @@ ReclamationRepository reclamationRepository;
 
 @Override
 public ReclamationDTO save(ReclamationDTO reclamationDTO) {
-    Reclamation reclamation=reclamationDTO.toentity(reclamationDTO);
+    Reclamation reclamation=ReclamationDTO.toentity(reclamationDTO);
     reclamationRepository.save(reclamation);
-    ReclamationDTO encadreurDTOsaved=reclamationDTO.fromEntity(reclamation);
-    return encadreurDTOsaved;
+    return ReclamationDTO.fromEntity(reclamation);
+
 }
     @Override
     //

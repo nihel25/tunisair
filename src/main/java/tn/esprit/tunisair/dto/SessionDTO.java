@@ -36,7 +36,7 @@ public class SessionDTO {
 private FormationDTO formationDTO;
 public SalleDTO salleDTO;
 
-public UserDTO userDTO;
+
 private FormateurDto formateurDto;
     private List<PersonnelDTO> personnelList;
     public static SessionDTO fromentity(Session session){

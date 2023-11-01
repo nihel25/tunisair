@@ -37,10 +37,10 @@ SpecialiteeRepository specialiteeRepository;
     @Override
     public FormateurDto save(FormateurDto formateurDto) {
 
-        Formateur formateur=formateurDto.toentity(formateurDto);
+        Formateur formateur=FormateurDto.toentity(formateurDto);
         formateurRepository.save(formateur);
-        FormateurDto saveformateur=formateurDto.fromentity(formateur);
-        return saveformateur;
+       return FormateurDto.fromentity(formateur);
+
 
     }
 

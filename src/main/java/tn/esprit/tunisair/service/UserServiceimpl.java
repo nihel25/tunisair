@@ -12,11 +12,10 @@ import tn.esprit.tunisair.authrequestresponse.AuthenticationResponse;
 import tn.esprit.tunisair.authrequestresponse.RegistrationRequest;
 import tn.esprit.tunisair.configsecurite.JwtUtils;
 import tn.esprit.tunisair.dto.*;
+import tn.esprit.tunisair.entity.*;
 import tn.esprit.tunisair.repository.AdminRepository;
 import tn.esprit.tunisair.repository.UserRepository;
-import tn.esprit.tunisair.entity.*;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +42,7 @@ public class UserServiceimpl implements UserService {
 
     @Override
     public void delete(Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id + " not found"));
+
         userRepository.deleteById(id);
     }
 
@@ -55,12 +54,12 @@ public class UserServiceimpl implements UserService {
         User user = new User();
 
         if (request instanceof CoordinateurEntrepriseDTO) {
-            user = new CoordinateurEntreprise();
+
             user = CoordinateurEntrepriseDTO.toentity((CoordinateurEntrepriseDTO) request);
             user.setRole(UserRole.COORDINATEURENTREPRISE);
         }
         if (request instanceof RecreteurDTO) {
-            user = new Recruteur();
+
 
             user = RecreteurDTO.toentity((RecreteurDTO) request);
             user.setRole(UserRole.RECRUTEUR);
@@ -68,7 +67,7 @@ public class UserServiceimpl implements UserService {
 
 
         if (request instanceof AdminDTO) {
-            user = new Admin();
+
 
             user = AdminDTO.toEntity((AdminDTO) request);
             user.setRole(UserRole.ADMIN);
@@ -76,12 +75,12 @@ public class UserServiceimpl implements UserService {
 
 
         if (request instanceof CoordinateurFormationDTO) {
-            user = new CoordinateurFormation();
+
             user = CoordinateurFormationDTO.toEntity((CoordinateurFormationDTO) request);
             user.setRole(UserRole.COORDINATEURFORMATION);
         }
       if (request instanceof ClientDTO) {
-            user = new Client();
+
           user = ClientDTO.toEntity((ClientDTO) request);
           user.setRole(UserRole.CLIENT);
       }
@@ -96,7 +95,7 @@ public class UserServiceimpl implements UserService {
         claims.put("fullName", savedUser.getFullname()); // optional
         claims.put("prenom", savedUser.getPrenom());
         claims.put("email", savedUser.getEmail());
-       // generate a JWT token
+
         String token = jwtUtils.generateToken(savedUser, claims);
         return AuthenticationResponse.builder()
                 .token(token)

@@ -142,18 +142,7 @@ public class StagiaireServiceTest {
 
 
 
-//    @Test
-//    public void testRecherch_Echec_IdInexistant() {
-//        when(stagiaireRepository.findById(8L)).thenReturn(Optional.empty());
-//
-//
-//        StagiaireDTO foundStageDTO = stagiaireServiceImp.recherch(8L);
-//        assertNotNull(foundStageDTO);
-//
-//
-  //       Vérifications
-//
-//    }
+
     @Test
     public void testFindAllstagiaire() {
         Stagiaire stagiaire = new Stagiaire();

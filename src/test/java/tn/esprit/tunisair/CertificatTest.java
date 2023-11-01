@@ -103,9 +103,9 @@ public class CertificatTest {
         encadreurDTO.setEmail("akrem@gmail.com");
 certificat.setEncadreur(encadreur);
         when(certificatRepository.findById(1L)).thenReturn(Optional.of(certificat));
-        CertificatDTO foundStageDTO = certificatService.recherch(2L);
+        CertificatDTO certificatDTO = certificatService.recherch(2L);
 
-
+        assertNotNull(certificatDTO);
 
 
     }

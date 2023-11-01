@@ -61,6 +61,13 @@ public class FormateurTest {
     }
 
 
+    @Test
+    public void testDelete() {
+        Long certifid = 15L;
+        doNothing().when(formateurRepository).deleteById(certifid);
+        formateurService.delete(certifid);
+        verify(formateurRepository, times(1)).deleteById(certifid);
+    }
 
 
     @Test

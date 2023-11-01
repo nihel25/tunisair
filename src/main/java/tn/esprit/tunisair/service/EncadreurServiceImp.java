@@ -16,21 +16,19 @@ public class EncadreurServiceImp implements EncadreurService{
     EncadreurRepository encadreurRepository;
 
 
-private EncadreurDTO encadreurDTO;
 
 
 
 
 
-//
+
+
     @Override
     public EncadreurDTO save(EncadreurDTO encadreurDTO) {
 
-        Encadreur encadreur=encadreurDTO.toEntity(encadreurDTO);
+        Encadreur encadreur = EncadreurDTO.toEntity(encadreurDTO);
         encadreurRepository.save(encadreur);
-        EncadreurDTO encadreursaved=encadreurDTO.fromEntity(encadreur);
-        return encadreursaved;
-
+        return EncadreurDTO.fromEntity(encadreur);
     }
 
 
@@ -56,7 +54,7 @@ private EncadreurDTO encadreurDTO;
         Optional<Encadreur> optionalEncadreur =encadreurRepository.findById(id);
         if (optionalEncadreur.isPresent()) {
             Encadreur encadreur=optionalEncadreur.get();
-            return encadreurDTO.fromEntity(encadreur);
+            return EncadreurDTO.fromEntity(encadreur);
         }
         else
         {

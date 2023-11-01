@@ -6,13 +6,12 @@ import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.DemandeFormationDTO;
 import tn.esprit.tunisair.dto.FormationDTO;
 import tn.esprit.tunisair.dto.PersonnelDTO;
+import tn.esprit.tunisair.entity.Demandeformation;
+import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.repository.DemandeformationRepository;
 import tn.esprit.tunisair.repository.PersonnelRepository;
 import tn.esprit.tunisair.repository.UserRepository;
-import tn.esprit.tunisair.entity.Demandeformation;
-import tn.esprit.tunisair.entity.Personnel;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -103,7 +102,7 @@ public class DemandeformationServiceImpl implements DemandeformationService{
 
     @Override
     public void delete(Long id) {
-        Demandeformation demandeformation = demandeformationRepository.findById(id).orElseThrow(()->new EntityNotFoundException(id+" not found"));
+
         demandeformationRepository.deleteById(id);
     }
 

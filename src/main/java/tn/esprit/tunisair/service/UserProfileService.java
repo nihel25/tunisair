@@ -29,7 +29,7 @@ public class UserProfileService {
                 String[] colonnes = ligne.split(";");
 
 
-                // Check if the array has the expected number of elements
+
                 if (colonnes.length >= 5) {
                     String age = colonnes[0];
                     String niveauEtudes = colonnes[1];

@@ -3,11 +3,10 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.AttestationDTO;
-import tn.esprit.tunisair.repository.AttestationRepository;
 import tn.esprit.tunisair.entity.Attestation;
+import tn.esprit.tunisair.repository.AttestationRepository;
 import tn.esprit.tunisair.validations.ObjectsValidator;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -52,9 +51,12 @@ public class AttestationserviceImpl implements AttestationService{
 
     @Override
     public void delete(Long id) {
-        Attestation attestation = attestationRepository.findById(id).orElseThrow(()->new EntityNotFoundException(id+" not found"));
+
         attestationRepository.deleteById(id);
     }
+
+
+
 
     @Override
     public List<AttestationDTO> findAll() {

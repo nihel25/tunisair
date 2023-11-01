@@ -6,18 +6,18 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import tn.esprit.tunisair.dto.CertificatDTO;
 import tn.esprit.tunisair.dto.EncadreurDTO;
 import tn.esprit.tunisair.dto.StageDTO;
 import tn.esprit.tunisair.dto.StagiaireDTO;
-import tn.esprit.tunisair.repository.CertificatRepository;
-import tn.esprit.tunisair.service.CertificatServiceImpl;
 import tn.esprit.tunisair.entity.Certificat;
 import tn.esprit.tunisair.entity.Encadreur;
 import tn.esprit.tunisair.entity.Stage;
 import tn.esprit.tunisair.entity.Stagiaire;
+import tn.esprit.tunisair.repository.CertificatRepository;
+import tn.esprit.tunisair.service.CertificatServiceImpl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,7 +29,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 public class CertificatTest {
 
 
@@ -76,7 +76,13 @@ public class CertificatTest {
         assertNotNull(savedStageDTO.getId());
     }
 
-
+    @Test
+    public void testDelete() {
+        Long certifid = 15L;
+        doNothing().when(certificatRepository).deleteById(certifid);
+        certificatService.delete(certifid);
+        verify(certificatRepository, times(1)).deleteById(certifid);
+    }
 
 
 
@@ -123,9 +129,7 @@ certificat.setEncadreur(encadreur);
 Stagiaire stagiaire= new Stagiaire();
 
         Encadreur encadreur = new Encadreur();
-//        encadreur.setId(1L);
-//        encadreur.setPrenom("akrem");
-//        encadreur.setEmail("akrem@gmail.com");
+
         Stage stage = new Stage();
         stagiaire.setStage(stage);
         stage.setId(7L);
@@ -136,8 +140,6 @@ certificat.setStagiaire(stagiaire);
         List<CertificatDTO> stageDTOList = certificatService.findAll();
         assertEquals(1, stageDTOList.size());
         assertEquals(certificat.getId(), stageDTOList.get(0).getId());
-        //assertEquals(certificat.getEncadreur(), stageDTOList.get(0).getEncadreurDTO());
-       // assertEquals(certificat.getStagiaire(), stageDTOList.get(0).getStagiairedto());
 
     }
 }

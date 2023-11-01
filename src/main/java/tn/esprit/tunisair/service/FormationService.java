@@ -2,7 +2,6 @@ package tn.esprit.tunisair.service;
 
 import org.springframework.web.multipart.MultipartFile;
 import tn.esprit.tunisair.dto.FormationDTO;
-import tn.esprit.tunisair.entity.Formation;
 
 import java.util.List;
 
@@ -14,7 +13,6 @@ public interface FormationService {
     List<FormationDTO> findAllFormation();
 
 
-    public List<Formation> getAllFormations();
 
 
     public FormationDTO uploadImage(Long id, MultipartFile image);

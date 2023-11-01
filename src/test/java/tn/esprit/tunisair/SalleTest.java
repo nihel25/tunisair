@@ -58,7 +58,13 @@ public class SalleTest {
         }
 
 
-
+    @Test
+    public void testDelete() {
+        Long salleId = 15L;
+        doNothing().when(salleRepository).deleteById(salleId);
+        salleService.delete(salleId);
+        verify(salleRepository, times(1)).deleteById(salleId);
+    }
 
     @Test
     public void testRecherch() {

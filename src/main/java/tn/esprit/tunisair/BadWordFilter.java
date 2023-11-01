@@ -66,7 +66,7 @@ public class BadWordFilter {
             Arrays.fill(charsStars, '*');
             final String stars = new String(charsStars);
 
-            // The "(?i)" is to make the replacement case insensitive.
+
             inputToReturn = inputToReturn.replaceAll("(?i)" + swearWord, stars);
         }
 

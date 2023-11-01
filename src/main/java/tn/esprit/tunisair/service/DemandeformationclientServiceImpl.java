@@ -3,11 +3,9 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.DemandeclientDTO;
-import tn.esprit.tunisair.repository.DemandeclientRepository;
 import tn.esprit.tunisair.entity.Demandeclient;
-import tn.esprit.tunisair.validations.ObjectsValidator;
+import tn.esprit.tunisair.repository.DemandeclientRepository;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -18,11 +16,7 @@ public class DemandeformationclientServiceImpl implements Demandeformationclient
     @Autowired
     DemandeclientRepository demandeclientRepository;
 
-    private final ObjectsValidator<DemandeclientDTO> objectsValidator;
 
-    public DemandeformationclientServiceImpl(ObjectsValidator<DemandeclientDTO> objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
 
 
 
@@ -38,7 +32,7 @@ UserService userService;
 
 @Override
     public DemandeclientDTO add(DemandeclientDTO demandeclient) {
-        objectsValidator.validate(demandeclient);
+
 
 
 
@@ -52,7 +46,6 @@ UserService userService;
 
     @Override
     public void delete(Long id) {
-        Demandeclient demandeformation = demandeclientRepository.findById(id).orElseThrow(()->new EntityNotFoundException(id+" not found"));
         demandeclientRepository.deleteById(id);
     }
 

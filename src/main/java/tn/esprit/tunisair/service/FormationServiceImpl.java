@@ -6,12 +6,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tn.esprit.tunisair.dto.FormationDTO;
+import tn.esprit.tunisair.entity.Formation;
 import tn.esprit.tunisair.repository.FormateurRepository;
 import tn.esprit.tunisair.repository.FormationRepository;
 import tn.esprit.tunisair.repository.UserRepository;
-import tn.esprit.tunisair.entity.Formation;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -78,23 +77,11 @@ public class FormationServiceImpl implements FormationService{
         return this.save(catalogueDto);
     }
 
-    @Override
-    public List<Formation> getAllFormations() {
-        List<Formation> formations = formationRepository.findAll();
-
-
-        for (Formation formation : formations) {
-            formation.setDateformation(formation.getDateformation());
-            formation.setFormationtype(formation.getFormationtype());
-        }
-
-        return formations;
-    }
 
 
     @Override
     public void delete(Long id) {
-        Formation formation = formationRepository.findById(id).orElseThrow(()->new EntityNotFoundException(id+" not found"));
+
         formationRepository.deleteById(id);
     }
 

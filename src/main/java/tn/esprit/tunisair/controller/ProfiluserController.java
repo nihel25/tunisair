@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/profil")
 @CrossOrigin(origins = "http://localhost:4200")
-public class profilusercontroller {
+public class ProfiluserController {
 
 
 

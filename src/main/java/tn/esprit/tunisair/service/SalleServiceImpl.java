@@ -3,10 +3,9 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.SalleDTO;
-import tn.esprit.tunisair.repository.SalleRepository;
 import tn.esprit.tunisair.entity.Salle;
+import tn.esprit.tunisair.repository.SalleRepository;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -41,9 +40,9 @@ public class SalleServiceImpl implements SalleService{
     public SalleDTO recherch(Long id) {
 
 
-        Optional<Salle> optionalEncadreur =salleRepository.findById(id);
-        if (optionalEncadreur.isPresent()) {
-            Salle salle=optionalEncadreur.get();
+        Optional<Salle> optionalsalle =salleRepository.findById(id);
+        if (optionalsalle.isPresent()) {
+            Salle salle=optionalsalle.get();
             return SalleDTO.fromEntity(salle);
         }
         else
@@ -73,21 +72,11 @@ public class SalleServiceImpl implements SalleService{
 
     @Override
     public void delete(Long id) {
-        Salle salle = salleRepository.findById(id).orElseThrow(()->new EntityNotFoundException(id+" not found"));
+
         salleRepository.deleteById(id);
     }
 
-    @Override
-    public void findid(Long id) {
-         salleRepository.findById(id);
-    }
 
-    @Override
-    public Salle retrievesallebyid(Long id) {
-        Salle salle = salleRepository.findById(id).orElse(null);
-
-        return salle;
-    }
 
     @Override
     public List<SalleDTO> findAllSalle() {

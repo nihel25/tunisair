@@ -3,11 +3,10 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.StageDTO;
+import tn.esprit.tunisair.entity.Stage;
 import tn.esprit.tunisair.repository.StageRepository;
 import tn.esprit.tunisair.repository.UserRepository;
-import tn.esprit.tunisair.entity.Stage;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -73,7 +72,7 @@ public class StageServiceIpm implements StageService{
 
     @Override
     public void delete(Long id) {
-        Stage stage = stageRepository.findById(id).orElseThrow(()->new EntityNotFoundException(id+" not found"));
+
         stageRepository.deleteById(id);
     }
 

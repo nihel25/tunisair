@@ -4,12 +4,10 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.SessionDTO;
-import tn.esprit.tunisair.repository.*;
 import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.entity.Session;
+import tn.esprit.tunisair.repository.*;
 
-import javax.persistence.EntityNotFoundException;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,7 +30,7 @@ public class SessionServiceImpl implements SessionService {
 
     @Override
     public void delete(Long id) {
-        Session salle = sessionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id + " not found"));
+
         sessionRepository.deleteById(id);
     }
 

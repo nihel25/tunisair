@@ -3,11 +3,9 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.CertificatDTO;
-import tn.esprit.tunisair.repository.CertificatRepository;
 import tn.esprit.tunisair.entity.Certificat;
-import tn.esprit.tunisair.validations.ObjectsValidator;
+import tn.esprit.tunisair.repository.CertificatRepository;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -19,11 +17,7 @@ public class CertificatServiceImpl implements CertificatService{
 CertificatRepository certificatRepository;
 
 
-    private final ObjectsValidator<CertificatDTO> objectsValidator;
 
-    public CertificatServiceImpl(ObjectsValidator<CertificatDTO> objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
     @Override
     public CertificatDTO recherch(Long id) {
         Optional<Certificat> optionalcertificat =certificatRepository.findById(id);
@@ -39,18 +33,18 @@ CertificatRepository certificatRepository;
 
     @Override
     public CertificatDTO save(CertificatDTO certificatDTO) {
-        //objectsValidator.validate(certificatDTO);
+
 
         Certificat certificat = CertificatDTO.toentity(certificatDTO);
 
-        Certificat savedformateur= certificatRepository.save(certificat);
+        Certificat savecertificat= certificatRepository.save(certificat);
 
-        return CertificatDTO.fromentity(savedformateur);
+        return CertificatDTO.fromentity(savecertificat);
     }
 
     @Override
     public void delete(Long id) {
-        Certificat certificat = certificatRepository.findById(id).orElseThrow(()->new EntityNotFoundException(id+" not found"));
+
         certificatRepository.deleteById(id);
     }
 

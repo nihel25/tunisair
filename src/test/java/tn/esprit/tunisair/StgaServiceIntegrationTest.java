@@ -30,7 +30,7 @@ StageService stageServiceIpm;
 
     @Test
     public void testSauvegarderstage() {
-        // Créez un objet FormateurDto pour le test
+
         StageDTO stageDTO = new StageDTO();
         EncadreurDTO encadreurDTO =new EncadreurDTO();
         encadreurDTO.setId(1L);

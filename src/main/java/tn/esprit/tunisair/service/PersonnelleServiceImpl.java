@@ -4,10 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import tn.esprit.tunisair.dto.PersonnelDTO;
-import tn.esprit.tunisair.repository.PersonnelRepository;
 import tn.esprit.tunisair.entity.Personnel;
+import tn.esprit.tunisair.repository.PersonnelRepository;
 
-import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -83,7 +82,7 @@ public class PersonnelleServiceImpl implements PersonnelleService{
 
     @Override
     public void delete(Long id) {
-        Personnel participant = personnelRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id + " not found"));
+
         personnelRepository.deleteById(id);
     }
 

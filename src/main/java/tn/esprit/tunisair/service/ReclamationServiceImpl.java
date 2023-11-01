@@ -3,12 +3,11 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.ReclamationDTO;
+import tn.esprit.tunisair.entity.Reclamation;
 import tn.esprit.tunisair.repository.FormationRepository;
 import tn.esprit.tunisair.repository.ReclamationRepository;
 import tn.esprit.tunisair.repository.UserRepository;
-import tn.esprit.tunisair.entity.Reclamation;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -77,7 +76,7 @@ public ReclamationDTO save(ReclamationDTO reclamationDTO) {
     }
     @Override
     public void delete(Long id) {
-        Reclamation reclamation = reclamationRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id + " not found"));
+
         reclamationRepository.deleteById(id);
     }
 

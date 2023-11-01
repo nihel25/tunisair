@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Builder
-public class Avis {
+public class Avis implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

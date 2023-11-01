@@ -23,7 +23,7 @@ public class RecreteurDTO extends RegistrationRequest {
 
 
 
-    public static Recruteur toentity(RecreteurDTO request) {
+    public static Recruteur toEntity(RecreteurDTO request) {
 
         return Recruteur.builder()
 

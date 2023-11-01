@@ -61,7 +61,7 @@ public class UserServiceimpl implements UserService {
         if (request instanceof RecreteurDTO) {
 
 
-            user = RecreteurDTO.toentity((RecreteurDTO) request);
+            user = RecreteurDTO.toEntity((RecreteurDTO) request);
             user.setRole(UserRole.RECRUTEUR);
         }
 

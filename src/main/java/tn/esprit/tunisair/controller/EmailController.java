@@ -23,7 +23,7 @@ public class EmailController {
 
     @Secured("COORDINATEURFORMATION")
     @PostMapping("/send-email")
-    public ResponseEntity sendEmail(@RequestBody EmailMessage emailMessage) {
+    public ResponseEntity<String> sendEmail(@RequestBody EmailMessage emailMessage) {
         this.emailSenderService.sendEmail(emailMessage.getTo(), emailMessage.getSubject(), emailMessage.getMessage());
         return ResponseEntity.ok("Success");
     }

@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BadWordFilter {
+    private BadWordFilter() {
+    }
 
     private static int largestWordLength = 0;
 

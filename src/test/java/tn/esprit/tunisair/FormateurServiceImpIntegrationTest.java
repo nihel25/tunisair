@@ -50,7 +50,7 @@ public class FormateurServiceImpIntegrationTest {
         assertEquals("John", formateur.getNom());
         assertEquals("Doe", formateur.getPrenom());
         assertEquals("johndoe@example.com", formateur.getEmail());
-        assertEquals(true,formateur.getDisponible()); // Vérifiez si le formateur est disponible
+        assertEquals(true,formateur.getDisponible());
     }
 
 
@@ -65,24 +65,24 @@ public class FormateurServiceImpIntegrationTest {
 
     @Test
     public void testRechercheFormateur() {
-//
+
         Formateur salle = new Formateur();
         salle.setId(2L);
         salle.setNom("riahi");
         salle.setPrenom("amin");
         formateurRepository.findById(2L);
 
-//
+
         FormateurDto salleTrouvee = formateurService.recherch(salle.getId());
 
-//
+
         Assertions.assertNotNull(salleTrouvee);
         Assertions.assertEquals("riahi", salleTrouvee.getNom());
         Assertions.assertEquals("amin", salleTrouvee.getPrenom());
     }
 
 
-//
+
 
 
 

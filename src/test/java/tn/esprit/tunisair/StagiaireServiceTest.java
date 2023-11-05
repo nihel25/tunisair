@@ -27,19 +27,6 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class StagiaireServiceTest {
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Mock
     private StagiaireRepository stagiaireRepository;
 
@@ -76,16 +63,6 @@ public class StagiaireServiceTest {
         assertEquals(stagiaireDTO.getCin(), savedStageDTO.getCin());
         assertNotNull(savedStageDTO.getId());
     }
-
-
-
-
-
-
-
-
-
-
 
 
 

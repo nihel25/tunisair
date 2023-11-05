@@ -26,7 +26,7 @@ public class PersonnelServiceIntegrationTest {
 
     @Test
     public void testSauvegarderpersonnel() {
-        // Créez un objet PersonnelDTO pour le test
+
         PersonnelDTO personnelDTO = new PersonnelDTO();
         personnelDTO.setNom("John");
         personnelDTO.setPrenom("Doe");
@@ -46,42 +46,21 @@ public class PersonnelServiceIntegrationTest {
 
     @Test
     public void testRecherchepersonnel() {
-//
+
         Personnel personnel = new Personnel();
         personnel.setId(1L);
         personnel.setNom("ayachi");
         personnel.setPrenom("asma");
         personnelRepository.findById(1L);
 
-//
+
         PersonnelDTO personnelDTO = personnelleService.recherch(personnel.getId());
 
-//
+
         Assertions.assertNotNull(personnelDTO);
         Assertions.assertEquals("ayachi", personnelDTO.getNom());
         Assertions.assertEquals("asma", personnelDTO.getPrenom());
     }
 }
 
-//
-//
-//
-//
-//
-//    @Test
-//    public void testFindFormateur() {
-//
-//
-//        List<FormateurDto> formateurDtos = formateurService.findAll();
-//        Assertions.assertFalse(formateurDtos.isEmpty());
-//        int expectedSize = formateurRepository.findAll().size();
-//        Assertions.assertEquals(expectedSize, formateurDtos.size());
-//
-//
-//    }
-//
-//
-//
-//
-//}
-//
+

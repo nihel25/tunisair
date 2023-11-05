@@ -31,7 +31,7 @@ private Long id;
 
     private String nomService;
 
-
+    private boolean traite = false;
 
     @ManyToOne
     @JsonIgnore

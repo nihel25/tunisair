@@ -65,7 +65,7 @@ import java.util.Set;
 
 
     @OneToMany(mappedBy = "user")
-    private List<Reclamation> reclamations;
+    private List<Reclamation>  reclamations;
 
 @JsonIgnore
     @OneToMany(mappedBy = "user")

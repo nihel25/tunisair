@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -13,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Builder
-public class Attestation  {
+public class Attestation implements Serializable {
 
 
     @Id

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Builder
@@ -13,7 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "personnel")
-public class Personnel  {
+public class Personnel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,7 +26,7 @@ private String cin;
     @Column(name = "prenom")
     private String prenom;
 
-    // Getters and setters
+
     private String fonction;
     private String email;
     @JsonIgnore

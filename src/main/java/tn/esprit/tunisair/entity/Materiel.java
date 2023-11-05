@@ -4,6 +4,7 @@ package tn.esprit.tunisair.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Builder
-public class Materiel  {
+public class Materiel implements Serializable {
 
 
     @Id

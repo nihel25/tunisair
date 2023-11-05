@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.tunisair.BadWordFilter;
 import tn.esprit.tunisair.dto.AvisDto;
 import tn.esprit.tunisair.service.AvisService;
 
@@ -27,7 +26,7 @@ public class AvisController {
 @Secured("CLIENT")
     @PostMapping("/saveavis")
     public ResponseEntity<AvisDto> addavis(@Valid @RequestBody AvisDto avisDto) {
-        avisDto.setText( BadWordFilter.getCensoredText(avisDto.getText() ));
+
         AvisDto avissave = avisService.save(avisDto);
         return new ResponseEntity<>(avissave, HttpStatus.CREATED);
     }

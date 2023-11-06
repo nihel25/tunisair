@@ -69,24 +69,32 @@ public class UserImageStorageImpl implements ImageStorage {
 
 
 
+
     @Override
     public ResponseEntity<Resource> downloadUserImage(String imageName, HttpServletRequest request) {
         Resource resource = this.loadResource(imageName);
         String contentType = null;
-        try {
-            if (resource!=null){
-                contentType=request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
+
+        if (resource != null) {
+            try {
+                contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-        }catch (IOException e){
-            e.printStackTrace();
+            if (contentType != null) {
+                return ResponseEntity.ok()
+                        .contentType(MediaType.parseMediaType(contentType))
+                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                        .body(resource);
+            }
         }
 
-        return ResponseEntity.ok().contentType(MediaType.parseMediaType(contentType))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\""+resource.getFilename()+"\"")
-                .body(resource);
+        // Gérer le cas où la ressource est null ou le type de contenu est null.
+        throw new RuntimeException("La ressource demandée est introuvable.");
     }
-    }
+
+}
 
 
 

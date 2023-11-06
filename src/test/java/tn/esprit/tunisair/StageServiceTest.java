@@ -110,5 +110,12 @@ encadreurDTO.setEmail("akrem@gmail.com");
         assertEquals(stage1.getId(), stageDTOList.get(0).getId());
         assertEquals(stage1.getTypeStage(), stageDTOList.get(0).getTypeStage());
     }
-
+    @Test
+    @Order(3)
+    public void testDelete() {
+        Long salleId = 15L;
+        doNothing().when(stageRepository).deleteById(salleId);
+        stageService.delete(salleId);
+        verify(stageRepository, times(1)).deleteById(salleId);
+    }
 }

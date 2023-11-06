@@ -2,16 +2,17 @@ package tn.esprit.tunisair;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import tn.esprit.tunisair.dto.PersonnelDTO;
+import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.repository.PersonnelRepository;
 import tn.esprit.tunisair.service.PersonnelleServiceImpl;
-import tn.esprit.tunisair.entity.Personnel;
 
 import java.util.Optional;
 
@@ -23,7 +24,7 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class PersonnelTest {
 
 
@@ -42,6 +43,7 @@ public class PersonnelTest {
     }
 
     @Test
+    @Order(0)
     public void testSave() {
         // Créer un objet StageDTO pour le test
         PersonnelDTO personnelDTO = new PersonnelDTO();
@@ -66,6 +68,7 @@ public class PersonnelTest {
 
 
     @Test
+    @Order(1)
     public void testRecherch() {
 
 
@@ -82,8 +85,15 @@ public class PersonnelTest {
         assertEquals(personnel.getNom(), foundStageDTO.getNom());
         assertEquals(personnel.getPrenom(), foundStageDTO.getPrenom());
 
-
-
+    }
+        @Test
+        @Order(2)
+        public void testDelete() {
+            Long salleId = 15L;
+            doNothing().when(personnelRepository).deleteById(salleId);
+            personnelleService.delete(salleId);
+            verify(personnelRepository, times(1)).deleteById(salleId);
+        }
 
     }
 
@@ -103,4 +113,4 @@ public class PersonnelTest {
 
 
 
-}
+

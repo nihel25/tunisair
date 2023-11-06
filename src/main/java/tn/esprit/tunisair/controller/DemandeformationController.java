@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.tunisair.dto.DemandeFormationDTO;
 import tn.esprit.tunisair.dto.FormationDTO;
 import tn.esprit.tunisair.dto.PersonnelDTO;
-import tn.esprit.tunisair.service.DemandeformationServiceImpl;
 import tn.esprit.tunisair.entity.Demandeformation;
 import tn.esprit.tunisair.entity.Personnel;
+import tn.esprit.tunisair.service.DemandeformationServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,45 +24,40 @@ public class DemandeformationController {
     private DemandeformationServiceImpl demandeFormationService;
 
 
-    @Secured("COORDINATEURENTREPRISE")
 
-    @PostMapping("/demande")
-    public ResponseEntity<String> envoyerDemandeFormation(@RequestBody DemandeFormationDTO demandeFormationDTO) {
-        Demandeformation demandeFormation = new Demandeformation();
-        demandeFormation.setDateCreation(demandeFormationDTO.getDateCreation());
+@Secured("COORDINATEURENTREPRISE")
+@PostMapping("/demande")
+public String envoyerDemandeFormation(@RequestBody DemandeFormationDTO demandeFormationDTO) {
+    Demandeformation demandeFormation = new Demandeformation();
+    demandeFormation.setDateCreation(demandeFormationDTO.getDateCreation());
+    demandeFormation.setNbrpersonnelle(demandeFormationDTO.getNbrpersonnelle());
 
-        demandeFormation.setNbrpersonnelle(demandeFormationDTO.getNbrpersonnelle());
-
-
-        FormationDTO formationdto = demandeFormationDTO.getFormationdto();
-        if (formationdto != null) {
-            demandeFormation.setFormation(FormationDTO.toEntity(formationdto));
-        }
-
-
-        List<PersonnelDTO> personnelDTOList = demandeFormationDTO.getPersonnelList();
-        List<Personnel> personnelList = new ArrayList<>();
-
-        for (PersonnelDTO personnelDTO : personnelDTOList) {
-            Personnel personnel = new Personnel();
-            personnel.setId(personnelDTO.getId());
-            personnel.setNom(personnelDTO.getNom());
-
-            personnelList.add(personnel);
-        }
-
-        demandeFormation.setPersonnel(personnelList);
-        if (demandeFormationDTO.getId() != null) {
-
-            demandeFormation.setId(demandeFormationDTO.getId());
-            demandeFormationService.add(demandeFormationDTO);
-            return null;
-        } else {
-
-            demandeFormationService.saveDemandeFormation(demandeFormation);
-            return null;
-        }
+    FormationDTO formationdto = demandeFormationDTO.getFormationdto();
+    if (formationdto != null) {
+        demandeFormation.setFormation(FormationDTO.toEntity(formationdto));
     }
+
+    List<PersonnelDTO> personnelDTOList = demandeFormationDTO.getPersonnelList();
+    List<Personnel> personnelList = new ArrayList<>();
+
+    for (PersonnelDTO personnelDTO : personnelDTOList) {
+        Personnel personnel = new Personnel();
+        personnel.setId(personnelDTO.getId());
+        personnel.setNom(personnelDTO.getNom());
+        personnelList.add(personnel);
+    }
+
+    demandeFormation.setPersonnel(personnelList);
+
+    if (demandeFormationDTO.getId() != null) {
+        demandeFormation.setId(demandeFormationDTO.getId());
+        demandeFormationService.add(demandeFormationDTO);
+        return "Demande de formation mise à jour avec succès.";
+    } else {
+        demandeFormationService.saveDemandeFormation(demandeFormation);
+        return "Demande de formation créée avec succès.";
+    }
+}
 
 
     @Secured({"COORDINATEURFORMATION", "COORDINATEURENTREPRISE"})

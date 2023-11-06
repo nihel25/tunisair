@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.annotation.Order;
 import org.springframework.test.context.junit4.SpringRunner;
 import tn.esprit.tunisair.dto.SalleDTO;
 import tn.esprit.tunisair.repository.SalleRepository;
@@ -28,7 +29,7 @@ public class SalleTest {
     private SalleServiceImpl salleService;
 
     @Mock
-    private SalleRepository salleRepository;  // Injection du repository
+    private SalleRepository salleRepository;
 
 
         @Before
@@ -37,6 +38,7 @@ public class SalleTest {
         }
 
         @Test
+        @Order(0)
         public void testSave() {
             // Créer un objet StageDTO pour le test
             SalleDTO salleDTO = new SalleDTO();
@@ -59,6 +61,7 @@ public class SalleTest {
 
 
     @Test
+    @Order(3)
     public void testDelete() {
         Long salleId = 15L;
         doNothing().when(salleRepository).deleteById(salleId);
@@ -67,6 +70,7 @@ public class SalleTest {
     }
 
     @Test
+    @Order(1)
     public void testRecherch() {
 
 
@@ -91,6 +95,7 @@ salle.setNomsalle("jerba");
 
 
     @Test
+    @Order(2)
     public void testRecherchEchec() {
         Salle salle = new Salle();
         salle.setId(20L);

@@ -2,18 +2,19 @@ package tn.esprit.tunisair;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import tn.esprit.tunisair.dto.EncadreurDTO;
 import tn.esprit.tunisair.dto.StageDTO;
-import tn.esprit.tunisair.repository.StageRepository;
-import tn.esprit.tunisair.service.StageServiceIpm;
 import tn.esprit.tunisair.entity.Encadreur;
 import tn.esprit.tunisair.entity.Stage;
+import tn.esprit.tunisair.repository.StageRepository;
+import tn.esprit.tunisair.service.StageServiceIpm;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -27,7 +28,7 @@ import static org.mockito.Mockito.*;
 
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class StageServiceTest {
 
     @Mock
@@ -42,6 +43,7 @@ public class StageServiceTest {
     }
 
     @Test
+    @Order(0)
     public void testSave() {
         // Créer un objet StageDTO pour le test
         StageDTO stageDTO = new StageDTO();
@@ -67,6 +69,7 @@ public class StageServiceTest {
 
 
     @Test
+    @Order(1)
     public void testRecherch() {
 
         Stage stage = new Stage();
@@ -93,6 +96,7 @@ encadreurDTO.setEmail("akrem@gmail.com");
 
 
     @Test
+    @Order(2)
     public void testFindAllstage() {
         Stage stage1 = new Stage();
         stage1.setId(7L);

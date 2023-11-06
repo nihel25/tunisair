@@ -2,16 +2,23 @@ package tn.esprit.tunisair;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import tn.esprit.tunisair.dto.*;
+import org.springframework.core.annotation.Order;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import tn.esprit.tunisair.dto.FormateurDto;
+import tn.esprit.tunisair.dto.FormationDTO;
+import tn.esprit.tunisair.dto.SpecialiteeDTO;
+import tn.esprit.tunisair.dto.UserprofilDTO;
+import tn.esprit.tunisair.entity.Formateur;
+import tn.esprit.tunisair.entity.Formation;
+import tn.esprit.tunisair.entity.Specialitee;
+import tn.esprit.tunisair.entity.UserProfile;
 import tn.esprit.tunisair.repository.FormationRepository;
 import tn.esprit.tunisair.service.FormationServiceImpl;
-import tn.esprit.tunisair.entity.*;
 
 import java.util.Optional;
 
@@ -22,7 +29,7 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class FormationTest {
 @Mock
 FormationRepository formationRepository;
@@ -38,6 +45,7 @@ private FormationServiceImpl formationService;
    }
 
     @Test
+    @Order(0)
     public void testSave() {
 
         FormationDTO formationDTO = new FormationDTO();
@@ -84,6 +92,7 @@ private FormationServiceImpl formationService;
 
 
     @Test
+    @Order(1)
     public void testRecherch() {
 
 

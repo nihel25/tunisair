@@ -2,18 +2,19 @@ package tn.esprit.tunisair;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import tn.esprit.tunisair.dto.FormateurDto;
 import tn.esprit.tunisair.dto.SpecialiteeDTO;
-import tn.esprit.tunisair.repository.FormateurRepository;
-import tn.esprit.tunisair.service.FormateurServiceImpl;
 import tn.esprit.tunisair.entity.Formateur;
 import tn.esprit.tunisair.entity.Specialitee;
+import tn.esprit.tunisair.repository.FormateurRepository;
+import tn.esprit.tunisair.service.FormateurServiceImpl;
 
 import java.util.Optional;
 
@@ -23,7 +24,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class FormateurTest {
 
 
@@ -38,6 +39,7 @@ public class FormateurTest {
         MockitoAnnotations.initMocks(this);
     }
     @Test
+    @Order(0)
     public void testSave() {
 
         FormateurDto formateurDto = new FormateurDto();
@@ -62,6 +64,7 @@ public class FormateurTest {
 
 
     @Test
+    @Order(2)
     public void testDelete() {
         Long certifid = 15L;
         doNothing().when(formateurRepository).deleteById(certifid);
@@ -71,6 +74,7 @@ public class FormateurTest {
 
 
     @Test
+    @Order(1)
     public void testRecherch() {
 
 

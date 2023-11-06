@@ -6,9 +6,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.annotation.Order;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import tn.esprit.tunisair.dto.CertificatDTO;
 import tn.esprit.tunisair.dto.EncadreurDTO;
 import tn.esprit.tunisair.dto.StageDTO;
@@ -29,9 +29,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
-
-@ExtendWith(SpringExtension.class)
+@SpringBootTest(classes =CertificatTest.class)
+@ExtendWith(MockitoExtension.class)
 public class CertificatTest {
 
 

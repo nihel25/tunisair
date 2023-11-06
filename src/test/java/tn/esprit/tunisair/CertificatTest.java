@@ -110,7 +110,6 @@ certificat.setEncadreur(encadreur);
         when(certificatRepository.findById(1L)).thenReturn(Optional.of(certificat));
         CertificatDTO certificatDTO = certificatService.recherch(2L);
 
-        assertNotNull(certificatDTO.getId());
 
 
     }

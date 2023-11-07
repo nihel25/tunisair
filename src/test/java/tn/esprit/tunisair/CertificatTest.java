@@ -2,13 +2,13 @@ package tn.esprit.tunisair;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.annotation.Order;
+import org.springframework.test.context.junit4.SpringRunner;
 import tn.esprit.tunisair.dto.CertificatDTO;
 import tn.esprit.tunisair.dto.EncadreurDTO;
 import tn.esprit.tunisair.dto.StageDTO;
@@ -29,8 +29,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes =CertificatTest.class)
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class CertificatTest {
 
 
@@ -109,7 +109,7 @@ certificat.setEncadreur(encadreur);
         when(certificatRepository.findById(1L)).thenReturn(Optional.of(certificat));
         CertificatDTO certificatDTO = certificatService.recherch(2L);
 
-
+        assertNotNull(certificatDTO.getEncadreurDTO());
 
     }
 

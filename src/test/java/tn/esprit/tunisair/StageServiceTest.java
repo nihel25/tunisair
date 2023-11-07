@@ -2,13 +2,13 @@ package tn.esprit.tunisair;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.annotation.Order;
-import org.springframework.test.context.junit4.SpringRunner;
 import tn.esprit.tunisair.dto.EncadreurDTO;
 import tn.esprit.tunisair.dto.StageDTO;
 import tn.esprit.tunisair.entity.Encadreur;
@@ -27,8 +27,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 
-@SpringBootTest
-@RunWith(SpringRunner.class)
+@SpringBootTest(classes =StageServiceTest.class)
+@ExtendWith(MockitoExtension.class)
 public class StageServiceTest {
 
     @Mock

@@ -15,7 +15,7 @@
 	<properties>
 		<java.version>11</java.version>
 
-
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -208,9 +208,13 @@
 					</execution>
 				</executions>
 			</plugin>
-			
 
 
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.7.0.1746</version>
+			</plugin>
 
 
 

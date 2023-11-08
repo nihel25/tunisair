@@ -2,12 +2,9 @@ package tn.esprit.tunisair;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.annotation.Order;
 import tn.esprit.tunisair.dto.FormateurDto;
 import tn.esprit.tunisair.dto.FormationDTO;
@@ -27,8 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes =FormationTest.class)
-@ExtendWith(MockitoExtension.class)
+
 public class FormationTest {
 @Mock
 FormationRepository formationRepository;

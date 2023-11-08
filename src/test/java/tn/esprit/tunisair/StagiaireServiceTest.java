@@ -2,13 +2,9 @@ package tn.esprit.tunisair;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.annotation.Order;
 import tn.esprit.tunisair.dto.EncadreurDTO;
 import tn.esprit.tunisair.dto.StageDTO;
 import tn.esprit.tunisair.dto.StagiaireDTO;
@@ -26,8 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-@SpringBootTest(classes =StagiaireServiceTest.class)
-@ExtendWith(MockitoExtension.class)
+
 public class StagiaireServiceTest {
     @Mock
     private StagiaireRepository stagiaireRepository;
@@ -41,7 +36,7 @@ public class StagiaireServiceTest {
     }
 
     @Test
-    @Order(0)
+
     public void testSave() {
 
         StagiaireDTO stagiaireDTO = new StagiaireDTO();
@@ -78,12 +73,11 @@ public class StagiaireServiceTest {
 
 
     @Test
-    @Order(1)
+
     public void testRecherch() {
-        // Créer un objet Stage pour le test
+
         StageDTO stageDTO = new StageDTO();
-       // stageDTO.setId(1L);
-        //stageDTO.getDuree(180L);
+
         stageDTO.setNomService("informatique");
 
 
@@ -125,7 +119,7 @@ public class StagiaireServiceTest {
 
 
     @Test
-    @Order(2)
+
     public void testFindAllstagiaire() {
         Stagiaire stagiaire = new Stagiaire();
         stagiaire.setId(8L);

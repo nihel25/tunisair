@@ -7,11 +7,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import tn.esprit.tunisair.entity.Stage;
 import tn.esprit.tunisair.dto.EncadreurDTO;
 import tn.esprit.tunisair.dto.StageDTO;
 import tn.esprit.tunisair.repository.StageRepository;
 import tn.esprit.tunisair.service.StageService;
-import tn.esprit.tunisair.entity.Stage;
 
 import java.util.Date;
 import java.util.List;

@@ -7,8 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import tn.esprit.tunisair.authrequestresponse.RegistrationRequest;
 import tn.esprit.tunisair.entity.Recruteur;
+import tn.esprit.tunisair.authrequestresponse.RegistrationRequest;
 
 @Getter
 @Setter

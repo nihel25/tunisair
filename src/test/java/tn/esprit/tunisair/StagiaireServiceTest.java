@@ -5,12 +5,12 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import tn.esprit.tunisair.dto.EncadreurDTO;
-import tn.esprit.tunisair.dto.StageDTO;
-import tn.esprit.tunisair.dto.StagiaireDTO;
 import tn.esprit.tunisair.entity.Encadreur;
 import tn.esprit.tunisair.entity.Stage;
 import tn.esprit.tunisair.entity.Stagiaire;
+import tn.esprit.tunisair.dto.EncadreurDTO;
+import tn.esprit.tunisair.dto.StageDTO;
+import tn.esprit.tunisair.dto.StagiaireDTO;
 import tn.esprit.tunisair.repository.StagiaireRepository;
 import tn.esprit.tunisair.service.StagiaireServiceImp;
 

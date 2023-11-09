@@ -5,10 +5,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import tn.esprit.tunisair.dto.FormationDTO;
 import tn.esprit.tunisair.entity.Formation;
 import tn.esprit.tunisair.repository.FormateurRepository;
 import tn.esprit.tunisair.repository.FormationRepository;
+import tn.esprit.tunisair.dto.FormationDTO;
 import tn.esprit.tunisair.repository.UserRepository;
 
 import java.util.List;

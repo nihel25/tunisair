@@ -6,10 +6,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.core.annotation.Order;
+import tn.esprit.tunisair.entity.Specialitee;
 import tn.esprit.tunisair.dto.FormateurDto;
 import tn.esprit.tunisair.dto.SpecialiteeDTO;
 import tn.esprit.tunisair.entity.Formateur;
-import tn.esprit.tunisair.entity.Specialitee;
 import tn.esprit.tunisair.repository.FormateurRepository;
 import tn.esprit.tunisair.service.FormateurServiceImpl;
 

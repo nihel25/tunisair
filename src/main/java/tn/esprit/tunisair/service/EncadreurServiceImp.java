@@ -3,8 +3,8 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.EncadreurDTO;
-import tn.esprit.tunisair.repository.EncadreurRepository;
 import tn.esprit.tunisair.entity.Encadreur;
+import tn.esprit.tunisair.repository.EncadreurRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @Service
 public class EncadreurServiceImp implements EncadreurService{
 @Autowired
-    EncadreurRepository encadreurRepository;
+EncadreurRepository encadreurRepository;
 
 
 

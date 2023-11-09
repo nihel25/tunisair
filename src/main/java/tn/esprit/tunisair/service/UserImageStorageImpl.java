@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import tn.esprit.tunisair.exceptions.FileStorageException;
+import tn.esprit.tunisair.configimage.FileStorageProperties;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -25,12 +27,12 @@ public class UserImageStorageImpl implements ImageStorage {
     private final Path imageLocation;
 
     @Autowired
-    public UserImageStorageImpl(tn.esprit.tunisair.configimage.FileStorageProperties fileStorageProperties) {
+    public UserImageStorageImpl(FileStorageProperties fileStorageProperties) {
         this.imageLocation = Paths.get(fileStorageProperties.getUploadImgUsersDir()).toAbsolutePath().normalize();
         try {
 
         } catch (Exception e) {
-            throw new tn.esprit.tunisair.exceptions.FileStorageException("could not create the directory where the uploaded images will be stored", e);
+            throw new FileStorageException("could not create the directory where the uploaded images will be stored", e);
         }
     }
 
@@ -40,7 +42,7 @@ public class UserImageStorageImpl implements ImageStorage {
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         try {
             if (fileName.contains("..")) {
-                throw new tn.esprit.tunisair.exceptions.FileStorageException("File name contains invalid path sequence " + fileName);
+                throw new FileStorageException("File name contains invalid path sequence " + fileName);
             }
             Files.copy(file.getInputStream(), this.imageLocation.resolve(fileName), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {

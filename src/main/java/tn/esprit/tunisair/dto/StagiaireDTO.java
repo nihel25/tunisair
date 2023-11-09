@@ -38,6 +38,10 @@ public class StagiaireDTO {
 	private Date datenaissance;
 
 	public static Stagiaire toEntity(StagiaireDTO dto) {
+
+		if (dto == null) {
+			return null; // Ou lancez une exception appropriée selon votre logique métier.
+		}
 		return Stagiaire.builder()
 
 
@@ -63,6 +67,10 @@ public class StagiaireDTO {
 
 
 	public static StagiaireDTO fromEntity(Stagiaire stage){
+
+		if (stage == null) {
+			return null; // Ou lancez une exception appropriée selon votre logique métier.
+		}
 
 		return StagiaireDTO.builder()
 				.id(stage.getId())

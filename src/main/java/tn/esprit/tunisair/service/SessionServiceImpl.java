@@ -25,7 +25,7 @@ public class SessionServiceImpl implements SessionService {
     UserRepository userRepository;
 
 @Autowired
- PersonnelRepository personnelRepository;
+PersonnelRepository personnelRepository;
 
 
     @Override

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.tunisair.entity.Demandeclient;
 
 @Repository
-public interface DemandeclientRepository extends JpaRepository<Demandeclient , Long> {
+public interface DemandeclientRepository extends JpaRepository<Demandeclient, Long> {
 }

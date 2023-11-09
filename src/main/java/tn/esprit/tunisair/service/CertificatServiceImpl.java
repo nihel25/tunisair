@@ -2,8 +2,8 @@ package tn.esprit.tunisair.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tn.esprit.tunisair.dto.CertificatDTO;
 import tn.esprit.tunisair.entity.Certificat;
+import tn.esprit.tunisair.dto.CertificatDTO;
 import tn.esprit.tunisair.repository.CertificatRepository;
 
 import java.util.List;

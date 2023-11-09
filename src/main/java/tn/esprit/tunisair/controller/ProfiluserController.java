@@ -19,7 +19,7 @@ public class ProfiluserController {
 
 
 @Autowired
-    UserProfileService userProfileService;
+UserProfileService userProfileService;
 
 
     @Secured("COORDINATEURENTREPRISE")

@@ -20,7 +20,7 @@ public class MaterielController {
 
 
 @Autowired
-    MaterielService materielService;
+MaterielService materielService;
     @Autowired
     MaterielServiceImpl materielServices;
     @Secured("COORDINATEURFORMATION")

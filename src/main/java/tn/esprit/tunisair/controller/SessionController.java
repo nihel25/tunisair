@@ -25,9 +25,9 @@ public class SessionController {
     @Autowired
     SessionService sessionService;
 @Autowired
-    SalleService salleService;
+SalleService salleService;
     @Autowired
-    FormateurService  formateurService;
+    FormateurService formateurService;
 
 
      @Secured("COORDINATEURFORMATION")

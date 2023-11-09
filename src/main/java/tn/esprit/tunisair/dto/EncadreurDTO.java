@@ -28,6 +28,9 @@ public class EncadreurDTO  {
 
 
     public static EncadreurDTO fromEntity(Encadreur request) {
+        if (request == null) {
+            return null; // Ou lancez une exception appropriée selon votre logique métier.
+        }
         return EncadreurDTO.builder()
                 .id(request.getId())
                 .nom(request.getNom())
@@ -43,6 +46,9 @@ public class EncadreurDTO  {
 
 
 	public static Encadreur toEntity(EncadreurDTO request){
+        if (request == null) {
+            return null; // Ou lancez une exception appropriée selon votre logique métier.
+        }
 
 		return Encadreur.builder()
                 .id(request.getId())

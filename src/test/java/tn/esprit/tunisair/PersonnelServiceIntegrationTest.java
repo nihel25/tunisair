@@ -6,10 +6,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.dto.PersonnelDTO;
 import tn.esprit.tunisair.repository.PersonnelRepository;
 import tn.esprit.tunisair.service.PersonnelleServiceImpl;
-import tn.esprit.tunisair.entity.Personnel;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

@@ -12,7 +12,8 @@ import tn.esprit.tunisair.authrequestresponse.AuthenticationResponse;
 import tn.esprit.tunisair.authrequestresponse.RegistrationRequest;
 import tn.esprit.tunisair.configsecurite.JwtUtils;
 import tn.esprit.tunisair.dto.*;
-import tn.esprit.tunisair.entity.*;
+import tn.esprit.tunisair.entity.User;
+import tn.esprit.tunisair.entity.UserRole;
 import tn.esprit.tunisair.repository.AdminRepository;
 import tn.esprit.tunisair.repository.UserRepository;
 

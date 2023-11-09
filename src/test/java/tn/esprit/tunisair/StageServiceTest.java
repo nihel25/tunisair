@@ -6,10 +6,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.core.annotation.Order;
-import tn.esprit.tunisair.dto.EncadreurDTO;
-import tn.esprit.tunisair.dto.StageDTO;
 import tn.esprit.tunisair.entity.Encadreur;
 import tn.esprit.tunisair.entity.Stage;
+import tn.esprit.tunisair.dto.EncadreurDTO;
+import tn.esprit.tunisair.dto.StageDTO;
 import tn.esprit.tunisair.repository.StageRepository;
 import tn.esprit.tunisair.service.StageServiceIpm;
 

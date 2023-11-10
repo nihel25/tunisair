@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.mockito.InjectMocks;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.tunisair.entity.Salle;
 import tn.esprit.tunisair.repository.SalleRepository;
@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SalleServiceImplTest {
 
-    @Autowired
+    @Mock
     private SalleRepository salleRepository;
 
     @InjectMocks
@@ -41,7 +41,7 @@ public class SalleServiceImplTest {
         Salle addedPiste = salleService.save(salle);
             assertEquals(salle, addedPiste);
 
-            
+
             verify(salleRepository, times(1)).save(salle);
         }
     }

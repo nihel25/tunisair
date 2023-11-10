@@ -24,6 +24,13 @@ public class Salle implements Serializable {
 private String nomsalle;
 private Long nombreplace;
 private Boolean statut;
+
+    public Salle(Long id, String nomsalle, Long nombreplace) {
+        this.id = id;
+        this.nomsalle = nomsalle;
+        this.nombreplace = nombreplace;
+    }
+
     @OneToMany(mappedBy = "salle")
     @JsonIgnore
     private List<Session> sessions;

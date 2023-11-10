@@ -36,6 +36,11 @@ public class FormateurDto {
     private  SpecialiteeDTO specialiteedto;
 
     public static FormateurDto fromentity(Formateur formateur){
+
+        if (formateur == null) {
+            return null; // Ou lancez une exception appropriée selon votre logique métier.
+        }
+
         return FormateurDto.builder()
               .id(formateur.getId())
                 .nom(formateur.getNom())

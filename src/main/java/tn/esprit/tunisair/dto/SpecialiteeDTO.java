@@ -21,6 +21,10 @@ public class SpecialiteeDTO {
     private String types;
 
     public static Specialitee toentity(SpecialiteeDTO dto) {
+
+        if (dto == null) {
+            return null; // Ou lancez une exception appropriée selon votre logique métier.
+        }
         return Specialitee.builder()
 
 
@@ -40,7 +44,9 @@ public class SpecialiteeDTO {
 
 
     public static SpecialiteeDTO fromEntity(Specialitee sp){
-
+        if (sp == null) {
+            return null; // Ou lancez une exception appropriée selon votre logique métier.
+        }
         return SpecialiteeDTO.builder()
                 .id(sp.getId())
 

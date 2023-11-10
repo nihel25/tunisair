@@ -30,7 +30,7 @@ public class MaterielDTO {
                 .nom(materiel.getNom())
                 .caracteristique(materiel.getCaracteristique())
 
-               .sessionDTO(SessionDTO.fromentity(materiel.getSession()))
+             //  .sessionDTO(SessionDTO.fromentity(materiel.getSession()))
 
                 .build();
     }
@@ -40,7 +40,7 @@ public class MaterielDTO {
                 .id(materielDTO.getId())
                 .nom(materielDTO.getNom())
                 .caracteristique(materielDTO.getCaracteristique())
-                .session(SessionDTO.toentity(materielDTO.getSessionDTO()))
+             //   .session(SessionDTO.toentity(materielDTO.getSessionDTO()))
 
                 .build();
     }

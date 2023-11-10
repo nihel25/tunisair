@@ -30,6 +30,9 @@ public class SalleDTO {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateFin;
 
+    public SalleDTO(long l, String jerba2, long l1) {
+    }
+
     public boolean isStatut() {
         return statut;
     }

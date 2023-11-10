@@ -5,11 +5,10 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.core.annotation.Order;
-import tn.esprit.tunisair.entity.Specialitee;
 import tn.esprit.tunisair.dto.FormateurDto;
 import tn.esprit.tunisair.dto.SpecialiteeDTO;
 import tn.esprit.tunisair.entity.Formateur;
+import tn.esprit.tunisair.entity.Specialitee;
 import tn.esprit.tunisair.repository.FormateurRepository;
 import tn.esprit.tunisair.service.FormateurServiceImpl;
 
@@ -35,7 +34,7 @@ public class FormatTest {
         MockitoAnnotations.initMocks(this);
     }
     @Test
-    @Order(0)
+
     public void testSave() {
 
         FormateurDto formateurDto = new FormateurDto();
@@ -60,7 +59,7 @@ public class FormatTest {
 
 
     @Test
-    @Order(2)
+
     public void testDelete() {
         Long certifid = 15L;
         doNothing().when(formateurRepository).deleteById(certifid);
@@ -70,7 +69,7 @@ public class FormatTest {
 
 
     @Test
-    @Order(1)
+
     public void testRecherch() {
 
 

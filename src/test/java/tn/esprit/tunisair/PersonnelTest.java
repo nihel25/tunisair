@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.core.annotation.Order;
 import tn.esprit.tunisair.dto.PersonnelDTO;
 import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.repository.PersonnelRepository;
@@ -40,7 +39,7 @@ public class PersonnelTest {
     }
 
     @Test
-    @Order(0)
+
     public void testSave() {
         // Créer un objet StageDTO pour le test
         PersonnelDTO personnelDTO = new PersonnelDTO();
@@ -65,7 +64,7 @@ public class PersonnelTest {
 
 
     @Test
-    @Order(1)
+
     public void testRecherch() {
 
 
@@ -84,7 +83,7 @@ public class PersonnelTest {
 
     }
         @Test
-        @Order(2)
+
         public void testDelete() {
             Long salleId = 15L;
             doNothing().when(personnelRepository).deleteById(salleId);

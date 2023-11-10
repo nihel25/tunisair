@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.core.annotation.Order;
 import tn.esprit.tunisair.dto.SalleDTO;
 import tn.esprit.tunisair.entity.Salle;
 import tn.esprit.tunisair.repository.SalleRepository;
@@ -36,7 +35,7 @@ public class SalleTest {
         }
 
         @Test
-        @Order(0)
+
         public void testSave() {
             // Créer un objet StageDTO pour le test
             SalleDTO salleDTO = new SalleDTO();
@@ -59,7 +58,7 @@ public class SalleTest {
 
 
     @Test
-    @Order(3)
+
     public void testDelete() {
         Long salleId = 15L;
         doNothing().when(salleRepository).deleteById(salleId);
@@ -68,7 +67,7 @@ public class SalleTest {
     }
 
     @Test
-    @Order(1)
+
     public void testRecherch() {
 
 
@@ -93,17 +92,16 @@ salle.setNomsalle("jerba");
 
 
     @Test
-    @Order(2)
+
     public void testRecherchEchec() {
         Salle salle = new Salle();
         salle.setId(20L);
 
-        // Configuration de Mockito pour renvoyer un Optional contenant l'entité lorsque l'ID existe.
         when(salleRepository.findById(20L)).thenReturn(Optional.of(salle));
 
         SalleDTO foundSalleDTO = salleService.recherch(20L);
 
-        // Assertion pour vérifier que la recherche a échoué (l'ID 1L existe).
+
         assertNotNull(foundSalleDTO); // Cette assertion doit échouer, car foundSalleDTO ne doit pas être null.
     }
 

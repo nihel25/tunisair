@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.core.annotation.Order;
 import tn.esprit.tunisair.dto.FormateurDto;
 import tn.esprit.tunisair.dto.FormationDTO;
 import tn.esprit.tunisair.dto.SpecialiteeDTO;
@@ -40,7 +39,7 @@ private FormationServiceImpl formationService;
    }
 
     @Test
-    @Order(0)
+
     public void testSave() {
 
         FormationDTO formationDTO = new FormationDTO();
@@ -87,7 +86,7 @@ private FormationServiceImpl formationService;
 
 
     @Test
-    @Order(1)
+   
     public void testRecherch() {
 
 

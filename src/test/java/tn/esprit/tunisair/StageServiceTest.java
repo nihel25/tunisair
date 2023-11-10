@@ -5,11 +5,10 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.core.annotation.Order;
-import tn.esprit.tunisair.entity.Encadreur;
-import tn.esprit.tunisair.entity.Stage;
 import tn.esprit.tunisair.dto.EncadreurDTO;
 import tn.esprit.tunisair.dto.StageDTO;
+import tn.esprit.tunisair.entity.Encadreur;
+import tn.esprit.tunisair.entity.Stage;
 import tn.esprit.tunisair.repository.StageRepository;
 import tn.esprit.tunisair.service.StageServiceIpm;
 
@@ -39,7 +38,7 @@ public class StageServiceTest {
     }
 
     @Test
-    @Order(0)
+
     public void testSave() {
         // Créer un objet StageDTO pour le test
         StageDTO stageDTO = new StageDTO();
@@ -65,7 +64,7 @@ public class StageServiceTest {
 
 
     @Test
-    @Order(1)
+
     public void testRecherch() {
 
         Stage stage = new Stage();
@@ -92,7 +91,7 @@ encadreurDTO.setEmail("akrem@gmail.com");
 
 
     @Test
-    @Order(2)
+
     public void testFindAllstage() {
         Stage stage1 = new Stage();
         stage1.setId(7L);
@@ -107,7 +106,7 @@ encadreurDTO.setEmail("akrem@gmail.com");
         assertEquals(stage1.getTypeStage(), stageDTOList.get(0).getTypeStage());
     }
     @Test
-    @Order(3)
+
     public void testDelete() {
         Long salleId = 15L;
         doNothing().when(stageRepository).deleteById(salleId);

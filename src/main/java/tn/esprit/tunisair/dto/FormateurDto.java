@@ -35,6 +35,9 @@ public class FormateurDto {
     private Boolean disponible;
     private  SpecialiteeDTO specialiteedto;
 
+    public FormateurDto(long l, String nader) {
+    }
+
     public static FormateurDto fromentity(Formateur formateur){
 
         if (formateur == null) {

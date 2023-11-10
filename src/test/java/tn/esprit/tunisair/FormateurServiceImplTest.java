@@ -41,7 +41,7 @@ public class FormateurServiceImplTest {
     @Order(1)
     void testSaveFormateur() {
         // Créez un exemple de FormateurDto
-        FormateurDto formateurDto = new FormateurDto(/* Initialisez avec les données nécessaires */);
+        FormateurDto formateurDto = new FormateurDto(100L,"nader");
 
         // Mockez le comportement de la méthode du repository
         when(formateurRepository.save(any(Formateur.class))).thenReturn(new Formateur());

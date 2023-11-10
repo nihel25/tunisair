@@ -13,7 +13,7 @@ public interface SalleService {
 
     List<SalleDTO> findAllSalle();
 
-    public Salle save(Salle salle);
+    public SalleDTO save(SalleDTO salleDTO);
 
     SalleDTO recherch(Long id);
 }

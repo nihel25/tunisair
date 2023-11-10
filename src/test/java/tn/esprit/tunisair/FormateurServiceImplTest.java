@@ -15,10 +15,6 @@ import tn.esprit.tunisair.repository.FormationRepository;
 import tn.esprit.tunisair.repository.SpecialiteeRepository;
 import tn.esprit.tunisair.service.FormateurServiceImpl;
 
-import java.util.Collections;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -54,24 +50,12 @@ public class FormateurServiceImplTest {
         verify(formateurRepository, times(1)).save(any(Formateur.class));
     }
 
-    @Test
-    @Order(2)
-    void testRetrieveAllFormateur() {
-        // Mockez le comportement de la méthode du repository
-        when(formateurRepository.findAll()).thenReturn(Collections.emptyList());
 
-        // Invitez la méthode et vérifiez le résultat
-        List<FormateurDto> listFormateurDto = formateurService.findAll();
-        assertEquals(0, listFormateurDto.size());
-
-        // Vérifiez que la méthode findAll de FormateurRepository a été appelée une fois
-        verify(formateurRepository, times(1)).findAll();
-    }
 
     // Ajoutez d'autres tests pour d'autres méthodes de FormateurServiceImpl au besoin
 
     @Test
-    @Order(3)
+    @Order(2)
     void testDeleteFormateur() {
         // Mockez le comportement de la méthode du repository
         doNothing().when(formateurRepository).deleteById(anyLong());

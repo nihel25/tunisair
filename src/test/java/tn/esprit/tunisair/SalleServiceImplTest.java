@@ -33,15 +33,15 @@ public class SalleServiceImplTest {
 
 
             // Create a sample subscription
-            Salle salle = new Salle();
+            Salle salle = new Salle(50L,"jerbe",20L);
             // Mock the behavior of the repository method
             when(salleRepository.save(salle)).thenReturn(salle);
 
-            // Invoke the method and verify the result
+
         Salle addedPiste = salleService.save(salle);
             assertEquals(salle, addedPiste);
 
-            // Verify that save method of PisteRepository was called once
+            
             verify(salleRepository, times(1)).save(salle);
         }
     }

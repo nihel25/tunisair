@@ -26,13 +26,13 @@ public class SalleServiceImpl implements SalleService{
 
 
     @Override
-    public SalleDTO save(SalleDTO salleDTO) {
+    public Salle save(Salle salle) {
 
 
 
-        Salle salle=SalleDTO.toentity(salleDTO);
+
         salleRepository.save(salle);
-      return SalleDTO.fromEntity(salle);
+return salle;
 
     }
 @Override

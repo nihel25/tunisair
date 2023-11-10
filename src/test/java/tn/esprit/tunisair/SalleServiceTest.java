@@ -2,16 +2,14 @@ package tn.esprit.tunisair;
 
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import tn.esprit.tunisair.dto.SalleDTO;
 import tn.esprit.tunisair.entity.Salle;
 import tn.esprit.tunisair.repository.SalleRepository;
 import tn.esprit.tunisair.service.SalleServiceImpl;
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
 public class SalleServiceTest {
 

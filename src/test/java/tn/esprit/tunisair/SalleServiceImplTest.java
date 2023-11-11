@@ -26,7 +26,7 @@ public class SalleServiceImplTest {
 
     @Test
     @Order(1)
-    void testAddPiste() {
+    void testAddsalle() {
         // Create a sample subscription
         Salle piste = new Salle();
         // Mock the behavior of the repository method

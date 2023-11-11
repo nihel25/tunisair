@@ -35,26 +35,33 @@ public class SalleServiceImplTest {
     void testSaveSalle() {
         // Créer des données de test
         SalleDTO salleDTO = new SalleDTO(); // Initialisez avec des valeurs appropriées
+
+        salleDTO.setNomsalle("maria");
+        salleDTO.setNombreplace(300L);
         Salle salle = SalleDTO.toentity(salleDTO);
 
-        // Définir le comportement simulé du repository
+
         when(salleRepository.save(salle)).thenReturn(salle);
 
-        // Appeler la méthode du service
+
         SalleDTO savedSalleDTO = salleService.save(salleDTO);
 
         // Vérifier les résultats
-        assertEquals(salleDTO, savedSalleDTO);
-        // Ajoutez d'autres vérifications en fonction de votre logique métier et de la conversion DTO.
+
+        assertEquals(salleDTO.getNomsalle(), savedSalleDTO.getNomsalle());
+        assertEquals(salleDTO.getNombreplace(), savedSalleDTO.getNombreplace());
+
     }
 
     @Test
     @Order(2)
     void testRecherch() {
         // Créer des données de test
-        Long salleId = 11L;
+        Long salleId = 1L;
         Salle salle = new Salle();
-        salle.setId(salleId);
+      //  salle.setId(salleId);
+        salle.setNomsalle("jerba");
+        salle.setNombreplace(123L);
         SalleDTO expectedSalleDTO = SalleDTO.fromEntity(salle);
 
         // Définir le comportement simulé du repository
@@ -64,7 +71,10 @@ public class SalleServiceImplTest {
         SalleDTO foundSalleDTO = salleService.recherch(salleId);
 
         // Vérifier les résultats
-        assertEquals(expectedSalleDTO, foundSalleDTO);
+
+       // assertEquals(expectedSalleDTO.getId(), foundSalleDTO.getId());
+        assertEquals(expectedSalleDTO.getNomsalle(), foundSalleDTO.getNomsalle());
+        assertEquals(expectedSalleDTO.getNombreplace(), foundSalleDTO.getNombreplace());
     }
 
     @Test

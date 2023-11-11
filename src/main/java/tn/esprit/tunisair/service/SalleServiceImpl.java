@@ -35,6 +35,12 @@ public class SalleServiceImpl implements SalleService{
       return SalleDTO.fromEntity(salle);
 
     }
+
+
+
+
+
+
 @Override
     //
     public SalleDTO recherch(Long id) {

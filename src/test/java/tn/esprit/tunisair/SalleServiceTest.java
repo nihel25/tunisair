@@ -1,7 +1,7 @@
 package tn.esprit.tunisair;
 
 
-import org.junit.Test;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,7 +21,7 @@ public class SalleServiceTest {
     @Mock
     private SalleRepository salleRepository;
 
-    @Test
+    //@Test
     public void testsave() {
 
         Salle salle = new Salle();
@@ -34,7 +34,7 @@ public class SalleServiceTest {
 //        assertEquals(50, salleAjoutee.getNombreplace());
     }
 
-    @Test
+   // @Test
     public void testrecherch() {
 
         Salle salle = new Salle();

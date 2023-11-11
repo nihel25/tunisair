@@ -43,7 +43,11 @@ public class SalleServiceImpl implements SalleService{
     }
 
 
+    public void deletesalle(Long id) {
 
+        salleRepository.deleteById(id);
+
+    }
 
 @Override
     //

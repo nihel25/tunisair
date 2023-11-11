@@ -26,7 +26,11 @@ public class StageServiceIpm implements StageService{
         return stageRepository.save(s);
 
     }
+    public void deletestage(Long id) {
 
+        stageRepository.deleteById(id);
+
+    }
 
 
 

@@ -13,7 +13,8 @@ import tn.esprit.tunisair.repository.SalleRepository;
 import tn.esprit.tunisair.service.SalleServiceImpl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SalleServiceImplTest {
@@ -39,6 +40,21 @@ public class SalleServiceImplTest {
         // Verify that save method of PisteRepository was called once
 
 
+    }
+
+
+
+    @Test
+    @Order(3)
+    void testDeletePiste() {
+        // ID de la piste à supprimer
+        Long pisteId = 1L;
+
+        // Appelez la méthode de suppression dans le service
+        salleService.deletesalle(pisteId);
+
+        // Vérifiez que la méthode deleteById du repository a été appelée avec le bon ID
+        verify(salleRepository, times(1)).deleteById(pisteId);
     }
 }
 //    @Test

@@ -12,7 +12,7 @@ import tn.esprit.tunisair.repository.StageRepository;
 import tn.esprit.tunisair.service.StageServiceIpm;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 @SpringBootTest
@@ -43,4 +43,20 @@ public class StageServiceImplTest {
 
 
     }
+
+
+
+    @Test
+    @Order(3)
+    void testDeletePiste() {
+        // ID de la piste à supprimer
+        Long id = 2L;
+
+        // Appelez la méthode de suppression dans le service
+        stageServiceIpm.deletestage(id);
+
+        // Vérifiez que la méthode deleteById du repository a été appelée avec le bon ID
+        verify(stageRepository, times(1)).deleteById(id);
+    }
 }
+

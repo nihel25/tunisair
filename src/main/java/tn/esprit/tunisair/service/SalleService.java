@@ -10,7 +10,7 @@ public interface SalleService {
     public void ajoutersalle(Salle s);
     void delete(Long id);
 
-
+    public Salle addsalle(Salle s);
     List<SalleDTO> findAllSalle();
 
     public SalleDTO save(SalleDTO salleDTO);

@@ -35,7 +35,7 @@ public class SalleServiceImpl implements SalleService{
       return SalleDTO.fromEntity(salle);
 
     }
-
+    @Override
     public Salle addsalle(Salle s) {
 
         return salleRepository.save(s);

@@ -21,6 +21,11 @@ public class StageServiceIpm implements StageService{
 
 
 
+    public Stage addsatge(Stage s) {
+
+        return stageRepository.save(s);
+
+    }
 
 
 

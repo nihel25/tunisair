@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tunisair.dto.SalleDTO;
+import tn.esprit.tunisair.entity.Salle;
 import tn.esprit.tunisair.service.SalleService;
 
 import java.util.List;
@@ -32,7 +33,12 @@ public class SalleController {
 
     }
 
-
+    @PostMapping("/add-stock")
+    @ResponseBody
+    public Salle addStock(@RequestBody Salle s) {
+        Salle salle = salleService.addsalle(s);
+        return salle;
+    }
 
 //    @Secured("COORDINATEURFORMATION")
 //    @PostMapping("/addsalle")

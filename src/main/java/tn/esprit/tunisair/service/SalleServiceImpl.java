@@ -36,7 +36,11 @@ public class SalleServiceImpl implements SalleService{
 
     }
 
+    public Salle addsalle(Salle s) {
 
+        return salleRepository.save(s);
+
+    }
 
 
 

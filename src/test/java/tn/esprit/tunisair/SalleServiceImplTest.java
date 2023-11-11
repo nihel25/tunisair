@@ -28,25 +28,22 @@ import static org.mockito.Mockito.*;
     @Test
     @Order(1)
     void testSaveSalle() {
-        // Créer un exemple de SalleDTO
-        SalleDTO salleDTO = new SalleDTO(100L, "jerba1011", 200L);
+//
+        SalleDTO salleDTO = new SalleDTO();
         Salle salle = SalleDTO.toentity(salleDTO);
 
-        // Définir le comportement du mock repository
-        when(salleRepository.save(any(Salle.class))).thenReturn(salle);
+//
+        when(salleRepository.save(salle)).thenReturn(salle);
 
-        // Appeler la méthode et vérifier les résultats
+//
         SalleDTO savedSalle = salleService.save(salleDTO);
+        assertEquals(salle, savedSalle);
 
-        // Comparer les propriétés individuelles
-        assertEquals(salleDTO.getId(), savedSalle.getId());
-        assertEquals(salleDTO.getNomsalle(), savedSalle.getNomsalle());
-        assertEquals(salleDTO.getNombreplace(), savedSalle.getNombreplace());
-
-        // Vérifier que la méthode save de SalleRepository a été appelée une fois avec n'importe quel objet Salle
-        verify(salleRepository, times(1)).save(any(Salle.class));
-    }
-}
+//
+            verify(salleRepository, times(1)).save(salle);
+   }
+   }
+//}
 //    @Test
 //    @Order(1)
 //    void testSaveSalle() {

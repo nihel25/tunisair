@@ -25,7 +25,7 @@ import static org.mockito.Mockito.*;
 public class FormateurServiceImpTests {
 
     @Mock
-    private FormateurRepository formateurRepository;
+    private FormateurRepository formateurRepositoryy;
 
     @Mock
     private FormationRepository formationRepository;
@@ -46,7 +46,7 @@ public class FormateurServiceImpTests {
         Formateur formateur = FormateurDto.toentity(formateurDto);
 
         // Utilisez doReturn().when() pour configurer le stub dans le mock
-        doReturn(formateur).when(formateurRepository).save(any(Formateur.class));
+        doReturn(formateur).when(formateurRepositoryy).save(any(Formateur.class));
 
         // Appelez la méthode du service
         FormateurDto savedFormateurDto = formateurService.save(formateurDto);
@@ -56,7 +56,7 @@ public class FormateurServiceImpTests {
         assertEquals(formateurDto.getPrenom(), savedFormateurDto.getPrenom());
 
         // Vérifiez si la méthode save du repository a été appelée
-        verify(formateurRepository, times(1)).save(any(Formateur.class));
+        verify(formateurRepositoryy, times(1)).save(any(Formateur.class));
     }
 
     @Test
@@ -74,7 +74,7 @@ public class FormateurServiceImpTests {
         Optional<Formateur> optionalFormateur = Optional.of(formateur);
 
         // Configurer le comportement du repository mock
-        when(formateurRepository.findById(formateurId)).thenReturn(optionalFormateur);
+        when(formateurRepositoryy.findById(formateurId)).thenReturn(optionalFormateur);
 
         // Appeler la méthode recherch du service
         FormateurDto foundFormateurDto = formateurService.recherch(formateurId);
@@ -85,7 +85,7 @@ public class FormateurServiceImpTests {
         assertEquals(formateur.getPrenom(), foundFormateurDto.getPrenom());
 
         // Vérifier si la méthode findById du repository a été appelée
-        verify(formateurRepository, times(1)).findById(formateurId);
+        verify(formateurRepositoryy, times(1)).findById(formateurId);
     }
 
     @Test
@@ -97,7 +97,7 @@ public class FormateurServiceImpTests {
         formateurService.delete(formateurId);
 
         // Vérifier si la méthode deleteById du repository a été appelée
-        verify(formateurRepository, times(1)).deleteById(formateurId);
+        verify(formateurRepositoryy, times(1)).deleteById(formateurId);
     }
 
     @Test
@@ -110,7 +110,7 @@ public class FormateurServiceImpTests {
         formateurList.add(formateur2);
 
         // Configurer le comportement du repository mock
-        when(formateurRepository.findAll()).thenReturn(formateurList);
+        when(formateurRepositoryy.findAll()).thenReturn(formateurList);
 
         // Appeler la méthode du service
         List<FormateurDto> foundFormateurDTOs = formateurService.findAll();

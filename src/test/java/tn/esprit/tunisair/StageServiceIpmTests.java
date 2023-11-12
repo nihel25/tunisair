@@ -76,7 +76,7 @@ public class StageServiceIpmTests {
     }
 
     @Test
-    void testDeleteStage() {
+    void testDeleteStagee() {
         // ID du stage à supprimer
         Long stageId = 1L;
 

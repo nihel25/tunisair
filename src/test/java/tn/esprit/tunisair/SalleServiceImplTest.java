@@ -63,7 +63,7 @@ public class SalleServiceImplTest {
 
     @Test
     @Order(1)
-    void testSaveSalle() {
+    void testSaveeSalle() {
 //
         SalleDTO salleDTO = new SalleDTO(); // Initialisez avec des valeurs appropriées
 

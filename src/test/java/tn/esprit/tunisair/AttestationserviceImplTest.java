@@ -69,7 +69,7 @@ public class AttestationserviceImplTest {
         verify(attestationRepository, times(1)).save(Mockito.any(Attestation.class));
     }
     @Test
-    void testDeleteStagee() {
+    void testDeleteAttestataion() {
         // ID du stage à supprimer
         Long id = 1L;
 

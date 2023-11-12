@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.AttestationDTO;
 import tn.esprit.tunisair.entity.Attestation;
 import tn.esprit.tunisair.repository.AttestationRepository;
-import tn.esprit.tunisair.validations.ObjectsValidator;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,11 +19,7 @@ AttestationRepository attestationRepository;
 
 
 
-    private final ObjectsValidator<AttestationDTO> objectsValidator;
 
-    public AttestationserviceImpl(ObjectsValidator<AttestationDTO> objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
     @Override
     public AttestationDTO recherch(Long id) {
         Optional<Attestation> optionalcertificat =attestationRepository.findById(id);
@@ -40,7 +35,6 @@ AttestationRepository attestationRepository;
 
     @Override
     public AttestationDTO save(AttestationDTO attestationDTO) {
-        objectsValidator.validate(attestationDTO);
 
         Attestation attestation = AttestationDTO.toentity(attestationDTO);
 

@@ -75,5 +75,16 @@ public class SalleServiceImplTests {
         verify(salleRepository, times(1)).findById(salleId);
     }
 
-    // Ajoutez d'autres tests si nécessaire
+
+    @Test
+    void testDeleteSalle() {
+
+        Long stageId = 1L;
+
+
+        salleService.delete(stageId);
+
+
+        verify(salleRepository, times(1)).deleteById(stageId);
+    }
 }

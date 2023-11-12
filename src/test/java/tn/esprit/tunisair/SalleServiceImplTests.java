@@ -11,6 +11,8 @@ import tn.esprit.tunisair.entity.Salle;
 import tn.esprit.tunisair.repository.SalleRepository;
 import tn.esprit.tunisair.service.SalleServiceImpl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -87,4 +89,25 @@ public class SalleServiceImplTests {
 
         verify(salleRepository, times(1)).deleteById(stageId);
     }
+
+
+    @Test
+    void testFindAllStage() {
+        // Créer deux stages
+        Salle stage1 = new Salle();
+        Salle stage2 = new Salle();
+        List<Salle> stageList = new ArrayList<>();
+        stageList.add(stage1);
+        stageList.add(stage2);
+
+        // Configurer le comportement du repository mock
+        when(salleRepository.findAll()).thenReturn(stageList);
+
+        // Appeler la méthode du service
+        List<SalleDTO> foundStageDTOs = salleService.findAllSalle();
+
+        // Vérifier si le nombre d'éléments retournés correspond au nombre de stages créés
+        assertEquals(stageList.size(), foundStageDTOs.size());
+    }
+
 }

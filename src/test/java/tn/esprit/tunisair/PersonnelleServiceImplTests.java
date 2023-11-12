@@ -11,6 +11,8 @@ import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.repository.PersonnelRepository;
 import tn.esprit.tunisair.service.PersonnelleServiceImpl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -87,5 +89,22 @@ public class PersonnelleServiceImplTests {
         verify(personnelRepository, times(1)).save(Mockito.any());
     }
 
-    // Ajoutez d'autres tests si nécessaire
+    @Test
+    void testFindAllPersonnelle() {
+        // Créer deux encadreurs
+        Personnel personnel1 = new Personnel();
+        Personnel personnel2 = new Personnel();
+        List<Personnel> encadreurList = new ArrayList<>();
+        encadreurList.add(personnel1);
+        encadreurList.add(personnel2);
+
+        // Configurer le comportement du repository mock
+        when(personnelRepository.findAll()).thenReturn(encadreurList);
+
+        // Appeler la méthode du service
+        List<Personnel> foundEncadreurDTOs = personnelleService.getAllPersonnel();
+
+        // Vérifier si le nombre d'éléments retournés correspond au nombre d'encadreurs créés
+        assertEquals(encadreurList.size(), foundEncadreurDTOs.size());
+    }
 }

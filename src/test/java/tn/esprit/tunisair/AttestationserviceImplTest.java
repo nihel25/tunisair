@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.context.annotation.ComponentScan;
 import tn.esprit.tunisair.dto.*;
 import tn.esprit.tunisair.entity.Attestation;
 import tn.esprit.tunisair.repository.AttestationRepository;
@@ -18,13 +19,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 
+@ComponentScan(basePackages = "tn.esprit.tunisair.service")
 public class AttestationserviceImplTest {
 
     @Mock
     private AttestationRepository attestationRepository;
 
+
+
     @InjectMocks
     private AttestationserviceImpl attestationService;
+
+
+
+
 
     @Test
 

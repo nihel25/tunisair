@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.context.annotation.ComponentScan;
 import tn.esprit.tunisair.dto.AvisDto;
 import tn.esprit.tunisair.dto.UserDTO;
 import tn.esprit.tunisair.entity.Avis;
@@ -16,6 +17,7 @@ import tn.esprit.tunisair.service.AvisServiceImpl;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+@ComponentScan(basePackages = "tn.esprit.tunisair.service")
 @ExtendWith(MockitoExtension.class)
 public class AvisServiceTests {
 

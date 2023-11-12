@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.context.annotation.ComponentScan;
 import tn.esprit.tunisair.dto.EncadreurDTO;
 import tn.esprit.tunisair.entity.Encadreur;
 import tn.esprit.tunisair.repository.EncadreurRepository;
@@ -20,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+
+@ComponentScan(basePackages = "tn.esprit.tunisair.service")
 public class EncadreurServiceImpTests {
 
     @Mock

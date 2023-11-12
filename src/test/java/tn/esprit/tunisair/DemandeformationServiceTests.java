@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.context.annotation.ComponentScan;
 import tn.esprit.tunisair.dto.DemandeFormationDTO;
 import tn.esprit.tunisair.entity.Demandeformation;
 import tn.esprit.tunisair.entity.Formateur;
@@ -20,6 +21,9 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+
+
+@ComponentScan(basePackages = "tn.esprit.tunisair.service")
 @ExtendWith(MockitoExtension.class)
 public class DemandeformationServiceTests {
 

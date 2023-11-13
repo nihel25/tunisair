@@ -31,20 +31,13 @@ public class StageServiceIpmTests {
 
     @Test
     void testSaveStage() {
-        // Configurer le comportement du repository mock
-        when(stageRepository.save(Mockito.any())).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // Créer un objet StageDTO
+        when(stageRepository.save(Mockito.any())).thenAnswer(invocation -> invocation.getArgument(0));
         StageDTO stageDTO = new StageDTO();
         stageDTO.setTypeStage("PFE");
-
-        // Appeler la méthode save du service
         StageDTO savedStageDTO = stageService.save(stageDTO);
-
-        // Vérifier si les valeurs sont conformes aux attentes
         assertEquals(stageDTO.getTypeStage(), savedStageDTO.getTypeStage());
 
-        // Vérifier si la méthode save du repository a été appelée
         verify(stageRepository, times(1)).save(Mockito.any());
     }
 

@@ -122,25 +122,16 @@ public class StagiaireServiceImpTests {
 
     @Test
     void testFindAllStagiaire() {
-        // Créer deux stagiaires
+
         Stagiaire stagiaire1 = new Stagiaire();
         Stagiaire stagiaire2 = new Stagiaire();
-
-        // Assurez-vous que chaque stagiaire a un stage non null
         stagiaire1.setStage(new Stage());
         stagiaire2.setStage(new Stage());
-
         List<Stagiaire> stagiaireList = new ArrayList<>();
         stagiaireList.add(stagiaire1);
         stagiaireList.add(stagiaire2);
-
-        // Configurer le comportement du repository mock
         when(stagiaireRepository.findAll()).thenReturn(stagiaireList);
-
-        // Appeler la méthode du service
         List<StagiaireDTO> foundStagiaireDTOs = stagiaireService.findAll();
-
-        // Vérifier si le nombre d'éléments retournés correspond au nombre de stagiaires créés
         assertEquals(stagiaireList.size(), foundStagiaireDTOs.size());
     }
 

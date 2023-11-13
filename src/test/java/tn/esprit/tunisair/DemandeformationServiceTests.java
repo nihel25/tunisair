@@ -36,18 +36,11 @@ public class DemandeformationServiceTests {
 
     @Test
     void testSaveDemandeFormation() {
-        // Créer une demande de formation avec des valeurs appropriées
         Demandeformation demandeFormation = new Demandeformation();
         demandeFormation.setId(1L);
         demandeFormation.setValid("en attente");
-
-        // Configurer le comportement du repository mock
         doReturn(demandeFormation).when(demandeformationRepository).save(Mockito.any(Demandeformation.class));
-
-        // Appeler la méthode du service
         demandeformationService.saveDemandeFormation(demandeFormation);
-
-        // Vérifier si la méthode save du repository a été appelée
         verify(demandeformationRepository, times(1)).save(Mockito.any(Demandeformation.class));
     }
 
@@ -55,32 +48,18 @@ public class DemandeformationServiceTests {
 
     @Test
     void testRecherch() {
-        // ID de la demande à rechercher
         Long demandeId = 1L;
         Formation formation = new Formation();
-
-        // Assurez-vous que chaque stagiaire a un stage non null
         formation.setFormateur(new Formateur());
         formation.setUserProfile(new UserProfile());
         formation.setFormateur(new Formateur());
-
-        // Créer une demande de formation avec des valeurs appropriées
         Demandeformation demande = new Demandeformation();
         demande.setId(demandeId);
 demande.setFormation(formation);
-        // Créer un Optional<Demandeformation>
         Optional<Demandeformation> optionalDemande = Optional.of(demande);
-
-        // Configurer le comportement du repository mock
         when(demandeformationRepository.findById(demandeId)).thenReturn(optionalDemande);
-
-        // Appeler la méthode recherch du service
         DemandeFormationDTO foundDemandeDTO = demandeformationService.recherch(demandeId);
-
-        // Vérifier si les valeurs sont conformes aux attentes
         assertEquals(demande.getId(), foundDemandeDTO.getId());
-
-        // Vérifier si la méthode findById du repository a été appelée
         verify(demandeformationRepository, times(1)).findById(demandeId);
     }
 

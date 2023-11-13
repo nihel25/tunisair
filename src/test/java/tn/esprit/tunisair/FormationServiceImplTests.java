@@ -122,27 +122,18 @@ public class FormationServiceImplTests {
 
     @Test
     void testFindAllFormation() {
-        // Créer deux stagiaires
+
         Formation formation1 = new Formation();
         Formation formation2 = new Formation();
-
-        // Assurez-vous que chaque stagiaire a un stage non null
         formation1.setFormateur(new Formateur());
         formation1.setUserProfile(new UserProfile());
         formation2.setFormateur(new Formateur());
         formation2.setUserProfile(new UserProfile());
-
         List<Formation> stagiaireList = new ArrayList<>();
         stagiaireList.add(formation1);
         stagiaireList.add(formation2);
-
-        // Configurer le comportement du repository mock
         when(formationRepository.findAll()).thenReturn(stagiaireList);
-
-        // Appeler la méthode du service
         List<FormationDTO> foundStagiaireDTOs = formationService.findAllFormation();
-
-        // Vérifier si le nombre d'éléments retournés correspond au nombre de stagiaires créés
         assertEquals(stagiaireList.size(), foundStagiaireDTOs.size());
     }
 }

@@ -29,23 +29,12 @@ public class OptionServiceImplTests {
 
     @Test
     void testAjouterOption() {
-        // Créez un SpecialiteeDTO avec des valeurs appropriées
+
         SpecialiteeDTO specialiteeDTO = new SpecialiteeDTO();
-        // Initialisez les propriétés du specialiteeDTO selon les besoins
-
-        // Créez un Specialitee avec des valeurs appropriées
         Specialitee specialitee = SpecialiteeDTO.toentity(specialiteeDTO);
-
-        // Utilisez doReturn().when() pour configurer le stub dans le mock
         doReturn(specialitee).when(specialiteeRepository).save(any(Specialitee.class));
-
-        // Appelez la méthode du service
         SpecialiteeDTO savedSpecialiteeDTO = optionService.ajouterOption(specialiteeDTO);
-
-        // Vérifiez si les valeurs sont conformes aux attentes
         assertEquals(specialiteeDTO.getTypes(), savedSpecialiteeDTO.getTypes());
-
-        // Vérifiez si la méthode save du repository a été appelée
         verify(specialiteeRepository, times(1)).save(any(Specialitee.class));
     }
 
@@ -57,14 +46,8 @@ public class OptionServiceImplTests {
         List<Specialitee> specialiteeList = new ArrayList<>();
         specialiteeList.add(specialitee1);
         specialiteeList.add(specialitee2);
-
-        // Configurer le comportement du repository mock
         when(specialiteeRepository.findAll()).thenReturn(specialiteeList);
-
-        // Appeler la méthode du service
         List<SpecialiteeDTO> foundSpecialiteeDTOs = optionService.findAllspecialite();
-
-        // Vérifier si le nombre d'éléments retournés correspond au nombre de specialites créées
         assertEquals(specialiteeList.size(), foundSpecialiteeDTOs.size());
     }
 }

@@ -93,20 +93,13 @@ public class SalleServiceImplTests {
 
     @Test
     void testFindAllStage() {
-        // Créer deux stages
         Salle stage1 = new Salle();
         Salle stage2 = new Salle();
         List<Salle> stageList = new ArrayList<>();
         stageList.add(stage1);
         stageList.add(stage2);
-
-        // Configurer le comportement du repository mock
         when(salleRepository.findAll()).thenReturn(stageList);
-
-        // Appeler la méthode du service
         List<SalleDTO> foundStageDTOs = salleService.findAllSalle();
-
-        // Vérifier si le nombre d'éléments retournés correspond au nombre de stages créés
         assertEquals(stageList.size(), foundStageDTOs.size());
     }
 

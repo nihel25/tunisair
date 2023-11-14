@@ -8,6 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 import tn.esprit.tunisair.controller.SessionController;
 import tn.esprit.tunisair.dto.PersonnelDTO;
+import tn.esprit.tunisair.dto.SessionDTO;
 import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.service.FormateurService;
 import tn.esprit.tunisair.service.SalleService;
@@ -55,5 +56,58 @@ public class SessionControllerTests {
         verify(sessionService, times(1)).getAllPersonnel();
     }
 
-    // Ajoutez d'autres tests en fonction des autres méthodes du contrôleur
+
+
+    @Test
+    void testDeleteSession() {
+        // ID de la session à supprimer
+        Long sessionId = 1L;
+
+        // Appeler la méthode du contrôleur
+        sessionController.delete(sessionId);
+
+        // Vérifier si la méthode du service a été appelée
+        verify(sessionService, times(1)).delete(sessionId);
+    }
+
+
+   
+
+
+    @Test
+    void testRecherchSession() {
+        // ID de la session à rechercher
+        Long sessionId = 1L;
+
+        // Créer un objet SessionDTO avec des valeurs appropriées
+        SessionDTO sessionDTO = new SessionDTO();
+        sessionDTO.setId(sessionId);
+        // Initialisez les propriétés de sessionDTO selon les besoins
+
+        // Configurer le comportement du service mock
+        when(sessionService.recherch(sessionId)).thenReturn(sessionDTO);
+
+        // Appeler la méthode du contrôleur
+        SessionDTO foundSessionDTO = sessionController.recherch(sessionId);
+
+        // Vérifier si les valeurs sont conformes aux attentes
+        assertEquals(sessionDTO.getId(), foundSessionDTO.getId());
+
+        // Vérifier si la méthode du service a été appelée
+        verify(sessionService, times(1)).recherch(sessionId);
+    }
+
+    @Test
+    void testFindAllSessions() {
+        // Utiliser Mockito pour simuler le service
+        List<SessionDTO> sessionList = new ArrayList<>();
+        when(sessionService.findAllSession()).thenReturn(sessionList);
+
+        // Appeler la méthode du contrôleur
+        List<SessionDTO> foundSessionDTOs = sessionController.findAll();
+
+        // Vérifier si la méthode du service a été appelée
+        verify(sessionService, times(1)).findAllSession();
+    }
+
 }

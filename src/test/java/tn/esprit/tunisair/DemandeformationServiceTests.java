@@ -77,7 +77,7 @@ demande.setFormation(formation);
 
 
     @Test
-    void testFindAllReclamation() {
+    void testFindAllDemande() {
 
         Formation formation1 = new Formation();
         formation1.setUserProfile(new UserProfile());
@@ -96,7 +96,7 @@ demande.setFormation(formation);
         reclamation2.setDatereclamation(new Date());
         reclamation2.setFormation(formation2);
 
-        
+
         List<DemandeFormationDTO> foundReclamationDTOs = demandeformationService.findAllDemandes();
 
     }

@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tunisair.dto.StageDTO;
-import tn.esprit.tunisair.entity.Stage;
 import tn.esprit.tunisair.repository.StageRepository;
 import tn.esprit.tunisair.service.StageService;
 
@@ -32,12 +31,6 @@ public class StageController {
     public StageDTO recherch(@PathVariable Long id) {
 
         return stageService.recherch(id);
-    }
-    @PostMapping("/add-stock")
-    @ResponseBody
-    public Stage addStock(@RequestBody Stage s) {
-        Stage salle = stageService.addsatge(s);
-        return salle;
     }
 
 

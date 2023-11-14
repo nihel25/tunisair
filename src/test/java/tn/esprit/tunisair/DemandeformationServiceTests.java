@@ -8,6 +8,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import tn.esprit.tunisair.dto.DemandeFormationDTO;
+import tn.esprit.tunisair.dto.FormateurDto;
+import tn.esprit.tunisair.dto.FormationDTO;
+import tn.esprit.tunisair.dto.UserprofilDTO;
 import tn.esprit.tunisair.entity.*;
 import tn.esprit.tunisair.repository.DemandeformationRepository;
 import tn.esprit.tunisair.service.DemandeformationServiceImpl;
@@ -17,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 
@@ -99,5 +103,37 @@ demande.setFormation(formation);
 
         List<DemandeFormationDTO> foundReclamationDTOs = demandeformationService.findAllDemandes();
 
+    }
+
+
+
+
+    @Test
+    void testAddDemandeFormation() {
+        // Créer un exemple de DemandeFormationDTO
+        DemandeFormationDTO demandeFormationDTO = new DemandeFormationDTO();
+        demandeFormationDTO.setId(1L);
+        UserprofilDTO userprofilDTO = new UserprofilDTO();
+
+        FormateurDto formateurDto = new FormateurDto();
+        FormationDTO formationDTO = new FormationDTO();
+        formationDTO.setFormateurDto(formateurDto);
+        formationDTO.setUserprofildto(userprofilDTO);
+        demandeFormationDTO.setFormationdto(formationDTO);
+
+        // Initialisez les propriétés selon les besoins
+
+        // Configurer le comportement du repository mock
+        when(demandeformationRepository.save(any())).thenAnswer(invocation -> invocation.getArgument(0));
+
+        // Appeler la méthode add du service
+        DemandeFormationDTO addedDemandeFormationDTO = demandeformationService.add(demandeFormationDTO);
+
+        // Vérifier si les résultats sont conformes aux attentes
+        assertNotNull(addedDemandeFormationDTO);
+        assertEquals(demandeFormationDTO.getId(), addedDemandeFormationDTO.getId());
+
+        // Vérifier si la méthode save du repository a été appelée
+        verify(demandeformationRepository, times(1)).save(any());
     }
 }

@@ -27,7 +27,7 @@ public class AttestationControllerTests {
     private AttestationController attestationController;
 
     @Test
-    void testAjoutAttestation() {
+    void testAjoutAtestation() {
         AttestationDTO attestationDTO = new AttestationDTO();
         attestationDTO.setId(1L);
 

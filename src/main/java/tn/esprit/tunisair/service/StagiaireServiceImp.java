@@ -22,11 +22,7 @@ private StageRepository stageRepository;
 
 
 
-    public Stagiaire addsatgaire(Stagiaire s) {
 
-        return stagiaireRepository.save(s);
-
-    }
 
     @Override
     public StagiaireDTO save(StagiaireDTO stagiaireDTO) {

@@ -33,7 +33,7 @@ public class ReclamationServiceTests {
 
 
     @Test
-    void testSaveMateriel() {
+    void testSaveReclamation() {
 
         SpecialiteeDTO specialitee = new SpecialiteeDTO();
         UserprofilDTO userprofilDTO = new UserprofilDTO();

@@ -16,10 +16,7 @@ public class SalleServiceImpl implements SalleService{
 
     @Autowired
     SalleRepository salleRepository;
-    @Override
-    public void ajoutersalle(Salle s) {
-        salleRepository.save(s);
-    }
+
 
 
 
@@ -35,12 +32,7 @@ public class SalleServiceImpl implements SalleService{
       return SalleDTO.fromEntity(salle);
 
     }
-    @Override
-    public Salle addsalle(Salle s) {
 
-        return salleRepository.save(s);
-
-    }
 
 
 

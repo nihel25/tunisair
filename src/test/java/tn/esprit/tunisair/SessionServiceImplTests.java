@@ -11,6 +11,7 @@ import tn.esprit.tunisair.repository.SessionRepository;
 import tn.esprit.tunisair.service.SessionServiceImpl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -102,5 +103,22 @@ sessionDTO.setFormationDTO(formationDTO);
         // Vérifier si la taille de la liste retournée correspond à la taille de la liste simulée
         assertEquals(sessionList.size(), foundSessionDTOs.size());
     }
+
+
+    @Test
+    void testSaveSession() {
+        // Créer un objet Session
+        Session session = new Session();
+        session.setReference("SessionTest");
+        session.setDateDebut(new Date());
+        // Initialisez les autres propriétés de la session selon vos besoins
+
+        // Appeler la méthode savee du service
+        sessionService.savee(session);
+
+        // Vérifier si la méthode save du repository a été appelée
+        verify(sessionRepository, times(1)).save(session);
+    }
+
 }
 

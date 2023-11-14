@@ -8,13 +8,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import tn.esprit.tunisair.dto.DemandeFormationDTO;
-import tn.esprit.tunisair.entity.Demandeformation;
-import tn.esprit.tunisair.entity.Formateur;
-import tn.esprit.tunisair.entity.Formation;
-import tn.esprit.tunisair.entity.UserProfile;
+import tn.esprit.tunisair.entity.*;
 import tn.esprit.tunisair.repository.DemandeformationRepository;
 import tn.esprit.tunisair.service.DemandeformationServiceImpl;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -73,5 +72,32 @@ demande.setFormation(formation);
         demandeformationService.delete(demandeId);
 
         verify(demandeformationRepository, times(1)).deleteById(demandeId);
+    }
+
+
+
+    @Test
+    void testFindAllReclamation() {
+
+        Formation formation1 = new Formation();
+        formation1.setUserProfile(new UserProfile());
+        formation1.setId(1L);
+        Demandeformation reclamation1 = new Demandeformation();
+        reclamation1.setId(1L);
+        reclamation1.setNbrpersonnelle(5L);
+        reclamation1.setDateCreation(new Date());
+        reclamation1.setFormation(formation1);
+        Formation formation2 = new Formation();
+        formation2.setId(2L);
+        formation2.setUserProfile(new UserProfile());
+        Reclamation reclamation2 = new Reclamation();
+        reclamation2.setId(2L);
+        reclamation2.setTypeReclamation("Type 2");
+        reclamation2.setDatereclamation(new Date());
+        reclamation2.setFormation(formation2);
+
+        
+        List<DemandeFormationDTO> foundReclamationDTOs = demandeformationService.findAllDemandes();
+
     }
 }

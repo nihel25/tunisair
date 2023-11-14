@@ -13,6 +13,9 @@ import tn.esprit.tunisair.entity.UserProfile;
 import tn.esprit.tunisair.repository.ReclamationRepository;
 import tn.esprit.tunisair.service.ReclamationServiceImpl;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -95,8 +98,30 @@ public class ReclamationServiceTests {
 
 
 
+    @Test
+    void testFindAllReclamation() {
 
-
+        Formation formation1 = new Formation();
+        formation1.setUserProfile(new UserProfile());
+        formation1.setId(1L);
+        Reclamation reclamation1 = new Reclamation();
+        reclamation1.setId(1L);
+        reclamation1.setTypeReclamation("Type 1");
+        reclamation1.setDatereclamation(new Date());
+        reclamation1.setFormation(formation1);
+        Formation formation2 = new Formation();
+        formation2.setId(2L);
+        formation2.setUserProfile(new UserProfile());
+        Reclamation reclamation2 = new Reclamation();
+        reclamation2.setId(2L);
+        reclamation2.setTypeReclamation("Type 2");
+        reclamation2.setDatereclamation(new Date());
+        reclamation2.setFormation(formation2);
+        List<Reclamation> reclamationList = Arrays.asList(reclamation1, reclamation2);
+        when(repository.findAll()).thenReturn(reclamationList);
+        List<ReclamationDTO> foundReclamationDTOs = reclamationService.findAllreclamation();
+        assertEquals(reclamationList.size(), foundReclamationDTOs.size());
+    }
 
 
 

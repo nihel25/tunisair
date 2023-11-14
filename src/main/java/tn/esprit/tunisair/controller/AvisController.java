@@ -20,8 +20,7 @@ public class AvisController {
     @Autowired
     AvisService avisService;
 
-    @Autowired
-    private SentimentAnalyzer sentimentAnalyzer;
+  
 
 @Secured("CLIENT")
     @PostMapping("/saveavis")
@@ -40,13 +39,6 @@ public class AvisController {
     }
 
 
-
-@Secured("CLIENT")
-    @GetMapping("/analyzeSentiments")
-    public SentimentAnalysisResult analyzeSentiments() {
-        List<AvisDto> avisList = avisService.findAll();
-        return sentimentAnalyzer.analyze(avisList);
-    }
 
 
 

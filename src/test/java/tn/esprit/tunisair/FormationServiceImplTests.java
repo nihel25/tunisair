@@ -136,4 +136,10 @@ public class FormationServiceImplTests {
         List<FormationDTO> foundStagiaireDTOs = formationService.findAllFormation();
         assertEquals(stagiaireList.size(), foundStagiaireDTOs.size());
     }
+
+
+
+
+
+
 }

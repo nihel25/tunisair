@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface FormateurService {
 
-    FormateurDto addformateur(FormateurDto b);
+
 
     List<FormateurDto> findAll();
 

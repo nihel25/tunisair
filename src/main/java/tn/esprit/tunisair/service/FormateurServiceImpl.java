@@ -61,16 +61,7 @@ SpecialiteeRepository specialiteeRepository;
             return null;
         }}
 
-    @Override
-    public FormateurDto addformateur(FormateurDto b) {
 
-
-        Formateur formateur = FormateurDto.toentity(b);
-
-        Formateur savedformateur= formateurRepository.save(formateur);
-
-        return FormateurDto.fromentity(savedformateur);
-    }
 
 
 

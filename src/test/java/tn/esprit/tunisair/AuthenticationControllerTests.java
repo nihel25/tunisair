@@ -38,5 +38,5 @@ public class AuthenticationControllerTests {
         verify(service, times(1)).delete(Mockito.anyLong());
     }
 
- 
+
 }

@@ -30,7 +30,7 @@ public class UserProfileServiceTests {
 
 
     @Test
-    void testGetAllUserProfiles() {
+    void testGetAllUserProfile() {
         List<UserProfile> userProfileList = new ArrayList<>();
 
         when(userProfileRepository.findAll()).thenReturn(userProfileList);

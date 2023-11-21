@@ -30,6 +30,8 @@ public class UserServiceimpl implements UserService {
    private final JwtUtils jwtUtils;
     private final AuthenticationManager authenticationManager;
 
+
+
     @Autowired
     UserRepository userRepository;
     @Autowired

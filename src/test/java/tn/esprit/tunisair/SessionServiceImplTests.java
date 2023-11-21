@@ -34,7 +34,7 @@ public class SessionServiceImplTests {
 
 
     @Test
-    void testDeletSession() {
+    void testDeletSesion() {
 
         Long id = 1L;
 

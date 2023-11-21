@@ -75,6 +75,9 @@ import java.util.Set;
     @OneToMany(mappedBy ="user")
     private Set<Formation> formation;
 
+    public User(long l, String utilisateur1) {
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(new SimpleGrantedAuthority(role.name()));

@@ -35,7 +35,7 @@ public class ReclamationControllerTests {
     void testAjoutReclamation() {
         // Créer un exemple de ReclamationDTO
         ReclamationDTO reclamationDTO = new ReclamationDTO();
-        reclamationDTO.setTypeReclamation("Sujet de la réclamation");
+        reclamationDTO.setTypeReclamation("Sujet de la réclation");
 
         when(reclamationService.save(reclamationDTO)).thenReturn(reclamationDTO);
 

@@ -35,7 +35,7 @@ public class StagiaireServiceImpTests {
     private StagiaireServiceImp stagiaireService;
 
     @Test
-    void testSaveStagiaire() {
+    void testSaveStagaire() {
         // Créez un StageDTO avec des valeurs appropriées
         StageDTO stageDTO = new StageDTO();
         // Initialisez les propriétés du stageDTO selon les besoins

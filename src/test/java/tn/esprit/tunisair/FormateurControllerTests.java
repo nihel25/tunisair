@@ -51,7 +51,7 @@ public class FormateurControllerTests {
     }
 
     @Test
-    void testRecherchFormateur() {
+    void testRecherchFormateeur() {
         // ID du formateur à rechercher
         Long formateurId = 1L;
 

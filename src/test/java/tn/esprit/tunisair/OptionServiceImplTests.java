@@ -40,7 +40,7 @@ public class OptionServiceImplTests {
 
     @Test
     void testFindAllSpecialite() {
-        // Créer deux specialites
+
         Specialitee specialitee1 = new Specialitee();
         Specialitee specialitee2 = new Specialitee();
         List<Specialitee> specialiteeList = new ArrayList<>();

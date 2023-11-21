@@ -33,7 +33,7 @@ public class MaterielControllerTests {
     void testAddMateriel() {
         // Créer un exemple de MaterielDTO
         MaterielDTO materielDTO = new MaterielDTO();
-        materielDTO.setNom("Ordinateur");
+        materielDTO.setNom("Ordnateur");
 
 
         // Configurer le comportement du service mock

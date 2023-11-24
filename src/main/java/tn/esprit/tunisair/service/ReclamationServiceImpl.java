@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 public class ReclamationServiceImpl implements ReclamationService {
 @Autowired
 FormationRepository formationRepository;
-@Autowired
-ReclamationRepository reclamationRepository;
+
+private  final ReclamationRepository reclamationRepository;
 
 
 
@@ -28,7 +28,12 @@ ReclamationRepository reclamationRepository;
     private final UserRepository userRepository;
 
 
-    public ReclamationServiceImpl(UserRepository userRepository) {
+    public ReclamationServiceImpl(UserRepository userRepository,
+    ReclamationRepository reclamationRepository
+    ) {
+
+
+        this.reclamationRepository=reclamationRepository;
         this.userRepository = userRepository;
     }
 

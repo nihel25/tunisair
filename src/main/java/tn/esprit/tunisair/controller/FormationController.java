@@ -25,7 +25,7 @@ public class FormationController {
 
     private final FormationService formationService;
 
-
+    private final ImageStorage imageStorage;
 
 
 
@@ -33,11 +33,12 @@ public class FormationController {
 
 
     @Autowired
-    public FormationController(FormationService formationService
+    public FormationController(FormationService formationService,
+                               ImageStorage imageStorage
 
 
     ) {
-
+        this.imageStorage = imageStorage;
         this.formationService = formationService;
 
 
@@ -66,8 +67,7 @@ public class FormationController {
 
 
 
-    @Autowired
-    private ImageStorage imageStorage;
+  
 
 
 

@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -104,6 +105,7 @@ import static org.mockito.Mockito.*;
         when(formationRepository.findAll()).thenReturn(stagiaireList);
         List<FormationDTO> foundStagiaireDTOs = formationService.findAllFormation();
         assertEquals(stagiaireList.size(), foundStagiaireDTOs.size());
+        assertNotNull(formation1, "La formation ne devrait pas être nulle.");
     }
 
 

@@ -20,16 +20,17 @@ public class SessionServiceImpl implements SessionService {
 
 
 
-@Autowired
-PersonnelRepository personnelRepository;
+
+private final PersonnelRepository personnelRepository;
 
 
     @Autowired
-    public SessionServiceImpl(SessionRepository sessionRepository
+    public SessionServiceImpl(SessionRepository sessionRepository,
+    PersonnelRepository personnelRepository
     ) {
 
         this.sessionRepository = sessionRepository;
-
+this.personnelRepository=personnelRepository;
     }
 
     @Override

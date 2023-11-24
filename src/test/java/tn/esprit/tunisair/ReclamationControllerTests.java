@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import tn.esprit.tunisair.controller.ReclamationController;
 import tn.esprit.tunisair.dto.ReclamationDTO;
 import tn.esprit.tunisair.service.ReclamationService;
-import tn.esprit.tunisair.service.ReclamationServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +24,7 @@ class ReclamationControllerTests {
     @Mock
     private ReclamationService reclamationService;
 
-    @Mock
-    private ReclamationServiceImpl reclamationServicee;
+
 
     @InjectMocks
     private ReclamationController reclamationController;
@@ -69,10 +67,10 @@ class ReclamationControllerTests {
     void testFindAllReclamation() {
 
         List<ReclamationDTO> reclamationDTOList = new ArrayList<>();
-        when(reclamationServicee.findAllreclamation()).thenReturn(reclamationDTOList);
+        when(reclamationService.findAllreclamation()).thenReturn(reclamationDTOList);
         List<ReclamationDTO> result = reclamationController.findAllreclamation();
         assertEquals(reclamationDTOList, result);
-        verify(reclamationServicee, times(1)).findAllreclamation();
+        verify(reclamationService, times(1)).findAllreclamation();
     }
 
     @Test
@@ -83,6 +81,6 @@ class ReclamationControllerTests {
 
         reclamationController.delete(reclamationId);
 
-        verify(reclamationServicee, times(1)).delete(reclamationId);
+        verify(reclamationService, times(1)).delete(reclamationId);
     }
 }

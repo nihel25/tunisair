@@ -18,10 +18,14 @@ import java.util.List;
 public class MaterielController {
 
 
-@Autowired
-MaterielService materielService;
+
+private final MaterielService materielService;
+
+
     @Autowired
-    MaterielService materielServices;
+    public MaterielController(MaterielService materielService) {
+        this.materielService = materielService;
+    }
     @Secured("COORDINATEURFORMATION")
     @PostMapping("/addmateriel")
     public ResponseEntity<MaterielDTO> addmateriel(@Valid @RequestBody MaterielDTO materielDTO) {

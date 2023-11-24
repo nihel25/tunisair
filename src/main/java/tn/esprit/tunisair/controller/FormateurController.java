@@ -17,10 +17,13 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class FormateurController {
 
-@Autowired
-    FormateurService formateurService;
 
+  private final  FormateurService formateurService;
 
+    @Autowired
+    public FormateurController(FormateurService formateurService) {
+        this.formateurService = formateurService;
+    }
 
 
     @Secured("ADMIN")

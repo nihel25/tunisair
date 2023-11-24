@@ -16,10 +16,13 @@ import java.util.List;
 @RequestMapping("Reclamation")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ReclamationController {
+
+   private final ReclamationService reclamationService;
+
     @Autowired
-    ReclamationService reclamationService;
-
-
+    public ReclamationController(ReclamationService reclamationService) {
+        this.reclamationService = reclamationService;
+    }
 
     @Secured("CLIENT")
     @PostMapping("/savereclamation")

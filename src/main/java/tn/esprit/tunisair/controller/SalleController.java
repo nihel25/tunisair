@@ -17,10 +17,13 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 public class SalleController {
+
+   private final SalleService salleService;
+
     @Autowired
-    SalleService salleService;
-
-
+    public SalleController(SalleService salleService) {
+        this.salleService = salleService;
+    }
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id ) {

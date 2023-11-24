@@ -18,9 +18,12 @@ import java.util.List;
 @RequestMapping("encadreursatge")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EncadreurController {
-    @Autowired
-    EncadreurService encadreurService;
 
+    private final EncadreurService encadreurService;
+    @Autowired
+    public EncadreurController(EncadreurService encadreurService) {
+        this.encadreurService = encadreurService;
+    }
 
     @Secured("ADMIN")
  @PostMapping("/saveencadreur")

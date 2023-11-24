@@ -22,8 +22,15 @@ import java.util.List;
 public class SessionController {
 
 
+
+   private final SessionService sessionService;
+
+
+
     @Autowired
-    SessionService sessionService;
+    public SessionController(SessionService sessionService) {
+        this.sessionService = sessionService;
+    }
 @Autowired
 SalleService salleService;
     @Autowired

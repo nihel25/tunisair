@@ -5,8 +5,8 @@ import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import tn.esprit.tunisair.service.UserProfileService;
 import tn.esprit.tunisair.entity.UserProfile;
+import tn.esprit.tunisair.service.UserProfileService;
 
 import java.util.List;
 
@@ -18,9 +18,12 @@ public class ProfiluserController {
 
 
 
-@Autowired
-UserProfileService userProfileService;
 
+private final UserProfileService userProfileService;
+    @Autowired
+    public ProfiluserController(UserProfileService userProfileService) {
+        this.userProfileService = userProfileService;
+    }
 
     @Secured("COORDINATEURENTREPRISE")
 

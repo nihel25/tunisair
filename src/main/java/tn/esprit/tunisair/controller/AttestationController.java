@@ -18,9 +18,13 @@ import java.util.List;
 public class AttestationController {
 
 
-@Autowired
-    AttestationService attestationService;
 
+    private final AttestationService attestationService;
+
+    @Autowired
+    public AttestationController(AttestationService attestationService) {
+        this.attestationService = attestationService;
+    }
 
     @Secured("COORDINATEURFORMATION")
     @PostMapping("/saveattestation")

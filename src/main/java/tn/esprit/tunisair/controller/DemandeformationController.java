@@ -20,9 +20,12 @@ import java.util.List;
 public class DemandeformationController {
 
 
-    @Autowired
-    private DemandeformationService demandeFormationService;
 
+    private final DemandeformationService demandeFormationService;
+    @Autowired
+    public DemandeformationController(DemandeformationService demandeformationclientService) {
+        this.demandeFormationService = demandeformationclientService;
+    }
 
 
 @Secured("COORDINATEURENTREPRISE")

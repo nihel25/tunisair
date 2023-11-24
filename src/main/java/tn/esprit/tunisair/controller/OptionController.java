@@ -15,10 +15,13 @@ import java.util.List;
 public class OptionController {
 
 
+
+   private final OptionService optionService;
+
     @Autowired
-    OptionService optionService;
-
-
+    public OptionController(OptionService optionService) {
+        this.optionService = optionService;
+    }
     @Secured("ADMIN")
 
     @PostMapping("/ajouteroption")

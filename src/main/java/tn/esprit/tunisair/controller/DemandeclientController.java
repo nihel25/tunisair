@@ -23,10 +23,13 @@ public class DemandeclientController {
 @Autowired
     UserService userService;
 
+
+  private final  DemandeformationclientService demandeformationclientService;
+
     @Autowired
-    DemandeformationclientService demandeformationclientService;
-
-
+    public DemandeclientController(DemandeformationclientService demandeformationclientService) {
+        this.demandeformationclientService = demandeformationclientService;
+    }
 
 
 

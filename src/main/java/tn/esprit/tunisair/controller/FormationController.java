@@ -24,8 +24,17 @@ import java.util.List;
 public class FormationController {
 
 
+
+    private final FormationService formationService;
+
+
+
+
+
     @Autowired
-    FormationService formationService;
+    public FormationController(FormationService formationService) {
+        this.formationService = formationService;
+    }
     @Autowired
     ReclamationService reclamationService;
     @Autowired

@@ -17,10 +17,13 @@ import java.util.List;
 public class AvisController {
 
 
-    @Autowired
-    AvisService avisService;
 
-  
+   final AvisService avisService;
+
+    @Autowired
+    public AvisController(AvisService avisService) {
+        this.avisService = avisService;
+    }
 
 @Secured("CLIENT")
     @PostMapping("/saveavis")

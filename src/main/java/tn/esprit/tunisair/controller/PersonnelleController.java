@@ -19,9 +19,12 @@ import javax.validation.Valid;
 public class PersonnelleController {
 
 
-@Autowired
-    PersonnelleService personnelleService;
 
+  private final  PersonnelleService personnelleService;
+    @Autowired
+    public PersonnelleController(PersonnelleService personnelleService) {
+        this.personnelleService = personnelleService;
+    }
 
     @Secured("COORDINATEURENTREPRISE")
     @PostMapping("/saveOrUpdate")

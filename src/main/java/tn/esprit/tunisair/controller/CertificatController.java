@@ -18,10 +18,13 @@ import java.util.List;
 public class CertificatController {
 
 
-@Autowired
-    CertificatService certificatService;
 
+  private final  CertificatService certificatService;
 
+    @Autowired
+    public CertificatController(CertificatService certificatService) {
+        this.certificatService = certificatService;
+    }
 
 
 

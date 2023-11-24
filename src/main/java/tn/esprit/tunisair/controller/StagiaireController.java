@@ -15,9 +15,14 @@ import java.util.List;
 @RequestMapping("stagiaire")
 @CrossOrigin(origins = "http://localhost:4200")
 public class StagiaireController {
-    @Autowired
-    StagiaireService stagiaireService;
 
+   private final StagiaireService stagiaireService;
+
+
+    @Autowired
+    public StagiaireController(StagiaireService stagiaireService) {
+        this.stagiaireService = stagiaireService;
+    }
     @Secured("RECRUTEUR")
 
     @PostMapping("/saveOrUpdate")

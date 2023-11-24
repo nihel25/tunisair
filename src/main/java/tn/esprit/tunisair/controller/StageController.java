@@ -15,9 +15,16 @@ import java.util.List;
 @RequestMapping("stage")
 @CrossOrigin(origins = "http://localhost:4200")
 public class StageController {
-    @Autowired
-    StageService stageService;
 
+  private final  StageService stageService;
+
+
+
+
+    @Autowired
+    public StageController(StageService stageService) {
+        this.stageService = stageService;
+    }
     @Secured("RECRUTEUR")
     @PostMapping("/savestage")
     public ResponseEntity<StageDTO> addstage(@Valid @RequestBody StageDTO stageDTO) {

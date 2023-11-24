@@ -67,7 +67,26 @@ PersonnelDTO personnelDTO = new PersonnelDTO();
         AttestationDTO foundAttestationDTO = attestationService.recherch(attestationId);
         verify(attestationRepository, times(1)).findById(attestationId);
     }
+    @Test
+    void testRecherchAttetation() {
 
+        Long attestationId = 1L;
+        PersonnelDTO personnelDTO = new PersonnelDTO();
+        FormationDTO formationDTO= new FormationDTO();
+        FormateurDto formateurDto = new FormateurDto();
+        UserprofilDTO userprofilDTO = new UserprofilDTO();
+        formationDTO.setFormateurDto(formateurDto);
+        formationDTO.setUserprofildto(userprofilDTO);
+        AttestationDTO attestationDTO = new AttestationDTO();
+        attestationDTO.setId(attestationId);
+        attestationDTO.setPersonnelDTO(personnelDTO);
+        attestationDTO.setFormationdto(formationDTO);
+        Attestation attestation = AttestationDTO.toentity(attestationDTO);
+        Optional<Attestation> optionalAttestation = Optional.of(attestation);
+        when(attestationRepository.findById(attestationId)).thenReturn(optionalAttestation);
+        AttestationDTO foundAttestationDTO = attestationService.recherch(attestationId);
+        verify(attestationRepository, times(1)).findById(attestationId);
+    }
     @Test
     void testDeleteAttestation() {
 
@@ -98,4 +117,30 @@ Personnel personnelDTO = new Personnel();
         List<AttestationDTO> foundAttestationDTOs = attestationService.findAll();
         assertEquals(attestationList.size(), foundAttestationDTOs.size());
     }
+
+
+
+    @Test
+    void testFindAlAttestation() {
+
+        Formation formation = new Formation();
+        Personnel personnelDTO = new Personnel();
+        Formateur formateurDto = new Formateur();
+        UserProfile userprofilDTO = new UserProfile();
+        formation.setFormateur(formateurDto);
+        formation.setUserProfile(userprofilDTO);
+        Attestation attestation1 = new Attestation();
+        Attestation attestation2 = new Attestation();
+        attestation1.setFormation(formation);
+        attestation1.setPersonnel(personnelDTO);
+        attestation2.setPersonnel(personnelDTO);
+        attestation2.setFormation(formation);
+        List<Attestation> attestationList = new ArrayList<>();
+        attestationList.add(attestation1);
+        attestationList.add(attestation2);
+        when(attestationRepository.findAll()).thenReturn(attestationList);
+        List<AttestationDTO> foundAttestationDTOs = attestationService.findAll();
+        assertEquals(attestationList.size(), foundAttestationDTOs.size());
+    }
+
 }

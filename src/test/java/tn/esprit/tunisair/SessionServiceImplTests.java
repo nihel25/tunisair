@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-public class SessionServiceImplTests {
+ class SessionServiceImplTests {
 
 @Mock
     SessionRepository sessionRepository;
@@ -49,7 +49,7 @@ public class SessionServiceImplTests {
 
     @Test
     void testRecherchSession() {
-        // ID de la session à rechercher
+
         Long sessionId = 1L;
         FormationDTO formationDTO = new FormationDTO();
         UserprofilDTO userprofilDTO =new UserprofilDTO();
@@ -57,50 +57,32 @@ public class SessionServiceImplTests {
         formationDTO.setFormateurDto(formateurDto);
         formationDTO.setUserprofildto(userprofilDTO);
         SalleDTO salleDTO = new SalleDTO();
-        // Créer un objet SessionDTO avec des valeurs appropriées
+
         SessionDTO sessionDTO = new SessionDTO();
         sessionDTO.setId(sessionId);
         sessionDTO.setSalleDTO(salleDTO);
         sessionDTO.setFormateurDto(formateurDto);
-        // Initialisez les propriétés du sessionDTO selon les besoins
+
 sessionDTO.setFormationDTO(formationDTO);
-        // Convertir SessionDTO en Session
+
         Session session = SessionDTO.toentity(sessionDTO);
-
-        // Créer un Optional<Session>
         Optional<Session> optionalSession = Optional.of(session);
-
-        // Configurer le comportement du repository mock
         when(sessionRepository.findById(sessionId)).thenReturn(optionalSession);
-
-        // Appeler la méthode recherch du service
         SessionDTO foundSessionDTO = sessionService.recherch(sessionId);
-
-        // Vérifier si les valeurs sont conformes aux attentes
-        // (ajoutez des assertions appropriées selon les propriétés de l'objet)
-
-        // Vérifier si la méthode findById du repository a été appelée
         verify(sessionRepository, times(1)).findById(sessionId);
     }
 
     @Test
     void testFindAllSession() {
-        // Créer des objets Session pour simuler la liste retournée par le repository
+
         Session session1 = new Session();
         Session session2 = new Session();
-        // Initialisez les propriétés des sessions selon les besoins
 
         List<Session> sessionList = new ArrayList<>();
         sessionList.add(session1);
         sessionList.add(session2);
-
-        // Configurer le comportement du repository mock
         when(sessionRepository.findAll()).thenReturn(sessionList);
-
-        // Appeler la méthode findAll du service
         List<SessionDTO> foundSessionDTOs = sessionService.findAllSession();
-
-        // Vérifier si la taille de la liste retournée correspond à la taille de la liste simulée
         assertEquals(sessionList.size(), foundSessionDTOs.size());
     }
 
@@ -111,12 +93,8 @@ sessionDTO.setFormationDTO(formationDTO);
         Session session = new Session();
         session.setReference("SessionTest");
         session.setDateDebut(new Date());
-        // Initialisez les autres propriétés de la session selon vos besoins
-
-        // Appeler la méthode savee du service
         sessionService.savee(session);
 
-        // Vérifier si la méthode save du repository a été appelée
         verify(sessionRepository, times(1)).save(session);
     }
 

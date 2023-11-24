@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class StageControllerTests {
+ class StageControllerTests {
 
     @Mock
     private StageService stageService;
@@ -29,7 +29,7 @@ public class StageControllerTests {
 
     @Test
     void testAddStage() {
-        // Créer un exemple de StageDTO
+
         StageDTO stageDTO = new StageDTO();
         stageDTO.setTypeStage("PFE");
         when(stageService.save(stageDTO)).thenReturn(stageDTO);
@@ -44,7 +44,7 @@ public class StageControllerTests {
         // ID du stage à rechercher
         Long stageId = 1L;
 
-        // Créer un exemple de StageDTO
+
         StageDTO stageDTO = new StageDTO();
         stageDTO.setId(stageId);
         stageDTO.setTypeStage("PFE");
@@ -56,29 +56,25 @@ public class StageControllerTests {
 
     @Test
     void testDeleteStage() {
-        // Appeler la méthode delete du contrôleur
+
         stageController.delete(1L);
 
-        // Vérifier si la méthode delete du service a été appelée
+
         verify(stageService, times(1)).delete(1L);
     }
 
     @Test
     void testFindAllStage() {
-        // Créer une liste d'exemple de StageDTO
-        List<StageDTO> stageDTOList = new ArrayList<>();
-        // Ajouter des éléments à la liste selon vos besoins
 
-        // Configurer le comportement du service mock
+        List<StageDTO> stageDTOList = new ArrayList<>();
+
         when(stageService.findAllstage()).thenReturn(stageDTOList);
 
-        // Appeler la méthode findAll du contrôleur
+
         List<StageDTO> result = stageController.findAll();
 
-        // Vérifier si les résultats sont conformes aux attentes
-        assertEquals(stageDTOList, result);
 
-        // Vérifier si la méthode findAllstage du service a été appelée
+        assertEquals(stageDTOList, result);
         verify(stageService, times(1)).findAllstage();
     }
 }

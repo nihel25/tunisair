@@ -27,7 +27,7 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-public class DemandeformationServiceTests {
+ class DemandeformationServiceTests {
 
     @Mock
     private DemandeformationRepository demandeformationRepository;
@@ -110,7 +110,7 @@ demande.setFormation(formation);
 
     @Test
     void testAddDemandeFormation() {
-        // Créer un exemple de DemandeFormationDTO
+
         DemandeFormationDTO demandeFormationDTO = new DemandeFormationDTO();
         demandeFormationDTO.setId(1L);
         UserprofilDTO userprofilDTO = new UserprofilDTO();
@@ -120,20 +120,12 @@ demande.setFormation(formation);
         formationDTO.setFormateurDto(formateurDto);
         formationDTO.setUserprofildto(userprofilDTO);
         demandeFormationDTO.setFormationdto(formationDTO);
-
-        // Initialisez les propriétés selon les besoins
-
-        // Configurer le comportement du repository mock
         when(demandeformationRepository.save(any())).thenAnswer(invocation -> invocation.getArgument(0));
-
-        // Appeler la méthode add du service
         DemandeFormationDTO addedDemandeFormationDTO = demandeformationService.add(demandeFormationDTO);
 
-        // Vérifier si les résultats sont conformes aux attentes
         assertNotNull(addedDemandeFormationDTO);
         assertEquals(demandeFormationDTO.getId(), addedDemandeFormationDTO.getId());
 
-        // Vérifier si la méthode save du repository a été appelée
         verify(demandeformationRepository, times(1)).save(any());
     }
 }

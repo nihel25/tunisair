@@ -1,7 +1,6 @@
 package tn.esprit.tunisair;
 
 
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -10,8 +9,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import tn.esprit.tunisair.dto.FormateurDto;
 import tn.esprit.tunisair.entity.Formateur;
 import tn.esprit.tunisair.repository.FormateurRepository;
-import tn.esprit.tunisair.repository.FormationRepository;
-import tn.esprit.tunisair.repository.SpecialiteeRepository;
 import tn.esprit.tunisair.service.FormateurServiceImpl;
 
 import java.util.ArrayList;
@@ -22,16 +19,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class FormateurServiceImpTests {
+ class FormateurServiceImpTests {
 
     @Mock
     private FormateurRepository formateurRepositoryy;
 
-    @Mock
-    private FormationRepository formationRepository;
 
-    @Mock
-    private SpecialiteeRepository specialiteeRepository;
 
     @InjectMocks
     private FormateurServiceImpl formateurService;

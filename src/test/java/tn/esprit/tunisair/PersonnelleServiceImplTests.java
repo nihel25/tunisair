@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class PersonnelleServiceImplTests {
+ class PersonnelleServiceImplTests {
 
     @Mock
     private PersonnelRepository personnelRepository;

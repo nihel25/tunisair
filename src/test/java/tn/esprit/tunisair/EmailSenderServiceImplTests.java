@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class EmailSenderServiceImplTests {
+ class EmailSenderServiceImplTests {
 
     @Mock
     private JavaMailSender mailSender;
@@ -25,18 +25,15 @@ public class EmailSenderServiceImplTests {
 
     @Test
     void testSendEmail() {
-        // Paramètres du test
+
         String to = "destinataire@example.com";
         String subject = "Sujet du message";
         String messageText = "Contenu du message";
 
-        // Appel de la méthode sendEmail du service
         emailSenderService.sendEmail(to, subject, messageText);
 
-        // Vérifier si la méthode send du mailSender a été appelée
         verify(mailSender, times(1)).send(any(SimpleMailMessage.class));
 
-        // Vous pouvez également vérifier le contenu du message si nécessaire
         ArgumentCaptor<SimpleMailMessage> argumentCaptor = ArgumentCaptor.forClass(SimpleMailMessage.class);
         verify(mailSender).send(argumentCaptor.capture());
         SimpleMailMessage sentMessage = argumentCaptor.getValue();

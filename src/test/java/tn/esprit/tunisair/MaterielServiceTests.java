@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class MaterielServiceTests {
+ class MaterielServiceTests {
 
     @Mock
     private MaterielRepository materielRepository;
@@ -45,22 +45,14 @@ SalleDTO salleDTO = new SalleDTO();
 sessionDTO.setSalleDTO(salleDTO);
 sessionDTO.setFormateurDto(formateurDto);
         sessionDTO.setFormationDTO(formationDTO);
-        // Créez un MaterielDTO avec des valeurs appropriées
         MaterielDTO materielDTO = new MaterielDTO();
         materielDTO.setNom("Ordinateur");
         materielDTO.setCaracteristique("Puissant");
         materielDTO.setStatut(true);
         materielDTO.setSessionDTO(sessionDTO);
-        // Convertissez le DTO en entité
         Materiel materiel = MaterielDTO.toentity(materielDTO);
-
-        // Utilisez doReturn().when() pour configurer le stub dans le mock
         doReturn(materiel).when(materielRepository).save(Mockito.any(Materiel.class));
-
-        // Appelez la méthode du service
         MaterielDTO savedMaterielDTO = materielService.save(materielDTO);
-
-        // Vérifiez si les valeurs sont conformes aux attentes
         assertEquals(materielDTO.getNom(), savedMaterielDTO.getNom());
         assertEquals(materielDTO.getCaracteristique(), savedMaterielDTO.getCaracteristique());
 

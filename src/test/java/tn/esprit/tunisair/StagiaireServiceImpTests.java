@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class StagiaireServiceImpTests {
+ class StagiaireServiceImpTests {
 
     @Mock
     private StagiaireRepository stagiaireRepository;
@@ -36,30 +36,28 @@ public class StagiaireServiceImpTests {
 
     @Test
     void testSaveStagaire() {
-        // Créez un StageDTO avec des valeurs appropriées
-        StageDTO stageDTO = new StageDTO();
-        // Initialisez les propriétés du stageDTO selon les besoins
 
-        // Créez un StagiaireDTO avec des valeurs appropriées
+        StageDTO stageDTO = new StageDTO();
+
         StagiaireDTO stagiaireDTO = new StagiaireDTO();
         stagiaireDTO.setNom("John");
         stagiaireDTO.setPrenom("Doe");
-        stagiaireDTO.setStagedto(stageDTO);  // Ajoutez le StageDTO
+        stagiaireDTO.setStagedto(stageDTO);
 
-        // Convertissez le DTO en entité
+
         Stagiaire stagiaire = StagiaireDTO.toEntity(stagiaireDTO);
 
-        // Utilisez doReturn().when() pour configurer le stub dans le mock
+
         doReturn(stagiaire).when(stagiaireRepository).save(Mockito.any(Stagiaire.class));
 
-        // Appelez la méthode du service
+
         StagiaireDTO savedStagiaireDTO = stagiaireService.save(stagiaireDTO);
 
-        // Vérifiez si les valeurs sont conformes aux attentes
+
         assertEquals(stagiaireDTO.getNom(), savedStagiaireDTO.getNom());
         assertEquals(stagiaireDTO.getPrenom(), savedStagiaireDTO.getPrenom());
 
-        // Vérifiez si la méthode save du repository a été appelée
+
         verify(stagiaireRepository, times(1)).save(Mockito.any(Stagiaire.class));
     }
 
@@ -68,14 +66,12 @@ public class StagiaireServiceImpTests {
 
     @Test
     void testRecherchStagiaire() {
-        // ID du stagiaire à rechercher
+
         Long stagiaireId = 8L;
 
-        // Créer un objet StageDTO avec des valeurs appropriées
-        StageDTO stageDTO = new StageDTO();
-        // Initialisez les propriétés du stageDTO selon les besoins
 
-        // Créer un objet StagiaireDTO avec des valeurs appropriées, y compris le StageDTO
+        StageDTO stageDTO = new StageDTO();
+
         StagiaireDTO stagiaireDTO = new StagiaireDTO();
         stagiaireDTO.setId(stagiaireId);
         stagiaireDTO.setNom("riahi");
@@ -83,26 +79,26 @@ public class StagiaireServiceImpTests {
         stagiaireDTO.setEmail("ahlem@gmail.com");
         stagiaireDTO.setStagedto(stageDTO);  // Associez le StageDTO au StagiaireDTO
 
-        // Convertir StagiaireDTO en Stagiaire
+
         Stagiaire stagiaire = StagiaireDTO.toEntity(stagiaireDTO);
 
-        // Créer un Optional<Stagiaire>
+
         Optional<Stagiaire> optionalStagiaire = Optional.of(stagiaire);
 
-        // Configurer le comportement du repository mock
+
         when(stagiaireRepository.findById(stagiaireId)).thenReturn(optionalStagiaire);
 
-        // Appeler la méthode recherch du service
+
         StagiaireDTO foundStagiaireDTO = stagiaireService.recherch(stagiaireId);
 
-        // Vérifier si les valeurs sont conformes aux attentes
+
         assertEquals(stagiaire.getId(), foundStagiaireDTO.getId());
         assertEquals(stagiaire.getNom(), foundStagiaireDTO.getNom());
         assertEquals(stagiaire.getPrenom(), foundStagiaireDTO.getPrenom());
 
 
 
-        // Vérifier si la méthode findById du repository a été appelée
+
         verify(stagiaireRepository, times(1)).findById(stagiaireId);
     }
 
@@ -110,13 +106,13 @@ public class StagiaireServiceImpTests {
 
     @Test
     void testDeleteStagiaire() {
-        // ID du stagiaire à supprimer
+
         Long stagiaireId = 1L;
 
-        // Appeler la méthode delete du service
+
         stagiaireService.delete(stagiaireId);
 
-        // Vérifier si la méthode deleteById du repository a été appelée
+
         verify(stagiaireRepository, times(1)).deleteById(stagiaireId);
     }
 

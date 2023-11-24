@@ -20,11 +20,17 @@ FormationRepository formationRepository;
 @Autowired
 ReclamationRepository reclamationRepository;
 
-@Autowired
-UserRepository userRepository;
 
 
 
+
+
+    private final UserRepository userRepository;
+
+
+    public ReclamationServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
 
 

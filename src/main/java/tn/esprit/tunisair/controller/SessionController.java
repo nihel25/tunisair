@@ -26,15 +26,22 @@ public class SessionController {
    private final SessionService sessionService;
 
 
+    private final  FormateurService formateurService;
+
 
     @Autowired
-    public SessionController(SessionService sessionService) {
+    public SessionController(SessionService sessionService,
+    SalleService salleService,
+                             FormateurService formateurService
+    ) {
+
         this.sessionService = sessionService;
+
+        this.formateurService = formateurService;
     }
-@Autowired
-SalleService salleService;
-    @Autowired
-    FormateurService formateurService;
+
+
+
 
 
      @Secured("COORDINATEURFORMATION")

@@ -9,10 +9,8 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import tn.esprit.tunisair.dto.FormationDTO;
-import tn.esprit.tunisair.repository.FormationRepository;
 import tn.esprit.tunisair.service.FormationService;
 import tn.esprit.tunisair.service.ImageStorage;
-import tn.esprit.tunisair.service.ReclamationService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -31,14 +29,20 @@ public class FormationController {
 
 
 
+
+
+
     @Autowired
-    public FormationController(FormationService formationService) {
+    public FormationController(FormationService formationService
+
+
+    ) {
+
         this.formationService = formationService;
+
+
     }
-    @Autowired
-    ReclamationService reclamationService;
-    @Autowired
-    FormationRepository rep;
+
 
 
 

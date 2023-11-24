@@ -20,15 +20,19 @@ public class DemandeclientController {
 
 
 
-@Autowired
-    UserService userService;
+
+
 
 
   private final  DemandeformationclientService demandeformationclientService;
 
     @Autowired
-    public DemandeclientController(DemandeformationclientService demandeformationclientService) {
+    public DemandeclientController(DemandeformationclientService demandeformationclientService,
+    UserService userService
+
+    ) {
         this.demandeformationclientService = demandeformationclientService;
+
     }
 
 

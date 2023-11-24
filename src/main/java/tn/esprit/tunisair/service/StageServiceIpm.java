@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.StageDTO;
 import tn.esprit.tunisair.entity.Stage;
 import tn.esprit.tunisair.repository.StageRepository;
-import tn.esprit.tunisair.repository.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,11 +12,14 @@ import java.util.stream.Collectors;
 
 @Service
 public class StageServiceIpm implements StageService{
-    @Autowired
-    private StageRepository stageRepository;
 
-   @Autowired
-    UserRepository userRepository;
+    private final StageRepository stageRepository;
+
+    @Autowired
+    public StageServiceIpm(StageRepository stageRepository) {
+        this.stageRepository = stageRepository;
+    }
+
 
 
 

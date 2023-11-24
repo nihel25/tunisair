@@ -17,21 +17,23 @@ import java.util.stream.Collectors;
 
 public class FormationServiceImpl implements FormationService{
 
-
+    private final ImageStorage imageStorage;
 
 
     private final  FormationRepository formationRepository;
     @Autowired
-    public FormationServiceImpl(FormationRepository formationRepository) {
-
+    public FormationServiceImpl(FormationRepository formationRepository,
+    ImageStorage imageStorage
+    ) {
+this.imageStorage=imageStorage;
         this.formationRepository = formationRepository;
     }
 
 
 
 
-    @Autowired
-    private ImageStorage imageStorage;
+
+
 
 
 

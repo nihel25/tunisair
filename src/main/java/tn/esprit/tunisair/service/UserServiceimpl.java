@@ -1,7 +1,6 @@
 package tn.esprit.tunisair.service;
 
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,7 +13,6 @@ import tn.esprit.tunisair.configsecurite.JwtUtils;
 import tn.esprit.tunisair.dto.*;
 import tn.esprit.tunisair.entity.User;
 import tn.esprit.tunisair.entity.UserRole;
-import tn.esprit.tunisair.repository.AdminRepository;
 import tn.esprit.tunisair.repository.UserRepository;
 
 import java.util.HashMap;
@@ -23,7 +21,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @Service
 public class UserServiceimpl implements UserService {
   private final PasswordEncoder passwordEncoder;
@@ -32,10 +30,19 @@ public class UserServiceimpl implements UserService {
 
 
 
+
+   private final UserRepository userRepository;
     @Autowired
-    UserRepository userRepository;
-    @Autowired
-    AdminRepository adminRepository;
+    public UserServiceimpl(UserRepository userRepository ,
+                           AuthenticationManager authenticationManager,
+                           JwtUtils jwtUtils,PasswordEncoder passwordEncoder
+
+    ) {
+        this.userRepository = userRepository;
+        this.authenticationManager=authenticationManager;
+        this.jwtUtils=jwtUtils;
+        this.passwordEncoder=passwordEncoder;
+    }
 
     @Override
     public User findById(Long id) {

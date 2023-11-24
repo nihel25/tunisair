@@ -6,11 +6,10 @@ import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.DemandeFormationDTO;
 import tn.esprit.tunisair.dto.FormationDTO;
 import tn.esprit.tunisair.dto.PersonnelDTO;
+import tn.esprit.tunisair.entity.Demandeformation;
 import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.repository.DemandeformationRepository;
 import tn.esprit.tunisair.repository.PersonnelRepository;
-import tn.esprit.tunisair.repository.UserRepository;
-import tn.esprit.tunisair.entity.Demandeformation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +21,16 @@ public class DemandeformationServiceImpl implements DemandeformationService{
 
     private final DemandeformationRepository demandeformationRepository;
 
-
+    private final PersonnelRepository personnelRepository;
     @Autowired
-    public DemandeformationServiceImpl(DemandeformationRepository demandeformationRepository, UserRepository userRepository) {
+    public DemandeformationServiceImpl(DemandeformationRepository demandeformationRepository,
+                                       PersonnelRepository personnelRepository)
+    {
         this.demandeformationRepository = demandeformationRepository;
+        this.personnelRepository = personnelRepository;
 
     }
-    @Autowired
-    private PersonnelRepository personnelRepository;
+
 
 
 

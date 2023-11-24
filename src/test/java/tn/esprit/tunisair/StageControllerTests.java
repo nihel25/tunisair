@@ -41,7 +41,7 @@ import static org.mockito.Mockito.*;
 
     @Test
     void testRecherchStage() {
-        // ID du stage à rechercher
+
         Long stageId = 1L;
 
 

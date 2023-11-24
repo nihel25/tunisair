@@ -1,10 +1,8 @@
 package tn.esprit.tunisair.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tn.esprit.tunisair.service.UserServiceimpl;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -12,8 +10,7 @@ import tn.esprit.tunisair.service.UserServiceimpl;
 public class UserController {
 
 
-    @Autowired
-   private UserServiceimpl service;
+
 
 
 

@@ -92,7 +92,7 @@ public class UserImageStorageImpl implements ImageStorage {
             }
         }
 
-        // Gérer le cas où la ressource est null ou le type de contenu est null.
+
         throw new RuntimeException("La ressource demandée est introuvable.");
     }
 

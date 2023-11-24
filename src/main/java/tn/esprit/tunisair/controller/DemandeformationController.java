@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.dto.DemandeFormationDTO;
 import tn.esprit.tunisair.dto.FormationDTO;
 import tn.esprit.tunisair.dto.PersonnelDTO;
 import tn.esprit.tunisair.entity.Demandeformation;
-import tn.esprit.tunisair.service.DemandeformationServiceImpl;
+import tn.esprit.tunisair.entity.Personnel;
+import tn.esprit.tunisair.service.DemandeformationService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class DemandeformationController {
 
 
     @Autowired
-    private DemandeformationServiceImpl demandeFormationService;
+    private DemandeformationService demandeFormationService;
 
 
 

@@ -8,7 +8,6 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tunisair.dto.ReclamationDTO;
 import tn.esprit.tunisair.service.ReclamationService;
-import tn.esprit.tunisair.service.ReclamationServiceImpl;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,8 +18,7 @@ import java.util.List;
 public class ReclamationController {
     @Autowired
     ReclamationService reclamationService;
-    @Autowired
-    ReclamationServiceImpl reclamationServicee;
+
 
 
     @Secured("CLIENT")
@@ -44,13 +42,13 @@ public class ReclamationController {
     @GetMapping("/findAllreclamation")
     public List<ReclamationDTO> findAllreclamation() {
 
-        return reclamationServicee.findAllreclamation();
+        return reclamationService.findAllreclamation();
 
     }
 
     @Secured("COORDINATEURFORMATION")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id) {
-        reclamationServicee.delete(id);
+        reclamationService.delete(id);
     }
 }

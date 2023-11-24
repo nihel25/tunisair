@@ -8,7 +8,6 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tunisair.dto.MaterielDTO;
 import tn.esprit.tunisair.service.MaterielService;
-import tn.esprit.tunisair.service.MaterielServiceImpl;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -22,7 +21,7 @@ public class MaterielController {
 @Autowired
 MaterielService materielService;
     @Autowired
-    MaterielServiceImpl materielServices;
+    MaterielService materielServices;
     @Secured("COORDINATEURFORMATION")
     @PostMapping("/addmateriel")
     public ResponseEntity<MaterielDTO> addmateriel(@Valid @RequestBody MaterielDTO materielDTO) {

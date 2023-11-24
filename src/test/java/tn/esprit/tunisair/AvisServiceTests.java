@@ -25,7 +25,7 @@ import static org.mockito.Mockito.*;
 
 @ComponentScan(basePackages = "tn.esprit.tunisair.service")
 @ExtendWith(MockitoExtension.class)
-public class AvisServiceTests {
+ class AvisServiceTests {
 
     @Mock
     private AvisRepository avisRepository;

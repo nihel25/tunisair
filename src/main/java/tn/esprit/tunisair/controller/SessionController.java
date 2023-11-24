@@ -56,7 +56,7 @@ SalleService salleService;
          salleDTO.setDateDebut(sessionDTO.getDateDebut());
          salleDTO.setDateFin(sessionDTO.getDateFin());
          salleDTO.setStatut(false);
-       //  salleService.save(salleDTO);
+
          if (!isFormateurDisponible(formateurDto)) {
              return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                      .body("Formateur n'est pas disponible pour une réservation.");

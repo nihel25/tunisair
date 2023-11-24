@@ -18,7 +18,7 @@ import java.util.List;
     public class AuthenticationController {
 //
         private final UserService service;
-private final UserServiceimpl userServiceimpl;
+private final UserService userServiceimpl;
         @PostMapping("/registerclient")
         public ResponseEntity<AuthenticationResponse> register(
                 @RequestBody ClientDTO request

@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tunisair.dto.StageDTO;
-import tn.esprit.tunisair.repository.StageRepository;
 import tn.esprit.tunisair.service.StageService;
 
 import javax.validation.Valid;
@@ -18,8 +17,7 @@ import java.util.List;
 public class StageController {
     @Autowired
     StageService stageService;
-    @Autowired
-    private StageRepository stageRepository;
+
     @Secured("RECRUTEUR")
     @PostMapping("/savestage")
     public ResponseEntity<StageDTO> addstage(@Valid @RequestBody StageDTO stageDTO) {

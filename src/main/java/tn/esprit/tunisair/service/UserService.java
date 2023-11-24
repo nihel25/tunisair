@@ -16,7 +16,7 @@ public interface UserService {
 
     AuthenticationResponse authenticate(AuthenticationRequest request);
 
-
+     UserDTO recherch(Long id);
     List<UserDTO> findAll();
 
 

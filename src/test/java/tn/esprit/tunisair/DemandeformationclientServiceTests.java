@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class DemandeformationclientServiceTests {
+ class DemandeformationclientServiceTests {
 
     @Mock
     private DemandeclientRepository demandeclientRepository;
@@ -71,7 +71,7 @@ public class DemandeformationclientServiceTests {
 
 
     @Test
-    void testFindAllDemande() {
+    void TestAllDemandeFormation() {
 
         Formation formation1 = new Formation();
         formation1.setUserProfile(new UserProfile());

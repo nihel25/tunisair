@@ -34,7 +34,7 @@ public class SessionDTO {
 
 
 private FormationDTO formationDTO;
-public SalleDTO salleDTO;
+private SalleDTO salleDTO;
 
 
 private FormateurDto formateurDto;

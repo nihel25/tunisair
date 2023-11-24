@@ -71,7 +71,30 @@ sessionDTO.setFormationDTO(formationDTO);
         SessionDTO foundSessionDTO = sessionService.recherch(sessionId);
         verify(sessionRepository, times(1)).findById(sessionId);
     }
+    @Test
+    void testRecherch() {
 
+        Long sessionId = 2L;
+        FormationDTO formationDTO = new FormationDTO();
+        UserprofilDTO userprofilDTO =new UserprofilDTO();
+        FormateurDto formateurDto = new FormateurDto();
+        formationDTO.setFormateurDto(formateurDto);
+        formationDTO.setUserprofildto(userprofilDTO);
+        SalleDTO salleDTO = new SalleDTO();
+
+        SessionDTO sessionDTO = new SessionDTO();
+        sessionDTO.setId(sessionId);
+        sessionDTO.setSalleDTO(salleDTO);
+        sessionDTO.setFormateurDto(formateurDto);
+
+        sessionDTO.setFormationDTO(formationDTO);
+
+        Session session = SessionDTO.toentity(sessionDTO);
+        Optional<Session> optionalSession = Optional.of(session);
+        when(sessionRepository.findById(sessionId)).thenReturn(optionalSession);
+        SessionDTO foundSessionDTO = sessionService.recherch(sessionId);
+        verify(sessionRepository, times(1)).findById(sessionId);
+    }
     @Test
     void testFindAllSession() {
 
@@ -98,5 +121,16 @@ sessionDTO.setFormationDTO(formationDTO);
         verify(sessionRepository, times(1)).save(session);
     }
 
+
+    @Test
+    void tetSaveSession() {
+        // Créer un objet Session
+        Session session = new Session();
+        session.setReference("SessionTest2");
+        session.setDateDebut(new Date());
+        sessionService.savee(session);
+
+        verify(sessionRepository, times(1)).save(session);
+    }
 }
 

@@ -13,15 +13,19 @@ import java.util.stream.Collectors;
 
 @Service
 public class DemandeformationclientServiceImpl implements DemandeformationclientService{
+
+  private final  DemandeclientRepository demandeclientRepository;
+
     @Autowired
-    DemandeclientRepository demandeclientRepository;
+    public DemandeformationclientServiceImpl(DemandeclientRepository demandeclientRepository) {
+        this.demandeclientRepository = demandeclientRepository;
+
+    }
 
 
 
 
 
-@Autowired
-UserService userService;
 
 
 

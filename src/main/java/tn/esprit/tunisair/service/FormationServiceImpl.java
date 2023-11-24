@@ -5,11 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import tn.esprit.tunisair.entity.Formation;
-import tn.esprit.tunisair.repository.FormateurRepository;
-import tn.esprit.tunisair.repository.FormationRepository;
 import tn.esprit.tunisair.dto.FormationDTO;
-import tn.esprit.tunisair.repository.UserRepository;
+import tn.esprit.tunisair.entity.Formation;
+import tn.esprit.tunisair.repository.FormationRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,13 +17,17 @@ import java.util.stream.Collectors;
 
 public class FormationServiceImpl implements FormationService{
 
-@Autowired
-    UserRepository userRepository;
 
+
+
+    private final  FormationRepository formationRepository;
     @Autowired
-    FormationRepository formationRepository;
-    @Autowired
-    FormateurRepository formateurRepository;
+    public FormationServiceImpl(FormationRepository formationRepository) {
+
+        this.formationRepository = formationRepository;
+    }
+
+
 
 
     @Autowired

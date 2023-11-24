@@ -3,11 +3,9 @@ package tn.esprit.tunisair.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tn.esprit.tunisair.repository.FormationRepository;
 import tn.esprit.tunisair.dto.FormateurDto;
 import tn.esprit.tunisair.entity.Formateur;
 import tn.esprit.tunisair.repository.FormateurRepository;
-import tn.esprit.tunisair.repository.SpecialiteeRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,10 +16,8 @@ public class FormateurServiceImpl implements FormateurService{
 
 
 
-    @Autowired
-    FormationRepository formationRepository;
-@Autowired
-SpecialiteeRepository specialiteeRepository;
+
+
 
 
 

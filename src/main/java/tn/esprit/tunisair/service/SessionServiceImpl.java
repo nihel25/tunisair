@@ -15,18 +15,22 @@ import java.util.stream.Collectors;
 @Service
 public class SessionServiceImpl implements SessionService {
 
-    @Autowired
-    SessionRepository sessionRepository;
-    @Autowired
-    FormationRepository formationRepository;
-    @Autowired
-    SalleRepository salleRepository;
-    @Autowired
-    UserRepository userRepository;
+
+    private final SessionRepository sessionRepository;
+
+
 
 @Autowired
 PersonnelRepository personnelRepository;
 
+
+    @Autowired
+    public SessionServiceImpl(SessionRepository sessionRepository
+    ) {
+
+        this.sessionRepository = sessionRepository;
+
+    }
 
     @Override
     public void delete(Long id) {

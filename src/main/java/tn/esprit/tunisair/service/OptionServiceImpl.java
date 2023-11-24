@@ -14,11 +14,14 @@ import java.util.stream.Collectors;
 public class OptionServiceImpl implements OptionService{
 
 
+
+   private final SpecialiteeRepository specialiteeRepository;
+
+
     @Autowired
-    SpecialiteeRepository specialiteeRepository;
-
-
-
+    public OptionServiceImpl(SpecialiteeRepository specialiteeRepository) {
+        this.specialiteeRepository = specialiteeRepository;
+    }
 
     @Override
     public SpecialiteeDTO ajouterOption(SpecialiteeDTO p) {

@@ -3,8 +3,8 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import tn.esprit.tunisair.repository.UserProfileRepository;
 import tn.esprit.tunisair.entity.UserProfile;
+import tn.esprit.tunisair.repository.UserProfileRepository;
 
 import javax.transaction.Transactional;
 import java.io.BufferedReader;
@@ -16,10 +16,13 @@ import java.util.List;
 public class UserProfileService {
 
 
+
+  private final  UserProfileRepository userProfileRepository;
+
     @Autowired
-    UserProfileRepository userProfileRepository;
-
-
+    public UserProfileService(UserProfileRepository userProfileRepository) {
+        this.userProfileRepository = userProfileRepository;
+    }
 
     @Transactional
     public void chargerDonneesCSV(MultipartFile fichierCSV) {

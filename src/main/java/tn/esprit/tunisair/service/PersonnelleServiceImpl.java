@@ -3,8 +3,8 @@ package tn.esprit.tunisair.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.dto.PersonnelDTO;
+import tn.esprit.tunisair.entity.Personnel;
 import tn.esprit.tunisair.repository.PersonnelRepository;
 
 import javax.transaction.Transactional;
@@ -17,9 +17,14 @@ import java.util.Optional;
 
 @Service
 public class PersonnelleServiceImpl implements PersonnelleService{
-    @Autowired
-    PersonnelRepository personnelRepository;
 
+   private final PersonnelRepository personnelRepository;
+
+
+    @Autowired
+    public PersonnelleServiceImpl(PersonnelRepository personnelRepository) {
+        this.personnelRepository = personnelRepository;
+    }
 
     @Override
     @Transactional

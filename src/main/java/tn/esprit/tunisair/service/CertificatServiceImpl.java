@@ -13,10 +13,14 @@ import java.util.stream.Collectors;
 
 @Service
 public class CertificatServiceImpl implements CertificatService{
-@Autowired
-CertificatRepository certificatRepository;
 
 
+    private final CertificatRepository certificatRepository;
+
+    @Autowired
+    public CertificatServiceImpl(CertificatRepository certificatRepository) {
+        this.certificatRepository = certificatRepository;
+    }
 
     @Override
     public CertificatDTO recherch(Long id) {

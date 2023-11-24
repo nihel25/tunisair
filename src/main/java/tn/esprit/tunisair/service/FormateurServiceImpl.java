@@ -17,8 +17,6 @@ import java.util.stream.Collectors;
 public class FormateurServiceImpl implements FormateurService{
 
 
-    @Autowired
-    FormateurRepository formateurRepository;
 
     @Autowired
     FormationRepository formationRepository;
@@ -28,7 +26,12 @@ SpecialiteeRepository specialiteeRepository;
 
 
 
+    private final FormateurRepository formateurRepository;
 
+    @Autowired
+    public FormateurServiceImpl(FormateurRepository formateurRepository) {
+        this.formateurRepository = formateurRepository;
+    }
 
 
 

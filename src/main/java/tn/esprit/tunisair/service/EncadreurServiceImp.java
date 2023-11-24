@@ -12,11 +12,17 @@ import java.util.stream.Collectors;
 
 @Service
 public class EncadreurServiceImp implements EncadreurService{
-@Autowired
-EncadreurRepository encadreurRepository;
 
 
 
+
+
+    private final EncadreurRepository encadreurRepository;
+
+    @Autowired
+    public EncadreurServiceImp(EncadreurRepository encadreurRepository) {
+        this.encadreurRepository = encadreurRepository;
+    }
 
 
 

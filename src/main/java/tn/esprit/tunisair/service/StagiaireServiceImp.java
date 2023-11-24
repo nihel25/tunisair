@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tunisair.dto.StagiaireDTO;
 import tn.esprit.tunisair.entity.Stagiaire;
-import tn.esprit.tunisair.repository.StageRepository;
 import tn.esprit.tunisair.repository.StagiaireRepository;
 
 import java.util.List;
@@ -13,10 +12,13 @@ import java.util.stream.Collectors;
 
 @Service
 public class StagiaireServiceImp implements StagiaireService{
+
+    private final StagiaireRepository stagiaireRepository;
     @Autowired
-    private StagiaireRepository stagiaireRepository;
-@Autowired
-private StageRepository stageRepository;
+    public StagiaireServiceImp(StagiaireRepository stagiaireRepository) {
+        this.stagiaireRepository = stagiaireRepository;
+    }
+
 
 
 

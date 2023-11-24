@@ -14,8 +14,18 @@ import java.util.stream.Collectors;
 @Service
 public class AvisServiceImpl implements AvisService{
 
+
+
+
+
+
+
+    private final AvisRepository avisRepository;
+
     @Autowired
-    AvisRepository avisRepository;
+    public AvisServiceImpl(AvisRepository avisRepository) {
+        this.avisRepository = avisRepository;
+    }
     @Override
     public AvisDto save(AvisDto avisDto) {
         Avis avis = AvisDto.toentity(avisDto);

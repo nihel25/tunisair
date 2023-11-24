@@ -14,11 +14,15 @@ import java.util.stream.Collectors;
 @Service
 public class SalleServiceImpl implements SalleService{
 
+
+   private final SalleRepository salleRepository;
+
+
+
     @Autowired
-    SalleRepository salleRepository;
-
-
-
+    public SalleServiceImpl(SalleRepository salleRepository) {
+        this.salleRepository = salleRepository;
+    }
 
 
 

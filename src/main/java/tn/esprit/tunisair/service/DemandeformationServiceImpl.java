@@ -20,11 +20,14 @@ import java.util.Optional;
 public class DemandeformationServiceImpl implements DemandeformationService{
 
 
-    @Autowired
-    DemandeformationRepository demandeformationRepository;
-@Autowired
-UserRepository userRepository;
+    private final DemandeformationRepository demandeformationRepository;
 
+
+    @Autowired
+    public DemandeformationServiceImpl(DemandeformationRepository demandeformationRepository, UserRepository userRepository) {
+        this.demandeformationRepository = demandeformationRepository;
+
+    }
     @Autowired
     private PersonnelRepository personnelRepository;
 

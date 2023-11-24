@@ -83,7 +83,7 @@ public class FormationServiceImpl implements FormationService{
         Formation formation = catalogueResponse.getBody();
         if (formation != null)
             formation.setImage(fileImageDownloadUrl);
-        FormationDTO catalogueDto = FormationDTO.fromEntity(formation); // Conversion from Catalogue to CatalogueDto
+        FormationDTO catalogueDto = FormationDTO.fromEntity(formation);
         return this.save(catalogueDto);
     }
 

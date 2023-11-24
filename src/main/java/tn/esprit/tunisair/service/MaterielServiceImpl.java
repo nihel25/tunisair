@@ -15,14 +15,17 @@ import java.util.stream.Collectors;
 public class MaterielServiceImpl implements MaterielService{
 
 
+
+ private final   MaterielRepository materielRepository;
+
+
+
+
+
     @Autowired
-    MaterielRepository materielRepository;
-
-
-
-
-
-
+    public MaterielServiceImpl(MaterielRepository materielRepository) {
+        this.materielRepository = materielRepository;
+    }
 
 
 

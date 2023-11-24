@@ -14,11 +14,16 @@ import java.util.stream.Collectors;
 @Service
 public class AttestationserviceImpl implements AttestationService{
 
-@Autowired
-AttestationRepository attestationRepository;
 
 
 
+    private final AttestationRepository attestationRepository;
+
+
+    @Autowired
+    public AttestationserviceImpl(AttestationRepository attestationRepository) {
+        this.attestationRepository = attestationRepository;
+    }
 
     @Override
     public AttestationDTO recherch(Long id) {
